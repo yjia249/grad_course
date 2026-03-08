@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 1 - Glass Transition</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 1</p>
+        <h1>Glass Transition</h1>
+        <p class="subtitle">How structural relaxation unfolds near the glass transition</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Scalliet, Guiselin, and Berthier (2022)</strong>,
+          <em>Thirty Milliseconds in the Life of a Supercooled Liquid</em>,
+          Physical Review X 12, 041028.
+        </p>
+        <p>
+          DOI: <a href="https://doi.org/10.1103/PhysRevX.12.041028" target="_blank" rel="noreferrer">10.1103/PhysRevX.12.041028</a>
+        </p>
+        <p>
+          <strong>Big question:</strong> How does relaxation start and spread in deeply
+          <span class="keyword" tabindex="0">supercooled liquids
+            <span class="tooltip"><strong>Definition:</strong> A liquid cooled below melting without crystallizing. <strong>Why it matters:</strong> It is the regime where dynamics become extremely slow and glassy behavior emerges.</span>
+          </span>
+          close to the experimental
+          <span class="keyword" tabindex="0">glass transition
+            <span class="tooltip"><strong>Definition:</strong> The crossover where a liquid falls out of equilibrium and behaves mechanically like a solid. <strong>Why unresolved:</strong> Huge slowing-down appears without obvious long-range structural order.</span>
+          </span>
+          regime?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>1920s-1930s:</strong> Basic phenomenology of viscosity growth in supercooled liquids was established and systematic measurements began.
+          </div>
+          <div class="history-item">
+            <strong>1940s-1950s:</strong> Foundational empirical relations (for example, VFT-type descriptions) were developed to fit temperature-dependent relaxation times.
+          </div>
+          <div class="history-item">
+            <strong>1960s-1980s:</strong> Conceptual frameworks expanded (free-volume ideas, configurational entropy perspectives, and early microscopic theories).
+          </div>
+          <div class="history-item">
+            <strong>1990s-2000s:</strong> Dynamic heterogeneity became central through experiments and simulations; attention shifted to spatially heterogeneous relaxation.
+          </div>
+          <div class="history-item">
+            <strong>2010s:</strong> Major algorithmic progress (including swap Monte Carlo) enabled equilibration at much deeper supercooling in simulations.
+          </div>
+          <div class="history-item">
+            <strong>2020s:</strong> Time-resolved microscopic studies, including this paper, map how rare local events accumulate into system-scale relaxation near experimental regimes.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Why <span class="keyword" tabindex="0">glass transition<span class="tooltip"><strong>Core issue:</strong> Viscosity and relaxation time increase by many orders of magnitude while static structure appears nearly unchanged.</span></span> is fundamental and still unresolved.</li>
+          <li><strong>10-25 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">supercooling<span class="tooltip"><strong>Definition:</strong> Cooling below equilibrium freezing while avoiding crystallization. <strong>Use in this class:</strong> Sets up access to slow dynamics.</span></span>,
+            <span class="keyword" tabindex="0">alpha relaxation<span class="tooltip"><strong>Definition:</strong> The final structural decorrelation process of the liquid. <strong>Why it matters:</strong> It defines the main timescale used to compare glassy states.</span></span>,
+            <span class="keyword" tabindex="0">inherent structures<span class="tooltip"><strong>Definition:</strong> Local potential-energy minima obtained by minimizing instantaneous configurations. <strong>Why it helps:</strong> Filters thermal vibrations and highlights real rearrangements.</span></span>,
+            <span class="keyword" tabindex="0">dynamic heterogeneity<span class="tooltip"><strong>Definition:</strong> Relaxation is spatially uneven: some regions move much earlier than others. <strong>Why fundamental:</strong> It is a hallmark of glass-forming liquids near Tg.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Method logic:
+            <span class="keyword" tabindex="0">swap Monte Carlo<span class="tooltip"><strong>Definition:</strong> An accelerated equilibration algorithm that swaps particle identities/sizes in polydisperse systems. <strong>Why used:</strong> It reaches deeper supercooling than standard dynamics.</span></span>
+            for equilibration, then long molecular dynamics trajectories.
+          </li>
+          <li><strong>45-65 min:</strong> Figure narrative: localized early relaxation events and waiting-time statistics.</li>
+          <li><strong>65-80 min:</strong> Spatial domain evolution: growth of relaxed regions and late-time shrinkage of unrelaxed domains.</li>
+          <li><strong>80-90 min:</strong> Group discussion and calculation-first exercise.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">MSD<span class="tooltip"><strong>Definition:</strong> Mean-squared displacement, averaged particle displacement squared versus time. <strong>Why first:</strong> It gives the fastest readout of cage trapping and diffusion.</span></span>:</strong> Distinguish ballistic, cage, and diffusive regimes.</li>
+          <li><strong><span class="keyword" tabindex="0">Self-intermediate scattering function \(F_s(k,t)\)<span class="tooltip"><strong>Definition:</strong> Time correlation of particle positions at wavevector k. <strong>Why first:</strong> Standard way to extract alpha-relaxation time.</span></span>:</strong> Obtain alpha-relaxation timescale.</li>
+          <li><strong><span class="keyword" tabindex="0">van Hove self-correlation<span class="tooltip"><strong>Definition:</strong> Full distribution of single-particle displacements. <strong>Why first:</strong> Captures rare mobile particles hidden by averages like MSD.</span></span>:</strong> Check non-Gaussian tails and rare large displacements.</li>
+          <li><strong>Mobility/relaxation maps:</strong> Locate where relaxation starts and how it propagates.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Relaxation starts early but only in rare localized spots.</li>
+          <li>These spots accumulate and connect into larger relaxed regions.</li>
+          <li>Late dynamics is controlled by shrinking boundaries of unrelaxed domains.</li>
+          <li>The paper supports an emergent <span class="keyword" tabindex="0">dynamic facilitation<span class="tooltip"><strong>Definition:</strong> Prior relaxation events increase the probability of later events nearby. <strong>Why important:</strong> It offers a mechanism for how local events lead to cooperative slow dynamics.</span></span>-like picture near \(T_g\).</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Glass transition</h3>
+            <p><strong>Definition:</strong> Liquid-to-amorphous-solid crossover with massive dynamical slowing-down.</p>
+            <p><strong>Why unresolved:</strong> Strong dynamic changes occur without clear long-range structural ordering.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Alpha relaxation</h3>
+            <p><strong>Definition:</strong> Final structural decorrelation process in the supercooled liquid.</p>
+            <p><strong>Why important:</strong> Sets the principal timescale for comparing glassy states.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Inherent structures</h3>
+            <p><strong>Definition:</strong> Local potential-energy minima from minimized configurations.</p>
+            <p><strong>Why important:</strong> Separates true rearrangements from thermal vibrations.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Dynamic heterogeneity</h3>
+            <p><strong>Definition:</strong> Spatially non-uniform mobility and relaxation activity.</p>
+            <p><strong>Why important:</strong> Key signature of the glassy regime near \(T_g\).</p>
+          </article>
+          <article class="glossary-item">
+            <h3>MSD</h3>
+            <p><strong>Definition:</strong> Mean-squared displacement as a function of time.</p>
+            <p><strong>Why first:</strong> Fast diagnostic of ballistic, cage, and diffusive regimes.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Dynamic facilitation</h3>
+            <p><strong>Definition:</strong> Relaxation events increase future nearby relaxation probability.</p>
+            <p><strong>Why important:</strong> Mechanistic bridge from local events to cooperative dynamics.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Why is a static structure signature hard to identify despite dramatic slowing down?</li>
+          <li>What does this paper gain by analyzing inherent structures instead of raw trajectories?</li>
+          <li>Which figure best distinguishes local events from cooperative propagation?</li>
+          <li>If students had to compute only two observables first, which two are most informative and why?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page summary: method, key evidence, and interpretation.</li>
+          <li>Pick one observable and explain failure modes or ambiguities in interpretation.</li>
+          <li>Propose one additional check that could strengthen or challenge the paper's conclusions.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Scalliet, Guiselin, Berthier (2022), <em>Thirty Milliseconds in the Life of a Supercooled Liquid</em>, PRX 12, 041028.
+            Note: Main lecture paper.
+          </div>
+          <div class="reading-item empty">[Add paper] Author (Year), Title, Journal, DOI. Note: relevance to glass transition.</div>
+          <div class="reading-item empty">[Add paper] Author (Year), Title, Journal, DOI. Note: relevance to glass transition.</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

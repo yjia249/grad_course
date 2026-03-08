@@ -1,0 +1,264 @@
+:root {
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --ink: #1f2937;
+  --soft: #4b5563;
+  --line: #d8dfeb;
+  --brand: #0f766e;
+  --brand-2: #1d4ed8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 0% 0%, #e6f5ff 0, #f3f6fb 35%), var(--bg);
+  line-height: 1.5;
+}
+
+a {
+  color: #0a58ca;
+}
+
+.wrap {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  color: #fff;
+  background: linear-gradient(120deg, #0f172a, #0f766e 55%, #1d4ed8);
+  padding: 2.7rem 0;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0;
+  padding: 0.24rem 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  font-size: 0.84rem;
+}
+
+h1 {
+  margin: 0.72rem 0 0;
+  font-size: clamp(1.82rem, 4vw, 2.74rem);
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  color: #dbeafe;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.2rem 0 2rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.28rem;
+}
+
+h3 {
+  margin: 0.7rem 0 0.42rem;
+  font-size: 1.05rem;
+  color: var(--brand);
+}
+
+ul,
+ol {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+}
+
+li {
+  margin: 0.35rem 0;
+  color: var(--soft);
+}
+
+.lecture-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.lecture-link,
+.pending {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 0.52rem 0.66rem;
+  font-size: 0.93rem;
+  background: #f8fafc;
+}
+
+.lecture-link {
+  text-decoration: none;
+  color: #0f172a;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lecture-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.pending {
+  color: #6b7280;
+}
+
+.back-link {
+  color: #dbeafe;
+}
+
+/* Inline concept helper for first-year graduate students. */
+.keyword {
+  position: relative;
+  display: inline;
+  font-weight: 600;
+  color: #0b5c95;
+  text-decoration: underline dotted #0b5c95;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
+.keyword:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  width: min(340px, 74vw);
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 0.65rem 0.72rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+  font-size: 0.86rem;
+  line-height: 1.38;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 100%;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #0f172a transparent transparent transparent;
+}
+
+.keyword:hover .tooltip,
+.keyword:focus .tooltip,
+.keyword:focus-within .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltip strong {
+  color: #f8fafc;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.glossary-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 0.55rem 0.62rem;
+}
+
+.glossary-item h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.98rem;
+}
+
+.glossary-item p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: var(--soft);
+}
+
+.reading-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.reading-item {
+  border: 1px dashed #93a5bd;
+  border-radius: 10px;
+  padding: 0.52rem 0.62rem;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.91rem;
+}
+
+.reading-item.empty {
+  color: #64748b;
+  font-style: italic;
+}
+
+.history-list {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.history-item {
+  border-left: 4px solid #0f766e;
+  border-radius: 10px;
+  background: #f8fafc;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 0.62rem;
+}
+
+.history-item strong {
+  color: #0f172a;
+}
+
+@media (max-width: 900px) {
+  .main-grid,
+  .lecture-list,
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tooltip {
+    left: -8px;
+    width: min(300px, 82vw);
+  }
+}
