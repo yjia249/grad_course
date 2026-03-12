@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 2 - Rheology Near Jamming</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 2</p>
+        <h1>Rheology Near Jamming</h1>
+        <p class="subtitle">How stress and velocity fluctuations scale in soft-sphere flows close to point J</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Tighe, Woldhuis, Remmers, van Saarloos, and van Hecke (2010)</strong>,
+          <em>Model for the Scaling of Stresses and Fluctuations in Flows near Jamming</em>,
+          Physical Review Letters 105, 088303.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1103/PhysRevLett.105.088303" target="_blank" rel="noreferrer">10.1103/PhysRevLett.105.088303</a>
+        </p>
+        <p>
+          <strong>Big question:</strong> Near the
+          <span class="keyword" tabindex="0">jamming point
+            <span class="tooltip"><strong>Definition:</strong> The packing threshold where a disordered assembly of soft particles first becomes mechanically rigid. <strong>Why it matters:</strong> It behaves like a critical point for static packings and strongly constrains flow near arrest.</span>
+          </span>
+          of soft, viscous spheres, how do
+          <span class="keyword" tabindex="0">shear stress
+            <span class="tooltip"><strong>Definition:</strong> Tangential force per unit area transmitted through a flowing material. <strong>Why here:</strong> The paper predicts how it scales with strain rate and distance to jamming.</span>
+          </span>
+          and
+          <span class="keyword" tabindex="0">velocity fluctuations
+            <span class="tooltip"><strong>Definition:</strong> Non-affine particle motions relative to the imposed shear flow. <strong>Why here:</strong> Energy balance ties these fluctuations directly to dissipation and to the rheological scaling laws.</span>
+          </span>
+          scale with strain rate and packing fraction, and why do four flow regimes appear instead of only two?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Early rheology:</strong> Classical rheology established stress, strain, viscosity, and viscoelastic response as the language for describing flow.
+          </div>
+          <div class="history-item">
+            <strong>Late 20th century:</strong> Foams, emulsions, and granular materials highlighted the challenge of dense, disordered flow where elasticity, dissipation, and rearrangements coexist.
+          </div>
+          <div class="history-item">
+            <strong>1990s-2000s:</strong> Jamming emerged as a unifying idea for disordered packings, with point J marking the onset of rigidity in athermal soft spheres.
+          </div>
+          <div class="history-item">
+            <strong>Before this paper:</strong> Several scaling ansatze suggested a yield-stress regime crossing over to a critical power law, but exponent values and collapse strategies remained unsettled.
+          </div>
+          <div class="history-item">
+            <strong>2010:</strong> Tighe and coauthors connected static jamming ideas, power balance, and nonlinear stress-strain response to predict four regimes: Yield Stress, Transition, Critical, and Viscous.
+          </div>
+          <div class="history-item">
+            <strong>After 2010:</strong> Jamming rheology expanded into questions of yielding, nonlocality, finite-size scaling, and how different dissipation laws change the exponents.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Why jamming is a central idea in soft matter rheology and why flow near arrest is hard to model.</li>
+          <li><strong>10-25 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">shear stress<span class="tooltip"><strong>Definition:</strong> Force per unit area applied tangentially to the material. <strong>Why first:</strong> It is the direct mechanical load controlled or measured in rheology.</span></span>,
+            <span class="keyword" tabindex="0">strain rate<span class="tooltip"><strong>Definition:</strong> Rate at which the material is deformed by shear. <strong>Why first:</strong> It is the external driving variable in the flow curves.</span></span>,
+            <span class="keyword" tabindex="0">packing fraction<span class="tooltip"><strong>Definition:</strong> Fraction of space occupied by the particles or bubbles. <strong>Why important:</strong> Distance from the critical packing fraction controls proximity to jamming.</span></span>,
+            <span class="keyword" tabindex="0">effective strain<span class="tooltip"><strong>Definition:</strong> The model’s combined strain measure, with a yield contribution plus a dynamic contribution. <strong>Why important:</strong> It is the bridge between static elasticity and flowing-state rheology.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Numerical model: Durian bubble model, overdamped force balance, elastic and viscous forces, and decomposition of total stress into elastic and viscous parts.</li>
+          <li><strong>45-65 min:</strong> Derivation logic: power balance, fluctuation scaling, viscoplastic effective strain, and nonlinear stress-strain relation.</li>
+          <li><strong>65-80 min:</strong> Figure narrative: Yield Stress, Transition, Critical, and Viscous regimes; what changes in each and how the collapse is tested.</li>
+          <li><strong>80-90 min:</strong> Discussion: why two-regime scaling is insufficient and what this paper changes about data analysis near jamming.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Flow curve \(\sigma(\dot{\gamma},\Delta\phi)\)<span class="tooltip"><strong>Definition:</strong> Shear stress as a function of strain rate and distance from jamming, \(\Delta\phi=\phi-\phi_c\). <strong>Why first:</strong> It reveals which scaling regime the system occupies.</span></span>:</strong> Start by checking whether the slope is near 0, 1/3, 1/2, or 1.</li>
+          <li><strong><span class="keyword" tabindex="0">Velocity fluctuation scale \(|\Delta v|\)<span class="tooltip"><strong>Definition:</strong> Typical non-affine relative particle velocity. <strong>Why first:</strong> The paper derives stress scaling from dissipation \(\sigma\dot{\gamma}\sim |\Delta v|^2\).</span></span>:</strong> This is the central hidden variable linking microscopic motion to macroscopic stress.</li>
+          <li><strong><span class="keyword" tabindex="0">Elastic and viscous stress contributions<span class="tooltip"><strong>Definition:</strong> Separate pieces of the total stress from elastic contacts and dissipative forces. <strong>Why first:</strong> Their crossover defines the Viscous regime and the range where the analytical model applies.</span></span>:</strong> Check when \(\sigma_{\mathrm{visc}}\) becomes comparable to \(\sigma_{\mathrm{el}}\).</li>
+          <li><strong><span class="keyword" tabindex="0">Collapsed plot \(\sigma/\Delta\phi\) vs. \(\dot{\gamma}/\Delta\phi^2\)<span class="tooltip"><strong>Definition:</strong> The paper’s test for the Transition-to-Critical crossover. <strong>Why first:</strong> It directly checks the predicted 1/3 to 1/2 crossover without fitting arbitrary exponents.</span></span>:</strong> Use it to show students how a scaling theory is actually tested.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>The paper derives rheological scaling from three ingredients: power balance, an effective strain, and a nonlinear stress-strain law.</li>
+          <li>Instead of two regimes, the model predicts four: Yield Stress, Transition, Critical, and Viscous.</li>
+          <li>The Transition regime is the most pedagogically valuable surprise because it explains why apparent exponents can look inconsistent across studies.</li>
+          <li>Velocity fluctuations are not secondary noise here; they are part of the constitutive logic.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Connection to Glass Transition</h2>
+        <ul>
+          <li><strong>Shared theme of slow relaxation:</strong> Both rheology near arrest and glass transition study how structural rearrangements become rare, collective, and strongly time-scale dependent.</li>
+          <li><strong>Energy-landscape viewpoint:</strong> In glassy rheology models such as <span class="keyword" tabindex="0">SGR<span class="tooltip"><strong>Definition:</strong> Soft Glassy Rheology, a mesoscopic model where elements hop between metastable traps in an energy landscape under noise and driving. <strong>Why it connects:</strong> It turns glassy trapping and activated escape into constitutive laws for stress relaxation, yielding, and aging.</span></span>, flow is described as motion through metastable states, which links rheological response directly to glass-transition ideas about rugged free-energy landscapes.</li>
+          <li><strong>Caging and yielding:</strong> In supercooled liquids particles are transiently trapped by neighbors, while in dense soft materials that same caging picture appears mechanically as an elastic regime followed by rearrangements and yielding.</li>
+          <li><strong>Dynamic heterogeneity:</strong> Glass-forming liquids relax through spatially heterogeneous motion, and flowing amorphous materials also deform through localized, intermittent rearrangements that organize the macroscopic rheology.</li>
+          <li><strong>Aging matters in both:</strong> Below the glass transition or after a quench, material properties depend on waiting time; similarly, rheology of soft glasses often depends on sample age, preshear history, and rejuvenation by flow.</li>
+          <li><strong>Competition between thermal and driven relaxation:</strong> Glass transition is often framed in terms of thermally activated escape, while rheology introduces shear as another route to cross barriers, making flow a controlled way to probe nonequilibrium relaxation.</li>
+          <li><strong>Yielding as driven unjamming:</strong> A glass can behave like a solid at rest but flow when stress is large enough, so yield stress can be taught as the mechanical counterpart of escaping deep metastable states.</li>
+          <li><strong>Criticality versus activated dynamics:</strong> Jamming-based rheology emphasizes scaling near a critical packing point, whereas glass-transition theories often emphasize activated motion in complex landscapes; comparing them helps students see two complementary routes to slow dynamics.</li>
+          <li><strong>Unified experimental observables:</strong> Stress relaxation, creep, viscosity growth, relaxation spectra, and fluctuation measurements are useful in both fields, which makes rheology a practical probe of glassy dynamics.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Jamming point</h3>
+            <p><strong>Definition:</strong> Critical packing fraction where a disordered soft-particle assembly first acquires rigidity.</p>
+            <p><strong>Why important:</strong> It is the reference point for all scaling in the paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Effective strain</h3>
+            <p><strong>Definition:</strong> Sum of a yield-related part and a dynamic part generated by flow.</p>
+            <p><strong>Why important:</strong> It lets the authors combine static elasticity and driven dynamics in one model.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Yield Stress regime</h3>
+            <p><strong>Definition:</strong> Low-rate regime above jamming where stress is nearly rate independent.</p>
+            <p><strong>Why important:</strong> The model predicts \(\sigma \sim \Delta\phi^{3/2}\).</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Transition regime</h3>
+            <p><strong>Definition:</strong> Intermediate regime where yield and dynamic contributions compete.</p>
+            <p><strong>Why important:</strong> The model predicts \(\sigma \sim \Delta\phi^{1/3}\dot{\gamma}^{1/3}\).</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Critical regime</h3>
+            <p><strong>Definition:</strong> Flow right at or sufficiently near point J where dynamics dominate.</p>
+            <p><strong>Why important:</strong> The model predicts \(\sigma \sim \dot{\gamma}^{1/2}\).</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Viscous regime</h3>
+            <p><strong>Definition:</strong> High-rate regime where viscous stress dominates elastic stress.</p>
+            <p><strong>Why important:</strong> Here the total stress scales linearly with \(\dot{\gamma}\).</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Why does power balance force the fluctuation scale \(|\Delta v|\) to matter in a constitutive model?</li>
+          <li>What is the physical meaning of splitting the effective strain into yield and dynamic parts?</li>
+          <li>Why might earlier studies have mistaken crossover behavior for irrational or inconsistent exponents?</li>
+          <li>Which assumption of the model feels most fragile: local power balance, the chosen stress-strain relation, or the neglect of a growing flow length scale?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Summarize the three equations that close the scaling model and explain the role of each.</li>
+          <li>Pick one regime boundary and derive the corresponding crossover condition in words or scaling form.</li>
+          <li>Suggest one numerical or experimental measurement that could falsify the assumption of no strain-rate-dependent length scale.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Tighe, Woldhuis, Remmers, van Saarloos, van Hecke (2010), <em>Model for the Scaling of Stresses and Fluctuations in Flows near Jamming</em>, PRL 105, 088303.
+            Note: Main lecture paper and the basis for the four-regime scaling picture near point J.
+          </div>
+          <div class="reading-item empty">[Add related paper] Olsson and Teitel on critical scaling at jamming. Note: useful comparison because it motivates the earlier two-regime picture that Tighe challenges.</div>
+          <div class="reading-item empty">[Add follow-up paper] Later work by Tighe or others on relaxations, yielding, or nonlocal rheology. Note: shows how the jamming framework evolved after this PRL.</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
