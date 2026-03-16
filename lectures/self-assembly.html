@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 3 - Self-Assembly</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 3</p>
+        <h1>Self-Assembly</h1>
+        <p class="subtitle">How short emulsion-droplet chains fold into programmable target structures</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>McMullen, Munoz Basagoiti, Zeravcic, and Brujic (2022)</strong>,
+          <em>Self-assembly of emulsion droplets through programmable folding</em>,
+          Nature 610, 502-506.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1038/s41586-022-05198-8" target="_blank" rel="noreferrer">10.1038/s41586-022-05198-8</a>
+        </p>
+        <p>
+          <strong>Big question:</strong> Can short chains of
+          <span class="keyword" tabindex="0">emulsion droplets
+            <span class="tooltip"><strong>Definition:</strong> Discrete liquid droplets suspended in another immiscible fluid. <strong>Why here:</strong> They act as soft colloidal building blocks that can be functionalized and watched in real space.</span>
+          </span>
+          with programmable
+          <span class="keyword" tabindex="0">DNA interactions
+            <span class="tooltip"><strong>Definition:</strong> Sequence-specific attractions engineered by DNA linkers or complementary strands. <strong>Why here:</strong> They let the experimenters decide which droplets bind and when those bonds are turned on.</span>
+          </span>
+          fold reproducibly into unique target geometries, and what controls whether the system reaches the intended
+          <span class="keyword" tabindex="0">foldamer
+            <span class="tooltip"><strong>Definition:</strong> A self-folded chain that ends in a specific stable geometry, analogous to a folded polymer or protein-like object. <strong>Why it matters:</strong> The paper argues that folding pathways, not only final bond energies, can encode structure.</span>
+          </span>
+          instead of getting trapped?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Early self-assembly:</strong> Colloids and molecules were first studied through equilibrium structures such as crystals, micelles, and phase-separated states.
+          </div>
+          <div class="history-item">
+            <strong>1990s-2000s:</strong> DNA-mediated interactions and patchy-particle ideas made it possible to design specific attractions instead of relying only on generic aggregation.
+          </div>
+          <div class="history-item">
+            <strong>Foldamer inspiration:</strong> Chemists developed foldamers as synthetic analogs of proteins, emphasizing that sequence and pathway can encode shape.
+          </div>
+          <div class="history-item">
+            <strong>Soft-matter bridge:</strong> Droplet chains and colloidomers created a mesoscopic platform where folding can be imaged directly, unlike atomistic or protein systems.
+          </div>
+          <div class="history-item">
+            <strong>This paper:</strong> The authors show that turning interactions on in a chosen order directs chains downhill through a folding landscape toward unique 2D and 3D structures.
+          </div>
+          <div class="history-item">
+            <strong>Why timely:</strong> The work links sequence design, pathway control, and hierarchical assembly, which are now central themes in programmable matter.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Why self-assembly matters: how soft matter turns local rules into complex structure without top-down manufacturing.</li>
+          <li><strong>10-25 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">self-assembly<span class="tooltip"><strong>Definition:</strong> Spontaneous organization of components into ordered structures through local interactions. <strong>Why first:</strong> It is the central design paradigm of the whole lecture.</span></span>,
+            <span class="keyword" tabindex="0">protocol<span class="tooltip"><strong>Definition:</strong> The timed order in which different interactions are activated. <strong>Why first:</strong> This paper shows protocol is as important as the interaction network itself.</span></span>,
+            <span class="keyword" tabindex="0">kinetic trap<span class="tooltip"><strong>Definition:</strong> A metastable state that blocks the system from reaching the intended target. <strong>Why important:</strong> Avoiding traps is the main challenge of programmable assembly.</span></span>,
+            <span class="keyword" tabindex="0">folding landscape<span class="tooltip"><strong>Definition:</strong> The network of allowed intermediate states and transitions during folding. <strong>Why important:</strong> It lets students think about pathways rather than only final energies.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Experimental platform: monodisperse droplet chains, DNA-functionalized attractions, quasi-2D observation, and real-time tracking of contact networks.</li>
+          <li><strong>45-65 min:</strong> Figure narrative: Fig. 1 for design logic, Fig. 2 for folding pathways, Fig. 3 for predicted versus realized foldamers, Fig. 4 for sequence design and supracolloidal assembly.</li>
+          <li><strong>65-80 min:</strong> Theory and algorithm: folding trees, local minima, protocol search, and why ordered activation outperforms one-step quenches.</li>
+          <li><strong>80-90 min:</strong> Discussion: what this teaches us about proteins, colloids, and general programmable materials.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Relative yield<span class="tooltip"><strong>Definition:</strong> Fraction of rigid structures that end in the target foldamer. <strong>Why first:</strong> It is the clearest experimental measure of whether a protocol actually works.</span></span>:</strong> Start by comparing yields for one-step, two-step, and three-step protocols.</li>
+          <li><strong><span class="keyword" tabindex="0">Contact matrix<span class="tooltip"><strong>Definition:</strong> Binary record of which droplets touch one another at a given time. <strong>Why first:</strong> It converts microscope movies into discrete folding states.</span></span>:</strong> This is the bridge from raw videos to the folding tree.</li>
+          <li><strong><span class="keyword" tabindex="0">Folding tree / pathway graph<span class="tooltip"><strong>Definition:</strong> Graph of allowed intermediates, local minima, and target states. <strong>Why first:</strong> It explains why some protocols are robust and others get trapped.</span></span>:</strong> Students can see structure formation as path selection, not only energy minimization.</li>
+          <li><strong><span class="keyword" tabindex="0">Sequence-to-structure map<span class="tooltip"><strong>Definition:</strong> Mapping from droplet sequence and bond-activation order to final geometry. <strong>Why first:</strong> It is the design principle that generalizes beyond this specific experiment.</span></span>:</strong> Show how adding one flavor or reordering activation expands the accessible design space.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Sequence alone does not determine structure; the order in which attractions are activated can decide the final foldamer.</li>
+          <li>A very small alphabet of droplet types can still generate a surprisingly large structure library when pathway control is used well.</li>
+          <li>The paper is strong because experiments, simulations, and theory all speak to the same folding-tree logic.</li>
+          <li>Programmable folding is not only about isolated objects; the folded units can become building blocks for a second level of assembly.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Daniela J. Kraft:</strong> Known for colloidal self-assembly, anisotropic building blocks, and pathway-aware design in programmable particle systems.</li>
+          <li><strong>Jasna Brujic:</strong> A central figure in droplet-based soft matter, colloidomers, and the experimental realization of programmable folding in this paper.</li>
+          <li><strong>Zorana Zeravcic:</strong> Important for theory and design rules in self-assembly, especially how interaction patterns and pathways encode target structures.</li>
+          <li><strong>Lucio Isa:</strong> Well known for colloids at interfaces, directed assembly, and experimentally controlled soft building blocks.</li>
+          <li><strong>Martin van Hecke:</strong> Influential in programmable matter and mechanical design; useful for students because folding, architecture, and function often meet in his style of soft-matter thinking.</li>
+          <li><strong>Vinothan N. Manoharan:</strong> A major voice in colloidal self-assembly and the statistical-physics view of how local interactions produce complex structures.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Self-assembly</h3>
+            <p><strong>Definition:</strong> Autonomous organization of building blocks into larger structures.</p>
+            <p><strong>Why important:</strong> It is the design principle underlying the entire paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Foldamer</h3>
+            <p><strong>Definition:</strong> A chain that folds into a specific target geometry.</p>
+            <p><strong>Why important:</strong> The paper extends foldamer thinking from chemistry to droplet-based soft matter.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Protocol</h3>
+            <p><strong>Definition:</strong> Ordered schedule for switching on different interactions.</p>
+            <p><strong>Why important:</strong> It is the main control knob for steering folding pathways.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Kinetic trap</h3>
+            <p><strong>Definition:</strong> Metastable intermediate that blocks the route to the target state.</p>
+            <p><strong>Why important:</strong> Understanding traps explains why one-step assembly often fails.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Colloidomer</h3>
+            <p><strong>Definition:</strong> A polymer-like chain made from colloidal or droplet units.</p>
+            <p><strong>Why important:</strong> It gives a mesoscopic platform for watching folding directly.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Supracolloidal architecture</h3>
+            <p><strong>Definition:</strong> A larger structure assembled from already folded colloidal units.</p>
+            <p><strong>Why important:</strong> It shows how hierarchical assembly can emerge from successful foldamers.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Why is controlling the order of activated interactions so powerful compared with simply strengthening all target bonds at once?</li>
+          <li>Which figure best convinces you that the theory is capturing actual experimental pathways rather than only final states?</li>
+          <li>If you had to design a new foldamer with a hole, would you first change the sequence, the protocol, or the interaction strengths?</li>
+          <li>How close is this system to protein folding, and where does that analogy clearly break down?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Pick one foldamer and explain how the protocol suppresses competing local minima.</li>
+          <li>Draw a simplified folding tree for a short chain and identify where a kinetic trap could appear.</li>
+          <li>Propose one new application that would benefit from hierarchical assembly of folded droplet units.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            McMullen, Munoz Basagoiti, Zeravcic, Brujic (2022), <em>Self-assembly of emulsion droplets through programmable folding</em>, Nature 610, 502-506.
+            Note: Main lecture paper and the clearest example here of pathway-controlled colloidal folding.
+          </div>
+          <div class="reading-item empty">[Add precursor paper] McMullen et al. on freely jointed polymers made of droplets. Note: useful for explaining where the droplet-chain platform came from.</div>
+          <div class="reading-item empty">[Add theory paper] A design-rules paper on programmable self-assembly or foldamers. Note: helps connect this experiment to broader statistical-mechanics ideas.</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
