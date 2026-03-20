@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 4 - Active Matter</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 4</p>
+        <h1>Active Matter</h1>
+        <p class="subtitle">From nonequilibrium memory models to collective oscillations in dense human crowds</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Paper A: Behera, Rao, Sastry, and Vaikuntanathan (2023)</strong>,
+          <em>Enhanced Associative Memory, Classification, and Learning with Active Dynamics</em>,
+          Physical Review X 13, 041043.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1103/PhysRevX.13.041043" target="_blank" rel="noreferrer">10.1103/PhysRevX.13.041043</a>
+        </p>
+        <p>
+          <strong>Paper B: Gu, Guiselin, Bain, Zuriguel, and Bartolo (2025)</strong>,
+          <em>Emergence of collective oscillations in massive human crowds</em>,
+          Nature 638, 112-119.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1038/s41586-024-08514-6" target="_blank" rel="noreferrer">10.1038/s41586-024-08514-6</a>
+        </p>
+        <p>
+          <strong>Big question:</strong> How far can the language of
+          <span class="keyword" tabindex="0">active matter
+            <span class="tooltip"><strong>Definition:</strong> Systems whose constituents continuously consume energy and generate motion or forces at the microscopic level. <strong>Why it matters:</strong> Activity drives persistent nonequilibrium behavior that cannot be reduced to equilibrium thermodynamics.</span>
+          </span>
+          be pushed, from understanding active systems themselves to explaining information processing and even dangerous
+          <span class="keyword" tabindex="0">crowd dynamics
+            <span class="tooltip"><strong>Definition:</strong> Collective motion of many interacting people in dense environments. <strong>Why it matters:</strong> The second paper shows that active-matter ideas can predict and diagnose real societal hazards.</span>
+          </span>?
+          Paper A asks how
+          <span class="keyword" tabindex="0">nonequilibrium driving
+            <span class="tooltip"><strong>Definition:</strong> Persistent forcing that keeps a system away from detailed balance. <strong>Why it matters:</strong> It can enhance memory, classification, and learning without changing the underlying connectivity.</span>
+          </span>
+          changes information-processing capacity; Paper B asks how dense crowds behave as an
+          <span class="keyword" tabindex="0">active continuum
+            <span class="tooltip"><strong>Definition:</strong> A coarse-grained field description of many self-driven agents. <strong>Why it matters:</strong> It lets one derive large-scale collective motion without modeling every person individually.</span>
+          </span>.
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>1990s:</strong> Self-propelled particle models and flocking theories established that energy-consuming agents can exhibit collective order unavailable at equilibrium.
+          </div>
+          <div class="history-item">
+            <strong>2000s:</strong> The field expanded to bacteria, cytoskeleton, active colloids, and tissues, emphasizing generic large-scale behavior over microscopic detail.
+          </div>
+          <div class="history-item">
+            <strong>2010s:</strong> Active matter became a unifying nonequilibrium framework linking symmetry, hydrodynamics, defect motion, and motility-induced phase separation.
+          </div>
+          <div class="history-item">
+            <strong>Parallel development:</strong> Researchers started importing active or nonequilibrium ideas into information processing, learning, memory, and other settings not usually labelled as active matter.
+          </div>
+          <div class="history-item">
+            <strong>Paper A:</strong> Behera et al. show that activity can improve associative memory, pattern recognition, and learning in canonical memory-forming systems.
+          </div>
+          <div class="history-item">
+            <strong>Paper B:</strong> Gu et al. treat dense human crowds as active matter and uncover a non-reciprocal transition to collective chiral oscillations with direct safety implications.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Active matter basics: why energy consumption at the unit level changes collective behavior.</li>
+          <li><strong>10-25 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">activity<span class="tooltip"><strong>Definition:</strong> Persistent energy injection at the microscopic scale. <strong>Why first:</strong> It is the source of all nonequilibrium effects in both papers.</span></span>,
+            <span class="keyword" tabindex="0">detailed balance breaking<span class="tooltip"><strong>Definition:</strong> Time-reversal asymmetry in stochastic dynamics. <strong>Why important:</strong> It separates active dynamics from equilibrium noise.</span></span>,
+            <span class="keyword" tabindex="0">non-reciprocity<span class="tooltip"><strong>Definition:</strong> Couplings that are not derivable from a symmetric energy function. <strong>Why important:</strong> It is central to Paper B and conceptually useful for Paper A.</span></span>,
+            <span class="keyword" tabindex="0">effective temperature<span class="tooltip"><strong>Definition:</strong> A coarse way to compare some active fluctuations with thermal noise. <strong>Why important:</strong> Paper A shows activity does more than simply raise a temperature.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Paper A: active dynamics in memory formation, Hopfield-like retrieval, elastic memory, and learning/classification tasks.</li>
+          <li><strong>45-65 min:</strong> Paper B: active-continuum description of dense crowds, critical density, oscillatory flow, and odd friction.</li>
+          <li><strong>65-80 min:</strong> Comparison panel: active matter as a material class versus active matter as a transferable theoretical toolkit.</li>
+          <li><strong>80-90 min:</strong> Discussion: what counts as an active-matter problem, and when importing the framework is actually useful.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Order parameter / overlap \(m\)<span class="tooltip"><strong>Definition:</strong> Retrieval overlap between system state and stored pattern. <strong>Why first:</strong> In Paper A it is the fastest indicator of whether activity improves memory recovery.</span></span>:</strong> Compare retrieval with and without active forcing.</li>
+          <li><strong><span class="keyword" tabindex="0">Capacity or accuracy curves<span class="tooltip"><strong>Definition:</strong> Performance metrics for memory retrieval, classification, or learning versus control parameters. <strong>Why first:</strong> These observables make the gain from activity concrete and measurable.</span></span>:</strong> Show students that the paper is not only conceptual; it improves task performance.</li>
+          <li><strong><span class="keyword" tabindex="0">Velocity fluctuation spectrum \(S_v(\omega)\)<span class="tooltip"><strong>Definition:</strong> Frequency-resolved power in the crowd velocity field. <strong>Why first:</strong> In Paper B the finite-frequency peak is the cleanest sign that the crowd is oscillating collectively.</span></span>:</strong> This detects the transition before the motion looks visually catastrophic.</li>
+          <li><strong><span class="keyword" tabindex="0">Critical density and correlation length<span class="tooltip"><strong>Definition:</strong> Density threshold and spatial extent of correlated motion. <strong>Why first:</strong> They turn crowd behavior into a phase-transition-style problem.</span></span>:</strong> Use them to connect the empirical data to active-matter theory.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Active matter is not just a catalog of self-propelled systems; it is a framework for reasoning about nonequilibrium collective behavior.</li>
+          <li>Paper A shows that activity can enhance computation-like tasks without changing network architecture, only the dynamics.</li>
+          <li>Paper B shows that active-matter thinking can explain a socially urgent system using symmetry, coarse graining, and non-reciprocal forces.</li>
+          <li>Together, the papers help students distinguish between using active matter as a subject and using it as a method.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>M. Cristina Marchetti:</strong> One of the foundational figures in active-matter theory, especially hydrodynamics and continuum descriptions.</li>
+          <li><strong>Sriram Ramaswamy:</strong> A central architect of soft active matter and nonequilibrium collective phenomena.</li>
+          <li><strong>John Toner:</strong> Known for flocking theory and large-scale collective motion in active systems.</li>
+          <li><strong>Julia M. Yeomans:</strong> Major contributor to active nematics, active flows, and continuum modeling of living matter.</li>
+          <li><strong>Denis Bartolo:</strong> Especially relevant here because of his work connecting active-matter ideas to experiments on crowds and collective dynamics.</li>
+          <li><strong>Suriyanarayanan Vaikuntanathan:</strong> Important for nonequilibrium statistical mechanics and for extending active-dynamics ideas into memory and information processing.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Two Active-Matter Styles</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Style 1: Study active systems directly</h3>
+            <p><strong>Paper B example:</strong> The crowd is treated as an active material with emergent oscillatory dynamics.</p>
+            <p><strong>Teaching value:</strong> Students learn the standard active-matter workflow: define fields, identify symmetry, derive a continuum theory, test against data.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Style 2: Export active ideas elsewhere</h3>
+            <p><strong>Paper A example:</strong> Active dynamics is inserted into memory and learning models to improve performance.</p>
+            <p><strong>Teaching value:</strong> Students see that nonequilibrium forcing can be a design principle, not only a property of living or motile systems.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Active matter</h3>
+            <p><strong>Definition:</strong> Matter composed of units that inject energy locally and continuously.</p>
+            <p><strong>Why important:</strong> It is the umbrella framework joining both papers.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Associative memory</h3>
+            <p><strong>Definition:</strong> Ability to retrieve a stored pattern from partial or noisy input.</p>
+            <p><strong>Why important:</strong> Paper A shows that active dynamics can enhance this capacity.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Odd friction</h3>
+            <p><strong>Definition:</strong> Non-reciprocal frictional coupling that can rotate a response away from the applied motion.</p>
+            <p><strong>Why important:</strong> It is the key mechanism behind the crowd oscillations in Paper B.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Non-reciprocal phase transition</h3>
+            <p><strong>Definition:</strong> A transition driven by couplings that do not obey action-reaction symmetry in an effective coarse-grained sense.</p>
+            <p><strong>Why important:</strong> It is the conceptual core of the crowd paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Chiral oscillation</h3>
+            <p><strong>Definition:</strong> Collective motion with a preferred handed orbital sense.</p>
+            <p><strong>Why important:</strong> Paper B finds spontaneous chiral oscillations in dense human crowds.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Nonequilibrium enhancement</h3>
+            <p><strong>Definition:</strong> Performance gain caused by active driving rather than static interaction redesign.</p>
+            <p><strong>Why important:</strong> This is the main message students should carry from Paper A.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Does Paper A still feel like active matter if the system is a memory model rather than a motile material? Why or why not?</li>
+          <li>What makes Paper B stronger as physics than a purely phenomenological safety study?</li>
+          <li>If activity improves memory performance, what is the right baseline comparison: thermal noise, effective temperature, or computational cost?</li>
+          <li>Which of the two papers better demonstrates the power of coarse-grained thinking, and which better demonstrates the power of nonequilibrium design?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page comparison of what “activity” means operationally in the two papers.</li>
+          <li>For one paper, identify the main order parameter or diagnostic observable and explain why it is the right one.</li>
+          <li>Propose one new system outside traditional active matter where active-dynamics ideas might produce a useful enhancement.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Behera, Rao, Sastry, Vaikuntanathan (2023), <em>Enhanced Associative Memory, Classification, and Learning with Active Dynamics</em>, PRX 13, 041043.
+            Note: Active dynamics used as a nonequilibrium design principle for information processing.
+          </div>
+          <div class="reading-item">
+            Gu, Guiselin, Bain, Zuriguel, Bartolo (2025), <em>Emergence of collective oscillations in massive human crowds</em>, Nature 638, 112-119.
+            Note: Active-matter continuum ideas applied to crowd safety and collective oscillations.
+          </div>
+          <div class="reading-item empty">[Add review] Marchetti et al. or a modern active-matter roadmap. Note: gives students the broader field map behind both case studies.</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
