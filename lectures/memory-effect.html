@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 6 - Memory Effect</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 6</p>
+        <h1>Memory Effect</h1>
+        <p class="subtitle">How solids store histories of shear, amplitude, annealing, and shape</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Paulsen and Keim (2025)</strong>,
+          <em>Mechanical Memories in Solids, from Disorder to Design</em>,
+          Annual Review of Condensed Matter Physics 16, 61-81.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1146/annurev-conmatphys-032822-035544" target="_blank" rel="noreferrer">10.1146/annurev-conmatphys-032822-035544</a>
+        </p>
+        <p>
+          <strong>Why this paper fits the lecture:</strong> This is a review article, not a single research paper, so it is ideal for teaching the
+          basic language of mechanical memory before students dive into more specialized papers later in the course.
+        </p>
+        <p>
+          <strong>Big question:</strong> How can an apparently ordinary solid retain readable information about past deformation, and how does
+          that history dependence become a route to
+          <span class="keyword" tabindex="0">mechanical memory
+            <span class="tooltip"><strong>Definition:</strong> A reproducible material response that reveals something about previous driving or preparation. <strong>Why it matters:</strong> It turns history dependence into a measurable physical feature instead of a nuisance.</span>
+          </span>,
+          <span class="keyword" tabindex="0">return-point memory
+            <span class="tooltip"><strong>Definition:</strong> A hysteretic memory rule in which revisiting a previous turning point restores the same state. <strong>Why it matters:</strong> It explains how some materials can store multiple deformation amplitudes in an ordered way.</span>
+          </span>,
+          <span class="keyword" tabindex="0">annealing
+            <span class="tooltip"><strong>Definition:</strong> Progressive relaxation toward a more stable steady state under repeated driving. <strong>Why it matters:</strong> It shows that memory can be formed gradually by training, not only written in one step.</span>
+          </span>,
+          and even
+          <span class="keyword" tabindex="0">mechanical metamaterials
+            <span class="tooltip"><strong>Definition:</strong> Designed structures whose geometry gives rise to unusual mechanical function. <strong>Why it matters:</strong> The review shows how memory ideas move from disordered solids into programmable design and physical computing.</span>
+          </span>?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>1930s-1980s:</strong> Hysteresis and the Preisach picture established that systems made of many bistable elements can remember turning points of past driving.
+          </div>
+          <div class="history-item">
+            <strong>2004:</strong> Granular shear experiments showed a striking memory of direction, making it clear that even disordered grains can store a clean readout of past forcing.
+          </div>
+          <div class="history-item">
+            <strong>2010s:</strong> Amorphous solids under cyclic shear revealed memories of amplitude, reversible plasticity, and a close connection between local rearrangements and hysterons.
+          </div>
+          <div class="history-item">
+            <strong>2019:</strong> The broader field was synthesized in the review <em>Memory formation in matter</em>, helping define memory as a general nonequilibrium concept across materials.
+          </div>
+          <div class="history-item">
+            <strong>2020s:</strong> The subject expanded into crumpled sheets, polycrystals, gels, and designed metamaterials, where coupling between memory units enables richer behavior and simple computation.
+          </div>
+          <div class="history-item">
+            <strong>This review:</strong> Paulsen and Keim organize these developments into one teaching-friendly story, moving from disorder in amorphous solids toward purposeful design in mechanical materials.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Why memory in matter is surprising: solids look static, yet they can hold readable traces of past deformation.</li>
+          <li><strong>10-25 min:</strong> Core concepts:
+            <span class="keyword" tabindex="0">hysteresis<span class="tooltip"><strong>Definition:</strong> Path-dependent response in which loading and unloading do not follow the same route. <strong>Why first:</strong> It is the simplest gateway to understanding how memory can exist mechanically.</span></span>,
+            <span class="keyword" tabindex="0">rearrangement<span class="tooltip"><strong>Definition:</strong> A localized change in particle configuration that relaxes stress. <strong>Why first:</strong> The review repeatedly connects macroscopic memory to these local events.</span></span>,
+            <span class="keyword" tabindex="0">hysteron<span class="tooltip"><strong>Definition:</strong> An elementary two-state memory unit with switching thresholds. <strong>Why important:</strong> It is the bridge from microscopic rearrangements to mesoscopic memory models.</span></span>,
+            <span class="keyword" tabindex="0">memory capacity<span class="tooltip"><strong>Definition:</strong> How much past information a material can encode and later distinguish. <strong>Why important:</strong> It helps students compare different memory mechanisms quantitatively.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Memory in amorphous solids: direction memory, amplitude memory, reversible plasticity, and return-point memory.</li>
+          <li><strong>45-60 min:</strong> Memory and annealing: how repeated shear trains a solid into a stable state, and why training history matters.</li>
+          <li><strong>60-75 min:</strong> Beyond amorphous solids: crumpled sheets, polycrystals, elastic shape memory, and where simple hysteron models succeed or fail.</li>
+          <li><strong>75-90 min:</strong> Design perspective: mechanical metamaterials, coupled memory elements, physical computing, and discussion of what should count as a useful material memory.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Readout curve<span class="tooltip"><strong>Definition:</strong> A measured response during a controlled probe after training, such as rearrangements or torque versus readout amplitude. <strong>Why first:</strong> It is the clearest way to show that a memory is present and where it is stored.</span></span>:</strong> Students should first learn how a memory is detected before worrying about deeper models.</li>
+          <li><strong><span class="keyword" tabindex="0">Fraction of rearranging regions<span class="tooltip"><strong>Definition:</strong> The amount of localized plastic activity triggered during readout. <strong>Why first:</strong> It links the visible memory signal to the underlying particle-scale events.</span></span>:</strong> This is the cleanest route from microscopy or simulation data to physical interpretation.</li>
+          <li><strong><span class="keyword" tabindex="0">Switching thresholds &gamma;<sup>+</sup> and &gamma;<sup>-</sup><span class="tooltip"><strong>Definition:</strong> Strain values at which a hysteretic unit changes state on forward and reverse loading. <strong>Why first:</strong> These thresholds define hysterons and explain return-point memory.</span></span>:</strong> They help students convert qualitative hysteresis loops into a simple model.</li>
+          <li><strong><span class="keyword" tabindex="0">Memory capacity<span class="tooltip"><strong>Definition:</strong> The number of distinct past histories that can be distinguished by readout. <strong>Why first:</strong> It is the most direct way to compare direction memory, return-point memory, and designed computation.</span></span>:</strong> This makes the lecture more than a catalog of examples; it gives students a unifying metric.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Mechanical memory is a readable consequence of nonequilibrium history, not just vague path dependence.</li>
+          <li>In amorphous solids, localized rearrangements provide a mesoscopic language that explains why memory can be both robust and limited.</li>
+          <li>Annealing and short-term hysteretic writing are different mechanisms, and students should not confuse them.</li>
+          <li>Disorder is not only an obstacle; it can create the landscape that makes rich memory behavior possible.</li>
+          <li>Mechanical metamaterials turn these ideas from observation into design, making memory a route toward physical computing.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Nathan C. Keim:</strong> A central figure in memory formation in matter, especially cyclic shear, reversible plasticity, and mesoscopic memory models.</li>
+          <li><strong>Joseph D. Paulsen:</strong> Important for linking mechanical memory across disordered solids, granular matter, and designed mechanical systems.</li>
+          <li><strong>Sidney R. Nagel:</strong> A foundational voice in granular matter, jamming, disorder, and memory phenomena across soft condensed matter.</li>
+          <li><strong>Srikanth Sastry:</strong> Deeply influential in amorphous solids, glassy dynamics, and simulations of training and memory under cyclic deformation.</li>
+          <li><strong>M. Mungan:</strong> Known for theoretical work on hysterons, return-point memory, and memory capacity in driven disordered systems.</li>
+          <li><strong>Martin van Hecke:</strong> Highly relevant for mechanical metamaterials, buckling-based design, and programmable responses in structured solids.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Four Memory Types to Compare</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Memory of direction</h3>
+            <p><strong>Stored information:</strong> Whether the last shear was clockwise or counterclockwise.</p>
+            <p><strong>Teaching value:</strong> A very intuitive first example because students can picture the write and read steps clearly.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Memory of amplitude</h3>
+            <p><strong>Stored information:</strong> The strain amplitude used during previous training.</p>
+            <p><strong>Teaching value:</strong> It shows that a disordered solid can remember more than one binary feature of history.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Return-point memory</h3>
+            <p><strong>Stored information:</strong> Nested turning points of previous driving.</p>
+            <p><strong>Teaching value:</strong> This is the cleanest place to introduce hysterons and ordered multiple-memory storage.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Elastic shape memory</h3>
+            <p><strong>Stored information:</strong> A preferred global shape encoded through geometry and local bistability.</p>
+            <p><strong>Teaching value:</strong> It connects field-driven memory ideas to metamaterials and design.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Mechanical memory</h3>
+            <p><strong>Definition:</strong> A material response that reveals information about past forcing or preparation.</p>
+            <p><strong>Why important:</strong> It is the umbrella concept for the whole lecture.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Reversible plasticity</h3>
+            <p><strong>Definition:</strong> Plastic rearrangements that occur during loading but are undone when the loading is reversed.</p>
+            <p><strong>Why important:</strong> It explains how apparently irreversible local motion can still support stable cyclic memories.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Hysteron</h3>
+            <p><strong>Definition:</strong> A two-state element with distinct forward and reverse switching thresholds.</p>
+            <p><strong>Why important:</strong> It is the simplest model unit for many memory effects discussed in the review.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Return-point memory</h3>
+            <p><strong>Definition:</strong> A memory rule in which returning to a previous turning point restores the same state.</p>
+            <p><strong>Why important:</strong> It gives an elegant explanation for nested multiple memories.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Annealing</h3>
+            <p><strong>Definition:</strong> Gradual relaxation under repeated driving toward a more stable or repeatable state.</p>
+            <p><strong>Why important:</strong> It shows that memory can emerge through training over many cycles.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Mechanical metamaterial</h3>
+            <p><strong>Definition:</strong> A structured material whose mechanical response is set mainly by geometry and architecture.</p>
+            <p><strong>Why important:</strong> It turns memory from an observed phenomenon into a design target.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Which is more fundamental here: memory as a property of matter, or memory as a protocol-dependent readout?</li>
+          <li>Why does a review built around amorphous solids still spend so much time on crumpled sheets and metamaterials?</li>
+          <li>When does a hysteron model clarify the physics, and when does it hide too much microscopic detail?</li>
+          <li>If a material can be trained to remember, should we think of that as computation, adaptation, or only history dependence?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Choose one memory type from the lecture and explain its write protocol, readout protocol, and microscopic mechanism in one page.</li>
+          <li>Sketch a simple hysteron model and use it to explain why nested amplitudes can or cannot be remembered.</li>
+          <li>Propose one soft-matter or biophysical system where training by cyclic forcing might create a useful memory effect.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Paulsen, Keim (2025), <em>Mechanical Memories in Solids, from Disorder to Design</em>, Annual Review of Condensed Matter Physics 16, 61-81.
+            Note: Main lecture paper and a very strong roadmap from basic concepts to modern design questions.
+          </div>
+          <div class="reading-item">
+            Keim, Paulsen, Zeravcic, Sastry, Nagel (2019), <em>Memory formation in matter</em>, Reviews of Modern Physics 91, 035002.
+            Note: A broader conceptual review that helps students place mechanical memory within the larger physics of nonequilibrium memory.
+          </div>
+          <div class="reading-item">
+            Toiya, Stambaugh, Losert (2004), <em>Transient and Oscillatory Granular Shear Flow</em>, Physical Review Letters 93, 088001.
+            Note: A classic early experiment for teaching directional memory in granular materials.
+          </div>
+          <div class="reading-item">
+            Keim, Medina (2022), <em>Mechanical annealing and memories in a disordered solid</em>, Science Advances 8, eabo1614.
+            Note: Excellent for following up on the review's discussion of training, annealing, and how memories are written or erased.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

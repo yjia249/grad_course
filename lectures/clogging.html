@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 5 - Clogging</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 5</p>
+        <h1>Clogging</h1>
+        <p class="subtitle">How activity can switch a microchannel between open flow and stable obstruction</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Caprini, Cecconi, Maggi, and Marini Bettolo Marconi (2020)</strong>,
+          <em>Activity-controlled clogging and unclogging of microchannels</em>,
+          Physical Review Research 2, 043359.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1103/PhysRevResearch.2.043359" target="_blank" rel="noreferrer">10.1103/PhysRevResearch.2.043359</a>
+        </p>
+        <p>
+          <strong>Big question:</strong> Can the
+          <span class="keyword" tabindex="0">self-propulsion
+            <span class="tooltip"><strong>Definition:</strong> Persistent motility of particles that continuously injects energy into the system. <strong>Why here:</strong> In this paper it is the control knob that turns clogging on and off.</span>
+          </span>
+          of active particles be used to reversibly create or destroy stable plugs in
+          <span class="keyword" tabindex="0">microchannels
+            <span class="tooltip"><strong>Definition:</strong> Narrow channels at microscopic scales used in microfluidics. <strong>Why here:</strong> Their constrictions make them natural settings for bottlenecks and obstructions.</span>
+          </span>,
+          and how do density and
+          <span class="keyword" tabindex="0">bottleneck width
+            <span class="tooltip"><strong>Definition:</strong> The narrowest opening that particles must cross. <strong>Why it matters:</strong> It competes with particle size and wall accumulation to determine whether a stable clog forms.</span>
+          </span>
+          set the transition between open and clogged states?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>Teaching Strategy For This Lecture</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Why start with this paper:</strong> It is not the flashiest clogging paper, but it is excellent for teaching because the geometry, control parameters, and mechanism are very easy to parse.
+          </div>
+          <div class="history-item">
+            <strong>What students learn first:</strong> A bottleneck can clog because particles self-organize near boundaries, and one can map that transition with just a few clean observables.
+          </div>
+          <div class="history-item">
+            <strong>Where the excitement enters:</strong> After students understand the basic logic in a controlled microchannel, the same logic can be exported to sheep, pedestrians, capillaries, and traffic jams.
+          </div>
+          <div class="history-item">
+            <strong>Recommended class arc:</strong> Teach Caprini et al. as the anchor paper for 60-70 minutes, then spend the last 20-30 minutes on two or three more surprising bottleneck systems.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Classic granular clogging:</strong> Much of the field began with grains, hoppers, arches, and intermittent discharge through small outlets.
+          </div>
+          <div class="history-item">
+            <strong>2000s-2010s:</strong> Clogging was recognized as a broader bottleneck phenomenon appearing in colloids, suspensions, pedestrians, animals, and microfluidic systems.
+          </div>
+          <div class="history-item">
+            <strong>Microfluidic importance:</strong> In channels and pores, clogging became both a technological problem and a design opportunity for filtration, sorting, and flow control.
+          </div>
+          <div class="history-item">
+            <strong>Active-matter twist:</strong> Once active particles became experimentally tunable, a new question emerged: can activity itself generate or remove clogs without externally pushing particles harder?
+          </div>
+          <div class="history-item">
+            <strong>This paper:</strong> Caprini et al. show numerically that switching activity on creates wall-accumulated layers that block a bottleneck quickly, while turning activity off dissolves the plug.
+          </div>
+          <div class="history-item">
+            <strong>Why useful in class:</strong> It is a clean, minimal paper that lets students learn the logic of clogging phase diagrams before moving to more surprising cross-domain examples.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> What is clogging, and why a “simple” paper is the right place to start before showing more spectacular examples.</li>
+          <li><strong>10-25 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">clogging<span class="tooltip"><strong>Definition:</strong> Arrest of flow caused by self-organized obstructions at a bottleneck. <strong>Why first:</strong> Students need to separate clogging from ordinary slowing down.</span></span>,
+            <span class="keyword" tabindex="0">active Brownian particles<span class="tooltip"><strong>Definition:</strong> Self-propelled particles with persistent motion and rotational diffusion. <strong>Why first:</strong> They are the minimal model used in the paper.</span></span>,
+            <span class="keyword" tabindex="0">wall accumulation<span class="tooltip"><strong>Definition:</strong> Tendency of active particles to persist against boundaries and spend long times near walls. <strong>Why important:</strong> It is the mechanism that seeds the plug.</span></span>,
+            <span class="keyword" tabindex="0">switchable obstruction<span class="tooltip"><strong>Definition:</strong> A plug that can be formed and removed by changing a control parameter. <strong>Why important:</strong> This is the engineering promise of the paper.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Anchor paper only: model setup, channel geometry, bottleneck, active versus passive particles, and interaction rules.</li>
+          <li><strong>45-60 min:</strong> Anchor paper only: buildup of wall layers, phase diagram of clogged/open states, and statistics of clogging time.</li>
+          <li><strong>60-70 min:</strong> Why this paper works pedagogically: it isolates mechanism, reversibility, and control better than most “fancier” clogging papers.</li>
+          <li><strong>70-85 min:</strong> Flashier comparisons: obstacle-assisted pedestrian flow, sheep bottlenecks, capillary clogging, or traffic bottlenecks.</li>
+          <li><strong>85-90 min:</strong> Broader discussion: when clogging is a failure mode, when it becomes a design tool, and which system best reveals the universal physics.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Open/clogged phase diagram<span class="tooltip"><strong>Definition:</strong> Map of flow state as a function of density and bottleneck width. <strong>Why first:</strong> It is the central result of the paper and the most compact summary of the mechanism.</span></span>:</strong> This tells students where the channel behaves like a switch.</li>
+          <li><strong><span class="keyword" tabindex="0">Average clogging time<span class="tooltip"><strong>Definition:</strong> Mean time needed to form a stable obstruction after activity is turned on. <strong>Why first:</strong> It quantifies how efficient the active mechanism is.</span></span>:</strong> Compare how rapidly active and passive systems block the channel.</li>
+          <li><strong><span class="keyword" tabindex="0">Density profile near walls and neck<span class="tooltip"><strong>Definition:</strong> Spatial particle concentration along the channel boundaries and bottleneck. <strong>Why first:</strong> It reveals the actual physical origin of the obstruction.</span></span>:</strong> Students can see that the clog grows from wall accumulation, not from a uniform densification.</li>
+          <li><strong><span class="keyword" tabindex="0">State switching after activity on/off<span class="tooltip"><strong>Definition:</strong> Time evolution of channel occupancy and flow under toggled self-propulsion. <strong>Why first:</strong> It shows the unclogging part, which is what makes this paper more than a standard clogging study.</span></span>:</strong> This is the best observable if you want to teach the system as a controllable device.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Clogging is not only a consequence of attraction or external forcing; in active matter it can arise from persistent motion and wall sticking.</li>
+          <li>The paper’s most useful idea is reversibility: the same system can be clogged and unclogged by toggling activity.</li>
+          <li>This is a good “typical” paper for class because its geometry, observables, and control parameters are very clean.</li>
+          <li>The teaching value of the paper is not novelty alone; it is that students can understand the full causal chain from particle dynamics to macroscopic blockage.</li>
+          <li>The broader literature becomes much more exciting once students realize the same bottleneck logic appears in animals, crowds, capillaries, and traffic networks.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Iker Zuriguel:</strong> One of the clearest names to know in clogging, bottlenecks, and discharge through constrictions across grains, pedestrians, and animals.</li>
+          <li><strong>Douglas J. Durian:</strong> Important for granular and hopper-flow physics, including recent work on temporary versus permanent clogs.</li>
+          <li><strong>Ángel Garcimartín:</strong> Key experimental contributor to bottleneck and clogging studies, especially in crossovers from grains to living systems.</li>
+          <li><strong>Roberto C. Hidalgo:</strong> Known for clogging, pedestrian bottlenecks, and the connection between particle-scale interactions and evacuation flow.</li>
+          <li><strong>Alvaro Marin:</strong> Relevant for suspension and microfluidic clogging, especially the transition between intermittent and continuous flow in constricted suspensions.</li>
+          <li><strong>Clemens Bechinger:</strong> Important if you want the active-matter side of clogging, confinement, and accumulation near obstacles and walls.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Fancier Clogging Across Systems</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            <strong>Humans:</strong> Yanagisawa et al. (2009), <em>Introduction of frictional and turning function for pedestrian outflow with an obstacle</em>, Phys. Rev. E 80, 036110,
+            <a href="https://doi.org/10.1103/PhysRevE.80.036110" target="_blank" rel="noreferrer">DOI</a>.
+            Note: A surprisingly elegant result that a well-placed obstacle can improve evacuation by reducing conflicts at the exit. Best choice if you want a human-systems “wow” moment.
+          </div>
+          <div class="reading-item">
+            <strong>Animals:</strong> Garcimartín et al. (2015), <em>Flow and clogging of a sheep herd passing through a bottleneck</em>, Phys. Rev. E 91, 022808,
+            <a href="https://doi.org/10.1103/PhysRevE.91.022808" target="_blank" rel="noreferrer">DOI</a>.
+            Note: A great paper because it takes granular-clogging ideas directly into animal flow and keeps the statistics very clean. Best choice if you want the most memorable classroom example.
+          </div>
+          <div class="reading-item">
+            <strong>Animals / natural optimization:</strong> Dussutour et al. (2004), <em>Optimal traffic organization in ants under crowded conditions</em>, Nature 428, 70-73,
+            <a href="https://doi.org/10.1038/nature02345" target="_blank" rel="noreferrer">DOI</a>.
+            Note: Not a clogging paper in the narrow sense, but a beautiful example of a living system that reorganizes itself to avoid bottleneck failure. Best choice if you want an “avoidance of clogging” angle.
+          </div>
+          <div class="reading-item">
+            <strong>Cells / capillaries:</strong> Zhong et al. (2013), <em>Trapping red blood cells in living animals using optical tweezers</em>, Nature Communications 4, 1768,
+            <a href="https://doi.org/10.1038/ncomms2786" target="_blank" rel="noreferrer">DOI</a>.
+            Note: Very memorable because it literally creates and clears a clogged capillary in vivo. Best choice if you want a biophysics-heavy example.
+          </div>
+          <div class="reading-item">
+            <strong>Traffic networks:</strong> Duan et al. (2023), <em>Spatiotemporal dynamics of traffic bottlenecks yields an early signal of heavy congestions</em>, Nature Communications 14, 8002,
+            <a href="https://doi.org/10.1038/s41467-023-43591-7" target="_blank" rel="noreferrer">DOI</a>.
+            Note: This is a network-scale version of clogging logic, where bottlenecks seed larger jam trees and can be forecast early. Best choice if you want to broaden the lecture beyond particulate systems.
+          </div>
+          <div class="reading-item">
+            <strong>Best canonical twist:</strong> Zuriguel et al. (2011), <em>Silo Clogging Reduction by the Presence of an Obstacle</em>, Phys. Rev. Lett. 107, 278001,
+            <a href="https://doi.org/10.1103/PhysRevLett.107.278001" target="_blank" rel="noreferrer">DOI</a>.
+            Note: If you want one “fancier” clogging paper that is still fully canonical, this is probably the cleanest choice. Best swap if you want a sharper main paper without changing domains.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>If You Want A Flashier Main Paper Instead</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            <strong>Best overall swap:</strong> Zuriguel et al. (2011), <em>Silo Clogging Reduction by the Presence of an Obstacle</em>.
+            Reason: compact, counterintuitive, and still very close to the canonical physics.
+          </div>
+          <div class="reading-item">
+            <strong>Best living-system swap:</strong> Garcimartín et al. (2015), <em>Flow and clogging of a sheep herd passing through a bottleneck</em>.
+            Reason: same statistical logic as granular clogging, but students remember it immediately.
+          </div>
+          <div class="reading-item">
+            <strong>Best human-system swap:</strong> Yanagisawa et al. (2009), <em>Introduction of frictional and turning function for pedestrian outflow with an obstacle</em>.
+            Reason: turns clogging into a crowd-safety problem with a very clear design implication.
+          </div>
+          <div class="reading-item">
+            <strong>Best biophysics swap:</strong> Zhong et al. (2013), <em>Trapping red blood cells in living animals using optical tweezers</em>.
+            Reason: makes clogging visceral, local, and biological.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Clogging</h3>
+            <p><strong>Definition:</strong> Self-organized arrest of flow through a constriction.</p>
+            <p><strong>Why important:</strong> It is the central phenomenon connecting all recommended papers.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Active Brownian particle</h3>
+            <p><strong>Definition:</strong> Self-propelled particle with persistent orientation and rotational noise.</p>
+            <p><strong>Why important:</strong> It is the minimal active model used in the main paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Wall accumulation</h3>
+            <p><strong>Definition:</strong> Persistent residence of active particles near confining boundaries.</p>
+            <p><strong>Why important:</strong> It drives plug formation in the microchannel geometry.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Burst / avalanche</h3>
+            <p><strong>Definition:</strong> Sequence of particles passing between two clogs.</p>
+            <p><strong>Why important:</strong> Standard statistic used across granular, animal, and crowd bottlenecks.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Intermittent flow</h3>
+            <p><strong>Definition:</strong> Alternation between moving and blocked states.</p>
+            <p><strong>Why important:</strong> It marks the regime between free flow and permanent clogging.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Switchable plug</h3>
+            <p><strong>Definition:</strong> An obstruction that can be created and removed on demand.</p>
+            <p><strong>Why important:</strong> This is the device-level interpretation of the main PRR paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Why is this “boring” paper actually a strong teaching paper?</li>
+          <li>What makes the main paper more than just another bottleneck study: the active-particle physics, the reversibility, or the microfluidic application?</li>
+          <li>Why can an obstacle sometimes increase flow instead of decrease it?</li>
+          <li>Which of the cross-domain examples feels most genuinely like “clogging physics” and which feels more like an analogy?</li>
+          <li>If you wanted the fanciest possible clogging lecture instead of the cleanest one, which of the cross-domain papers would you swap in as the main paper?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Summarize the mechanism of active clogging in three steps: wall accumulation, layer growth, and bottleneck blockage.</li>
+          <li>Compare one cross-domain example with the main paper and identify what is universal and what is domain-specific.</li>
+          <li>Argue whether Caprini et al. or one of the comparison papers would make the better anchor paper for a first lecture on clogging.</li>
+          <li>Propose one control strategy to reduce clogging, and one strategy to intentionally create a reversible clog.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Caprini, Cecconi, Maggi, Marini Bettolo Marconi (2020), <em>Activity-controlled clogging and unclogging of microchannels</em>, Phys. Rev. Research 2, 043359.
+            Note: Main lecture paper and a clean example of reversible clogging in an active system. Best if your goal is clarity of mechanism.
+          </div>
+          <div class="reading-item">
+            Zuriguel et al. (2011), <em>Silo Clogging Reduction by the Presence of an Obstacle</em>, Phys. Rev. Lett. 107, 278001.
+            Note: The best compact canonical paper to pair with the main lecture if you want one stronger “wow” result inside classical clogging.
+          </div>
+          <div class="reading-item">
+            Garcimartín et al. (2015), <em>Flow and clogging of a sheep herd passing through a bottleneck</em>, Phys. Rev. E 91, 022808.
+            Note: The most fun cross-domain paper if you want students to remember the lecture.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
