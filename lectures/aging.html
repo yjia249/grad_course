@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 7 - Aging</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 7</p>
+        <h1>Aging</h1>
+        <p class="subtitle">How glasses evolve with waiting time, rejuvenate on cooling, and recover memory on reheating</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Scalliet and Berthier (2019)</strong>,
+          <em>Rejuvenation and Memory Effects in a Structural Glass</em>,
+          Physical Review Letters 122, 255502.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1103/PhysRevLett.122.255502" target="_blank" rel="noreferrer">10.1103/PhysRevLett.122.255502</a>
+        </p>
+        <p>
+          <strong>Why this paper fits the lecture:</strong> It is a compact but rich paper that connects classical aging physics in glasses to the
+          stronger rejuvenation and memory phenomenology usually associated with spin glasses, making it an excellent bridge between topics.
+        </p>
+        <p>
+          <strong>Big question:</strong> When a structural glass is cooled, aged, cooled again, and reheated, does it simply slow down continuously,
+          or does it reveal a more intricate
+          <span class="keyword" tabindex="0">aging dynamics
+            <span class="tooltip"><strong>Definition:</strong> Nonequilibrium evolution in which observables depend explicitly on the waiting time since preparation. <strong>Why it matters:</strong> It is the defining signature that a glass has not equilibrated.</span>
+          </span>
+          with
+          <span class="keyword" tabindex="0">rejuvenation
+            <span class="tooltip"><strong>Definition:</strong> A restart of slow dynamics after a further temperature decrease. <strong>Why it matters:</strong> It means the lower temperature activates new aging processes rather than merely continuing the old ones.</span>
+          </span>,
+          recovered
+          <span class="keyword" tabindex="0">memory
+            <span class="tooltip"><strong>Definition:</strong> The ability to resume the earlier aging trajectory when the original temperature is restored. <strong>Why it matters:</strong> It implies that the intermediate aging step did not erase the larger-scale state prepared before.</span>
+          </span>,
+          and a
+          <span class="keyword" tabindex="0">hierarchical free-energy landscape
+            <span class="tooltip"><strong>Definition:</strong> A landscape with nested basins and sub-basins that become relevant at different temperatures or length scales. <strong>Why it matters:</strong> It offers a physical explanation for how rejuvenation and memory can coexist.</span>
+          </span>?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>1970s:</strong> Physical aging in polymers and glasses was systematized by Struik, making waiting-time-dependent mechanics a central experimental language.
+          </div>
+          <div class="history-item">
+            <strong>1980s-1990s:</strong> Spin-glass theory and experiments established rejuvenation and memory under temperature cycling, linking aging to rugged landscapes and frustration.
+          </div>
+          <div class="history-item">
+            <strong>1990s:</strong> Simulations of Lennard-Jones glasses showed clear two-time aging in structural glasses, but not the full spin-glass-like rejuvenation phenomenology.
+          </div>
+          <div class="history-item">
+            <strong>2000s:</strong> Experiments on molecular glasses, colloidal gels, and soft disordered solids expanded the universality of aging, while also showing that not all systems rejuvenate equally strongly.
+          </div>
+          <div class="history-item">
+            <strong>Late 2010s:</strong> Mean-field-inspired ideas about marginal stability suggested that some structural glasses might possess a more hierarchical landscape than previously assumed.
+          </div>
+          <div class="history-item">
+            <strong>This paper:</strong> Scalliet and Berthier provide a clear numerical example where a structural glass shows aging, rejuvenation, and memory in a single temperature-cycle protocol.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Why aging matters: glasses are solids out of equilibrium, so their properties keep evolving long after preparation.</li>
+          <li><strong>10-25 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">waiting time \(t_w\)<span class="tooltip"><strong>Definition:</strong> Time elapsed since the quench or the most recent temperature change. <strong>Why first:</strong> Aging is impossible to describe without an explicit clock.</span></span>,
+            <span class="keyword" tabindex="0">two-time observables<span class="tooltip"><strong>Definition:</strong> Quantities such as correlations or displacements that depend on both the observation time and the age of the sample. <strong>Why first:</strong> They expose nonequilibrium behavior that one-time averages hide.</span></span>,
+            <span class="keyword" tabindex="0">rejuvenation<span class="tooltip"><strong>Definition:</strong> Renewed slow dynamics triggered by a lower temperature. <strong>Why important:</strong> It is the conceptual surprise of this paper.</span></span>,
+            <span class="keyword" tabindex="0">memory<span class="tooltip"><strong>Definition:</strong> Return to the earlier aging state after reheating. <strong>Why important:</strong> It shows that aging at two temperatures can be partially separated rather than mutually destructive.</span></span>.
+          </li>
+          <li><strong>25-45 min:</strong> Experimental and simulation context: structural glasses versus spin glasses, rapid quenches, and why temperature cycling is such a sharp probe.</li>
+          <li><strong>45-60 min:</strong> Paper figures: first-step aging, second-step rejuvenation, third-step memory, and the dynamic susceptibility representation.</li>
+          <li><strong>60-75 min:</strong> Interpretation: marginal stability, hierarchical landscapes, and separation of length scales in particle displacements.</li>
+          <li><strong>75-90 min:</strong> Discussion: when should a structural glass behave like a spin glass, and what does this imply for colloids, granular glasses, and experiments?</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Mean-squared displacement \(\Delta(t_w,t_w+\tau)\)<span class="tooltip"><strong>Definition:</strong> Average squared particle displacement measured over a lag time \(\tau\) after waiting time \(t_w\). <strong>Why first:</strong> It is the paper's main microscopic observable for seeing aging and rejuvenation directly.</span></span>:</strong> Plot it for many waiting times and look for progressively slower dynamics in older samples.</li>
+          <li><strong><span class="keyword" tabindex="0">Dynamic susceptibility \(\chi(t_w,\omega)\)<span class="tooltip"><strong>Definition:</strong> A frequency-like readout built from particle motion over a window \(\omega^{-1}\). <strong>Why first:</strong> It gives a compact representation of all three stages of the temperature cycle on one plot.</span></span>:</strong> This is the cleanest summary figure for classroom discussion.</li>
+          <li><strong><span class="keyword" tabindex="0">Displacement distribution \(P(\Delta r)\)<span class="tooltip"><strong>Definition:</strong> Probability distribution of single-particle displacements during a chosen part of the protocol. <strong>Why first:</strong> It reveals that aging, rejuvenation, and memory can involve different characteristic length scales.</span></span>:</strong> Use it to connect macroscopic memory to microscopic motion.</li>
+          <li><strong><span class="keyword" tabindex="0">Waiting-time scaling<span class="tooltip"><strong>Definition:</strong> Collapse tests using ratios such as \(\tau/t_w\) or age-dependent relaxation times. <strong>Why first:</strong> It distinguishes ordinary aging from a true restart of aging after the second temperature step.</span></span>:</strong> Students learn quickly whether the second step is just slower motion or genuinely new aging.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Aging means material properties depend on how long the system has been out of equilibrium, not only on its current temperature.</li>
+          <li>Rejuvenation is stronger than ordinary slowing down; it signals the appearance of fresh slow processes at lower temperature.</li>
+          <li>Memory after reheating shows that lower-temperature rearrangements can occur on smaller scales without erasing the larger-scale state prepared earlier.</li>
+          <li>This paper is powerful because it makes a structural glass display physics that had long been most familiar in spin glasses.</li>
+          <li>The interpretation in terms of marginal stability and hierarchical landscapes gives students a bridge from phenomenology to theory.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Ludovic Berthier:</strong> One of the central figures in glass physics, especially supercooled liquids, aging, and deep-equilibration methods.</li>
+          <li><strong>Camille Scalliet:</strong> Especially relevant here for connecting structural-glass numerics to rejuvenation, memory, and marginal stability.</li>
+          <li><strong>Jean-Philippe Bouchaud:</strong> Foundational for aging, trap models, nonequilibrium glassy dynamics, and landscape-based interpretation.</li>
+          <li><strong>Eric Vincent:</strong> A leading experimental voice on aging, rejuvenation, and memory in spin glasses and related complex materials.</li>
+          <li><strong>Walter Kob:</strong> Known for landmark simulations of structural glasses, including early aging studies in Lennard-Jones systems.</li>
+          <li><strong>Gregory B. McKenna:</strong> Important for physical aging in polymeric and molecular glasses and for connecting mechanics to aging protocols.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Three Stages of the Temperature Cycle</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Stage 1: Aging at \(T_1\)</h3>
+            <p><strong>What happens:</strong> Dynamics slows continuously with waiting time after the initial quench.</p>
+            <p><strong>Teaching value:</strong> This gives the baseline meaning of aging in a structural glass.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Stage 2: Rejuvenation at \(T_2\)</h3>
+            <p><strong>What happens:</strong> Lowering the temperature restarts aging instead of simply freezing the previous state.</p>
+            <p><strong>Teaching value:</strong> This is the key evidence for a richer internal landscape.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Stage 3: Memory after reheating</h3>
+            <p><strong>What happens:</strong> Returning to \(T_1\) restores the earlier aging trajectory almost as if the middle step had been removed.</p>
+            <p><strong>Teaching value:</strong> It shows how rejuvenation and memory can coexist without contradiction.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Microscopic picture</h3>
+            <p><strong>What happens:</strong> Motion at lower temperature occurs on smaller characteristic length scales.</p>
+            <p><strong>Teaching value:</strong> Students can visualize why the high-temperature state is preserved while low-temperature aging still occurs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Aging</h3>
+            <p><strong>Definition:</strong> Waiting-time-dependent relaxation in a system that has fallen out of equilibrium.</p>
+            <p><strong>Why important:</strong> It is the central concept of the lecture and the baseline against which rejuvenation is identified.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Waiting time \(t_w\)</h3>
+            <p><strong>Definition:</strong> Time since preparation or since the latest temperature change.</p>
+            <p><strong>Why important:</strong> It is the extra time variable that turns equilibrium observables into aging observables.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Rejuvenation</h3>
+            <p><strong>Definition:</strong> Restart of slow relaxation after a further cooling step.</p>
+            <p><strong>Why important:</strong> It shows that lower temperatures can reveal fresh glassy structure rather than only slower motion.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Memory</h3>
+            <p><strong>Definition:</strong> Recovery of the former aging trajectory when the system is brought back to an earlier temperature.</p>
+            <p><strong>Why important:</strong> It demonstrates that aging at different temperatures can be nested.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Marginal stability</h3>
+            <p><strong>Definition:</strong> A regime where glassy states are barely stable and contain many soft, nearby directions in configuration space.</p>
+            <p><strong>Why important:</strong> It is the theoretical idea used in the paper to motivate a hierarchical landscape.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Hierarchical landscape</h3>
+            <p><strong>Definition:</strong> A nested organization of metastable basins and sub-basins across scales.</p>
+            <p><strong>Why important:</strong> It offers a natural explanation for the coexistence of aging, rejuvenation, and memory.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>What observation in this paper most strongly distinguishes rejuvenation from simple temperature-dependent slowing down?</li>
+          <li>Why is memory after reheating such a nontrivial result if the system clearly aged again at the lower temperature?</li>
+          <li>Does this paper make structural glasses look more like spin glasses, or does it instead sharpen the differences between them?</li>
+          <li>If you were designing a colloid or granular experiment to test this idea, which observable would you measure first and why?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Draw the temperature-cycle protocol and label where aging, rejuvenation, and memory appear in the data.</li>
+          <li>Explain in one page why a hierarchy of length scales helps preserve memory during the low-temperature step.</li>
+          <li>Compare this structural-glass paper with one spin-glass or colloidal-aging paper and identify one common idea and one important difference.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Scalliet, Berthier (2019), <em>Rejuvenation and Memory Effects in a Structural Glass</em>, Physical Review Letters 122, 255502.
+            Note: Main lecture paper and a clean modern example of spin-glass-like temperature-cycle phenomenology in a structural glass.
+          </div>
+          <div class="reading-item">
+            Kob, Barrat (1997), <em>Aging Effects in a Lennard-Jones Glass</em>, Physical Review Letters 78, 4581.
+            Note: A classic early simulation paper for teaching basic two-time aging in structural glasses.
+          </div>
+          <div class="reading-item">
+            Dupuis, Vincent, Bouchaud, Hammann, Ito, Katori (2001), <em>Aging, rejuvenation, and memory effects in Ising and Heisenberg spin glasses</em>, Physical Review B 64, 174204.
+            Note: Excellent background for the spin-glass phenomenology that motivates this lecture.
+          </div>
+          <div class="reading-item">
+            Lunkenheimer, Wehn, Schneider, Loidl (2005), <em>Glassy Aging Dynamics</em>, Physical Review Letters 95, 055702.
+            Note: A useful experimental molecular-glass paper showing how aging is measured in dielectric response.
+          </div>
+          <div class="reading-item">
+            Cipelletti, Manley, Ball, Weitz (2000), <em>Universal Aging Features in the Restructuring of Fractal Colloidal Gels</em>, Physical Review Letters 84, 2275.
+            Note: Broadens the topic beyond atomic glasses and shows how aging ideas travel into soft condensed matter.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
