@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 8 - Phase Transition</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 8</p>
+        <h1>Phase Transition</h1>
+        <p class="subtitle">From Landau ideas to collective solid-liquid transitions in living tissues</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Bi, Yang, Marchetti, and Manning (2016)</strong>,
+          <em>Motility-Driven Glass and Jamming Transitions in Biological Tissues</em>,
+          Physical Review X 6, 021011.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1103/PhysRevX.6.021011" target="_blank" rel="noreferrer">10.1103/PhysRevX.6.021011</a>
+        </p>
+        <p>
+          <strong>Why this paper fits the lecture:</strong> It is highly interdisciplinary. The paper takes the language of phase transition,
+          glass transition, jamming, and order parameters from statistical physics and uses it to understand biological tissues involved in
+          development, wound healing, and cancer invasion.
+        </p>
+        <p>
+          <strong>Big question:</strong> Can a dense biological tissue undergo a collective
+          <span class="keyword" tabindex="0">solid-to-liquid transition
+            <span class="tooltip"><strong>Definition:</strong> A transition between a mechanically rigid, arrested state and a flowing, rearranging state. <strong>Why it matters:</strong> In living tissues this can control whether cells stay locked in place or migrate collectively.</span>
+          </span>
+          that is best understood using the general language of
+          <span class="keyword" tabindex="0">phase transitions
+            <span class="tooltip"><strong>Definition:</strong> Sharp changes in the state or organization of a many-body system when a control parameter is varied. <strong>Why it matters:</strong> Phase-transition thinking lets us connect a tissue problem to broad principles that also describe magnets, fluids, and glasses.</span>
+          </span>,
+          and can an experimentally visible
+          <span class="keyword" tabindex="0">order parameter
+            <span class="tooltip"><strong>Definition:</strong> A measurable quantity that distinguishes one phase from another. <strong>Why it matters:</strong> This paper shows that cell shape can act as a structural indicator of the transition.</span>
+          </span>
+          identify where that transition happens?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>19th century:</strong> Phase transitions first became important through steam engines, boiling, condensation, and thermodynamics. The topic mattered because it linked heat, work, and matter in a predictive way.
+          </div>
+          <div class="history-item">
+            <strong>Early 20th century:</strong> Magnetic and liquid-gas transitions showed that very different materials can undergo mathematically similar transformations. The importance of the subject expanded from engineering to fundamental classification of matter.
+          </div>
+          <div class="history-item">
+            <strong>1930s-1950s:</strong> Landau theory introduced symmetry, order parameters, and free-energy expansions as a unifying language. This made phase transition theory central to modern condensed-matter physics.
+          </div>
+          <div class="history-item">
+            <strong>1960s-1970s:</strong> Critical phenomena and renormalization group ideas revealed universality, scaling, and diverging correlation lengths. The topic became even more important because it showed why microscopic details can become irrelevant near criticality.
+          </div>
+          <div class="history-item">
+            <strong>Late 20th century-2000s:</strong> The idea of phase transition spread into nonequilibrium systems such as glasses, jamming, percolation, and active matter. The importance of the field broadened from equilibrium phases to collective organization more generally.
+          </div>
+          <div class="history-item">
+            <strong>2010s-present:</strong> Phase-transition ideas entered biology in a serious way, helping researchers think about tissues, flocking, morphogenesis, and cancer. This paper is important because it shows that living tissues can be mapped onto a quantitative jamming phase diagram using cell-scale observables.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Phase Transition Foundations</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>What is a phase transition?</h3>
+            <p><strong>Core idea:</strong> A many-body system changes its macroscopic state when a control parameter such as temperature, pressure, density, field, or activity is varied.</p>
+            <p><strong>Teaching note:</strong> In the thermodynamic limit this change becomes sharp or singular; in finite experiments and simulations it often appears as a steep crossover.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Why do people care?</h3>
+            <p><strong>Scientific value:</strong> Phase transitions reveal how collective behavior emerges from many interacting units.</p>
+            <p><strong>Broader value:</strong> They guide material design, explain universal patterns, and now help interpret living systems such as tissues and cell collectives.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>First-order transition</h3>
+            <p><strong>Definition:</strong> A transition with a discontinuous jump in the order parameter or another first derivative of free energy, often with coexistence and hysteresis.</p>
+            <p><strong>Examples:</strong> Liquid-gas coexistence below the critical point, melting, and many nucleation-driven transformations.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Second-order transition</h3>
+            <p><strong>Definition:</strong> A continuous transition where the order parameter changes smoothly, but fluctuations, response functions, and correlation lengths can become very large.</p>
+            <p><strong>Examples:</strong> Ferromagnetic ordering at a Curie point and many symmetry-breaking critical points.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Landau theory</h3>
+            <p><strong>Definition:</strong> A symmetry-based theory that expands the free energy in powers of an order parameter, for example <code>f(m)=a(T-Tc)m^2+bm^4+...</code>.</p>
+            <p><strong>Why useful:</strong> It predicts which phase is stable, whether symmetry is broken, and often whether a transition is first or second order, even before microscopic details are fully known.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Limits of Landau theory</h3>
+            <p><strong>Key caution:</strong> Landau theory is a mean-field approach, so it can miss strong fluctuations, nonequilibrium effects, and topological mechanisms.</p>
+            <p><strong>Why relevant here:</strong> This lecture paper is not a textbook equilibrium Landau problem, so students should learn both the power and the limits of the framework.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Order parameter</h3>
+            <p><strong>Definition:</strong> A measurable quantity that differs between phases and ideally changes systematically across the transition.</p>
+            <p><strong>Why central:</strong> In this paper, the average cell shape index plays this role and lets the authors map a tissue-jamming boundary.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Universality</h3>
+            <p><strong>Definition:</strong> Different microscopic systems can show the same large-scale behavior near a transition.</p>
+            <p><strong>Why exciting:</strong> It is what makes a tissue paper belong naturally in a phase-transition course.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-15 min:</strong> Foundations of phase transition: phases, control parameters, order parameters, and why sharp collective changes matter.</li>
+          <li><strong>15-30 min:</strong> First-order versus second-order transitions, Landau theory, symmetry breaking, and why universality is such a powerful idea.</li>
+          <li><strong>30-45 min:</strong> Why this paper is interdisciplinary: tissues, epithelial-to-mesenchymal transition, jamming, active matter, and confluent cell layers.</li>
+          <li><strong>45-60 min:</strong> The self-propelled Voronoi model: cell motility, persistence time, target shape index, and the role of confluence.</li>
+          <li><strong>60-75 min:</strong> Paper figures: dynamical arrest, self-diffusivity, cell-shape order parameter, and the three-dimensional jamming phase diagram.</li>
+          <li><strong>75-90 min:</strong> Discussion: when phase-transition language transfers well to biology, and where equilibrium intuition must be modified.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Mean-squared displacement<span class="tooltip"><strong>Definition:</strong> Average squared displacement of cell centers versus time. <strong>Why first:</strong> It quickly reveals ballistic motion, caging plateaus, and long-time diffusion or arrest.</span></span>:</strong> This is the fastest diagnostic for whether the tissue is fluidlike or glassy.</li>
+          <li><strong><span class="keyword" tabindex="0">Self-diffusivity \(D_{\mathrm{eff}}\)<span class="tooltip"><strong>Definition:</strong> Long-time effective diffusivity extracted from the mean-squared displacement. <strong>Why first:</strong> The paper uses it as a dynamical order parameter separating moving and arrested tissue states.</span></span>:</strong> It gives a practical operational definition of the glass transition line.</li>
+          <li><strong><span class="keyword" tabindex="0">Cell shape index \(q\)<span class="tooltip"><strong>Definition:</strong> A structural measure built from cell perimeter and area. <strong>Why first:</strong> This is the paper's most striking result: a geometric quantity can locate the transition boundary.</span></span>:</strong> Students should see why a structural order parameter is experimentally powerful.</li>
+          <li><strong><span class="keyword" tabindex="0">Phase diagram in \((v_0,p_0,D_r)\)<span class="tooltip"><strong>Definition:</strong> The transition surface as a function of motility speed, target shape index, and persistence or rotational noise. <strong>Why first:</strong> It is where the interdisciplinary payoff becomes obvious.</span></span>:</strong> This turns a biological tissue problem into a predictive statistical-physics map.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Phase-transition ideas are useful far beyond equilibrium magnets and fluids; they can organize thinking about living tissues.</li>
+          <li>This paper studies a nonequilibrium solid-liquid-like transition, so students must learn both analogies to and differences from textbook critical phenomena.</li>
+          <li>An experimentally accessible structural order parameter is especially valuable because dynamics can be hard to measure cleanly in tissues.</li>
+          <li>The transition depends on cell motility, persistence, and shape mechanics, showing that biology can tune collective state through single-cell properties.</li>
+          <li>The paper is a model example of interdisciplinary physics: soft matter, statistical mechanics, active matter, development, and cancer biology all meet in one framework.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Lev Landau:</strong> Foundational because Landau theory gave generations of physicists the language of order parameters, symmetry, and free-energy expansion.</li>
+          <li><strong>Kenneth G. Wilson:</strong> Essential for critical phenomena and renormalization-group thinking about universality and fluctuations.</li>
+          <li><strong>M. Cristina Marchetti:</strong> One of the defining figures in active matter and collective behavior in living systems.</li>
+          <li><strong>M. Lisa Manning:</strong> Especially important for tissue rigidity, cell shape mechanics, and the bridge between biology and soft-matter theory.</li>
+          <li><strong>Dapeng Bi:</strong> Central to the modern picture of rigidity and jamming transitions in confluent biological tissues.</li>
+          <li><strong>Sidney R. Nagel and Andrea J. Liu:</strong> Major names for jamming, soft matter, and the broader phase-diagram view that influences this paper.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Paper-Specific Concepts</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Jamming transition</h3>
+            <p><strong>Definition:</strong> A change from a flowing or rearranging state to a rigid, arrested state.</p>
+            <p><strong>Why important here:</strong> The paper interprets tissue solidification in this language rather than through density change alone.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Glass transition</h3>
+            <p><strong>Definition:</strong> Dynamical arrest without conventional crystallization.</p>
+            <p><strong>Why important here:</strong> The tissue exhibits caging, slow relaxation, and heterogeneous motion reminiscent of glasses.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Confluent tissue</h3>
+            <p><strong>Definition:</strong> A cell layer with no gaps between neighboring cells.</p>
+            <p><strong>Why important here:</strong> Because density is fixed by confluence, shape and motility become the main control parameters.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Target shape index \(p_0\)</h3>
+            <p><strong>Definition:</strong> A parameter encoding the competition between adhesion and cortical tension in a preferred cell shape.</p>
+            <p><strong>Why important here:</strong> It acts like a tuning knob for tissue mechanics and shifts the transition surface.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>SPV model</h3>
+            <p><strong>Definition:</strong> The self-propelled Voronoi model, which combines confluent tissue mechanics with active cell motility.</p>
+            <p><strong>Why important here:</strong> It is the minimal model that lets the authors study geometry, mechanics, and activity together.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>EMT and unjamming</h3>
+            <p><strong>Definition:</strong> Epithelial-to-mesenchymal transition changes cell phenotype, while unjamming refers to collective fluidization of the tissue.</p>
+            <p><strong>Why important here:</strong> The paper asks whether these biological changes may coincide with or be illuminated by a collective phase transition.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Control parameter</h3>
+            <p><strong>Definition:</strong> The external or tunable quantity that drives the transition, such as temperature, density, field, or activity.</p>
+            <p><strong>Why important:</strong> In this paper the key knobs are cell motility, persistence, and target shape index rather than temperature alone.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Critical point</h3>
+            <p><strong>Definition:</strong> A special point where a boundary between phases ends or where fluctuations become unusually important.</p>
+            <p><strong>Why important:</strong> It helps students distinguish a genuine critical transition from a broader arrested or jammed regime.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Symmetry breaking</h3>
+            <p><strong>Definition:</strong> A transition in which the ordered phase has less symmetry than the disordered one.</p>
+            <p><strong>Why important:</strong> It is one of the main reasons Landau theory is so useful, even though this tissue paper is not a simple textbook symmetry-breaking example.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Correlation length</h3>
+            <p><strong>Definition:</strong> The spatial scale over which fluctuations or rearrangements remain correlated.</p>
+            <p><strong>Why important:</strong> Near many transitions this length grows, which is why collective behavior can emerge from local interactions.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Active matter</h3>
+            <p><strong>Definition:</strong> Matter made of units that consume energy and generate motion or force locally.</p>
+            <p><strong>Why important:</strong> It is what makes this tissue system richer than a passive equilibrium material.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Universality</h3>
+            <p><strong>Definition:</strong> Shared large-scale transition behavior across microscopically different systems.</p>
+            <p><strong>Why important:</strong> It motivates the transfer of statistical-physics tools into biology.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Is the tissue transition in this paper best thought of as a true phase transition, a jamming transition, a glass transition, or a sharp crossover?</li>
+          <li>What does the paper gain by introducing a structural order parameter instead of relying only on dynamical observables?</li>
+          <li>Which parts of Landau-style thinking transfer naturally to this problem, and which parts clearly do not?</li>
+          <li>Why is it scientifically valuable when a biological system can be placed on a phase diagram rather than described only qualitatively?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page explanation of how this paper uses phase-transition language in a living system and where that analogy is strongest.</li>
+          <li>Compare first-order and second-order transitions, then explain which aspects of this tissue transition resemble or differ from those textbook cases.</li>
+          <li>Sketch a simple Landau-style argument for why an order parameter is useful, and then explain why the paper still needs active-matter and glass ideas beyond Landau theory.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Bi, Yang, Marchetti, Manning (2016), <em>Motility-Driven Glass and Jamming Transitions in Biological Tissues</em>, PRX 6, 021011.
+            Note: Main lecture paper and a strong interdisciplinary example of phase-transition thinking in biology.
+          </div>
+          <div class="reading-item">
+            Bi, Lopez, Schwarz, Manning (2015), <em>A Density-Independent Rigidity Transition in Biological Tissues</em>, Nature Physics 11, 1074.
+            Note: Important precursor that isolates the rigidity transition controlled by cell shape in confluent tissues.
+          </div>
+          <div class="reading-item">
+            Liu, Nagel (2010), <em>The Jamming Transition and the Marginally Jammed Solid</em>, Annual Review of Condensed Matter Physics 1, 347.
+            Note: Gives students the larger jamming framework that strongly influences the logic of this paper.
+          </div>
+          <div class="reading-item">
+            Park et al. (2015), <em>Unjamming and Cell Shape in the Asthmatic Airway Epithelium</em>, Nature Materials 14, 1040.
+            Note: Excellent experimental reading showing why cell shape is so useful as a tissue-mechanics observable.
+          </div>
+          <div class="reading-item">
+            Angelini et al. (2011), <em>Glass-like Dynamics of Collective Cell Migration</em>, Proceedings of the National Academy of Sciences 108, 4714.
+            Note: A good off-class paper for students who want to connect tissue motion more directly to glass phenomenology.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
