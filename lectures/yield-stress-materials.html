@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 9 - Yield Stress Materials</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 9</p>
+        <h1>Yield Stress Materials</h1>
+        <p class="subtitle">From plastic rearrangements and rheology to brittle and ductile yielding in amorphous solids</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Intro review: Berthier, Biroli, Manning, and Zamponi (2024)</strong>,
+          <em>Yielding and plasticity in amorphous solids</em>,
+          arXiv:2401.09385.
+        </p>
+        <p>
+          Link:
+          <a href="https://arxiv.org/abs/2401.09385" target="_blank" rel="noreferrer">arXiv:2401.09385</a>
+        </p>
+        <p>
+          <strong>Main paper: Ozawa, Berthier, Biroli, Rosso, and Tarjus (2018)</strong>,
+          <em>Random critical point separates brittle and ductile yielding transitions in amorphous materials</em>,
+          Proceedings of the National Academy of Sciences 115, 6656-6661.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1073/pnas.1806156115" target="_blank" rel="noreferrer">10.1073/pnas.1806156115</a>
+        </p>
+        <p>
+          <strong>Why these two papers fit together:</strong> The review gives students the field map first: elastic response, irreversible plasticity,
+          yielding, jamming, plasticity defects, and the role of preparation history. The PNAS paper then gives one sharp modern example where these ideas
+          crystallize into a concrete claim: yielding can switch from ductile crossover to brittle discontinuity, and the switch is controlled by preparation.
+        </p>
+        <p>
+          <strong>Big question:</strong> What exactly happens when an amorphous material stops behaving like an elastic solid and begins to
+          <span class="keyword" tabindex="0">yield
+            <span class="tooltip"><strong>Definition:</strong> A qualitative change from mostly elastic response to irreversible plastic deformation or flow under increasing load. <strong>Why it matters:</strong> Yielding is the gateway to flow, shear banding, and mechanical failure.</span>
+          </span>,
+          and why do some systems fail in a smooth
+          <span class="keyword" tabindex="0">ductile
+            <span class="tooltip"><strong>Definition:</strong> Yielding behavior with gradual plastic flow and distributed deformation. <strong>Why it matters:</strong> Ductile materials can absorb strain more homogeneously and avoid catastrophic failure.</span>
+          </span>
+          way while others fail in a sharp
+          <span class="keyword" tabindex="0">brittle
+            <span class="tooltip"><strong>Definition:</strong> Yielding behavior with abrupt stress drop, strong localization, or crack-like failure. <strong>Why it matters:</strong> Brittle yielding is closer to catastrophic material failure and is central for design and safety.</span>
+          </span>
+          way? These papers argue that
+          <span class="keyword" tabindex="0">plasticity
+            <span class="tooltip"><strong>Definition:</strong> Irreversible local rearrangements that remain after the load is removed. <strong>Why it matters:</strong> Plastic events are the microscopic building blocks of yielding.</span>
+          </span>,
+          the initial degree of
+          <span class="keyword" tabindex="0">annealing
+            <span class="tooltip"><strong>Definition:</strong> How deeply and stably a glass has been prepared in its energy landscape. <strong>Why it matters:</strong> The main paper shows that preparation history can control whether yielding is brittle or ductile.</span>
+          </span>,
+          and a
+          <span class="keyword" tabindex="0">random critical point
+            <span class="tooltip"><strong>Definition:</strong> A critical point controlled by quenched disorder that separates two kinds of yielding behavior. <strong>Why it matters:</strong> It provides a unifying statistical-physics picture for very different amorphous materials.</span>
+          </span>
+          are the key pieces.
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Early rheology:</strong> Yield stress entered soft-matter science through Bingham-type materials that behave like solids below a threshold stress and flow above it, making the topic immediately important for processing pastes, slurries, and consumer materials.
+          </div>
+          <div class="history-item">
+            <strong>Mid-20th century:</strong> Plasticity in crystals and dislocations gave a microscopic way to think about irreversible deformation, but amorphous solids remained more mysterious because they lack obvious defects.
+          </div>
+          <div class="history-item">
+            <strong>Late 20th century:</strong> Metallic glasses, foams, emulsions, colloids, and granular matter pushed yielding into the center of nonequilibrium condensed matter. The topic became important both technologically and conceptually: how can disordered solids fail without crystalline defects?
+          </div>
+          <div class="history-item">
+            <strong>1990s-2000s:</strong> Shear transformation ideas, soft glassy rheology, and elasto-plastic models gave a mesoscopic language for local rearrangements, avalanches, and flow curves.
+          </div>
+          <div class="history-item">
+            <strong>2010s:</strong> Athermal quasistatic simulations, better glass preparation methods, and scaling ideas made it possible to ask whether yielding is a true nonequilibrium transition and how brittleness depends on preparation.
+          </div>
+          <div class="history-item">
+            <strong>Current view:</strong> Yielding is now important not only for materials design and failure prediction, but also as a deep statistical-physics problem connecting glasses, jamming, disorder, avalanches, and criticality. The review and the 2018 PNAS paper sit right in the middle of this modern shift.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Yielding Foundations</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>What is a yield stress material?</h3>
+            <p><strong>Definition:</strong> A material that behaves solid-like at small applied stress but flows plastically once the applied stress is large enough.</p>
+            <p><strong>Examples:</strong> Foams, emulsions, colloidal glasses, granular pastes, metallic glasses, and many dense biological materials.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Elastic response</h3>
+            <p><strong>Definition:</strong> Reversible deformation in which stress grows approximately linearly with strain for small loading.</p>
+            <p><strong>Why important:</strong> The whole yielding problem starts from asking when this apparently simple regime breaks down.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Plastic event</h3>
+            <p><strong>Definition:</strong> A localized irreversible rearrangement that relaxes stored stress.</p>
+            <p><strong>Why important:</strong> The review makes clear that macroscopic yielding is built from many such events.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Shear transformation</h3>
+            <p><strong>Definition:</strong> A small cluster of particles or regions that rearranges under load and acts like an elementary plastic defect.</p>
+            <p><strong>Why important:</strong> This is one of the main microscopic pictures behind elasto-plastic theory.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Elasto-plastic model</h3>
+            <p><strong>Definition:</strong> A mesoscopic model in which elastic loading is interrupted by threshold-triggered plastic relaxations that redistribute stress.</p>
+            <p><strong>Why important:</strong> It is the conceptual bridge between microscopic rearrangements and macroscopic rheology.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Stress overshoot</h3>
+            <p><strong>Definition:</strong> A peak in the stress-strain curve before the system settles into flow or failure.</p>
+            <p><strong>Why important:</strong> In the PNAS paper the overshoot evolves into a true discontinuity as annealing increases.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Shear band</h3>
+            <p><strong>Definition:</strong> A narrow region where deformation localizes much more strongly than in the rest of the sample.</p>
+            <p><strong>Why important:</strong> Sharp brittle-like yielding is often tied to sudden shear-band formation.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>AQS protocol</h3>
+            <p><strong>Definition:</strong> Athermal quasistatic shear, the idealized zero-temperature and vanishing-rate deformation protocol used in many simulations.</p>
+            <p><strong>Why important:</strong> The main paper uses it to isolate the intrinsic yielding transition without thermal or inertial complications.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-15 min:</strong> Intro from the review: what yield stress materials are, why yielding matters, and how elastic, plastic, and flowing regimes differ.</li>
+          <li><strong>15-30 min:</strong> Core concepts:
+            <span class="keyword" tabindex="0">pre-yielding<span class="tooltip"><strong>Definition:</strong> The deformation regime before global failure, where elasticity and intermittent plasticity coexist. <strong>Why first:</strong> Students often imagine yielding begins suddenly, but the review shows important plastic activity already exists before yield.</span></span>,
+            <span class="keyword" tabindex="0">irreversibility<span class="tooltip"><strong>Definition:</strong> Failure of the system to return exactly to its previous state after a deformation cycle. <strong>Why important:</strong> It is one of the cleanest ways to detect the onset of plasticity.</span></span>,
+            <span class="keyword" tabindex="0">avalanche<span class="tooltip"><strong>Definition:</strong> A cascade of stress-releasing events triggered by elastic interactions between local plastic rearrangements. <strong>Why important:</strong> Avalanches connect microscopic yielding events to macroscopic crack-like drops.</span></span>,
+            <span class="keyword" tabindex="0">annealing stability<span class="tooltip"><strong>Definition:</strong> How deep in the energy landscape the initial glass lies. <strong>Why important:</strong> It is the main control parameter in the PNAS paper.</span></span>.
+          </li>
+          <li><strong>30-45 min:</strong> Review-level field map: brittle versus ductile response, yielding transition, jamming, and plasticity defects.</li>
+          <li><strong>45-65 min:</strong> Main paper walkthrough: mean-field elasto-plastic theory, atomistic simulations, preparation temperature, and stress-strain curves.</li>
+          <li><strong>65-80 min:</strong> Evidence for the random critical point: stress discontinuity, susceptibilities, sample-to-sample fluctuations, and snapshots of shear localization.</li>
+          <li><strong>80-90 min:</strong> Discussion: what is universal in yielding, and what remains material-specific?</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Stress-strain curve \(\sigma(\gamma)\)<span class="tooltip"><strong>Definition:</strong> Macroscopic stress plotted against applied strain. <strong>Why first:</strong> It immediately shows elastic loading, overshoot, stress drops, and whether yielding is smooth or discontinuous.</span></span>:</strong> This is the backbone observable for the entire lecture.</li>
+          <li><strong><span class="keyword" tabindex="0">Maximum stress drop or stress discontinuity<span class="tooltip"><strong>Definition:</strong> The largest stress decrease associated with yielding or failure. <strong>Why first:</strong> In the PNAS paper it acts as the simplest order parameter for distinguishing brittle and ductile regimes.</span></span>:</strong> Students can see directly how a crossover turns into a sharp transition.</li>
+          <li><strong><span class="keyword" tabindex="0">Nonaffine displacement field<span class="tooltip"><strong>Definition:</strong> Particle displacements after subtracting the uniform imposed deformation. <strong>Why first:</strong> It reveals whether plasticity is diffuse or localized into a shear band.</span></span>:</strong> This is the cleanest microscopic picture of brittle versus ductile yielding.</li>
+          <li><strong><span class="keyword" tabindex="0">Susceptibilities and finite-size trends<span class="tooltip"><strong>Definition:</strong> Quantities measuring the sensitivity and fluctuations of the stress response across samples and system size. <strong>Why first:</strong> They are needed to argue that the sharp yielding regime is a genuine transition rather than only a visual overshoot.</span></span>:</strong> Use these to connect rheology to criticality.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Yielding is not a single universal curve shape; the same material model can fail in qualitatively different ways depending on preparation.</li>
+          <li>The review helps students separate three levels of description: macroscopic rheology, mesoscopic elasto-plastic models, and microscopic plastic rearrangements.</li>
+          <li>The 2018 PNAS paper is important because it unifies brittle and ductile yielding within one preparation-controlled framework.</li>
+          <li>A stress overshoot is not automatically a first-order transition; the lecture should teach students how to tell a crossover from a discontinuity.</li>
+          <li>Preparation history is not a detail around the edges of the problem; it is one of the main state variables for amorphous solids.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Ludovic Berthier:</strong> Central to modern work on glass stability, yielding, annealing effects, and numerical preparation of ultrastable glasses.</li>
+          <li><strong>Giulio Biroli:</strong> Important for theoretical approaches linking glasses, energy landscapes, yielding, and disorder.</li>
+          <li><strong>M. Lisa Manning:</strong> A major voice connecting amorphous plasticity, biological tissues, and modern statistical physics of failure.</li>
+          <li><strong>Francesco Zamponi:</strong> Especially relevant for mean-field and microscopic statistical-mechanics approaches to glass rheology and yielding.</li>
+          <li><strong>Matthieu Wyart:</strong> Key figure for scaling, marginal stability, jamming, and yielding in disordered solids.</li>
+          <li><strong>Jean-Louis Barrat and Anael Nicolas:</strong> Important for mesoscopic plasticity, avalanches, and rheology of amorphous materials.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Review-to-Main-Paper Bridge</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Review message</h3>
+            <p><strong>Main idea:</strong> Amorphous solids share surprisingly universal rheology despite huge microscopic differences.</p>
+            <p><strong>Teaching value:</strong> Students first learn the field-wide vocabulary before facing a specialized argument.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Main paper message</h3>
+            <p><strong>Main idea:</strong> The key control parameter for brittle versus ductile yielding can be the initial glass stability.</p>
+            <p><strong>Teaching value:</strong> Students see how a broad review-level framework becomes a precise scientific claim.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Theoretical bridge</h3>
+            <p><strong>Main idea:</strong> Mean-field elasto-plastic theory predicts a first-order yielding line ending at a random critical point.</p>
+            <p><strong>Teaching value:</strong> This is where statistical physics enters most sharply.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Simulation bridge</h3>
+            <p><strong>Main idea:</strong> Swap-prepared glasses plus athermal quasistatic shear make it possible to test how preparation controls yielding.</p>
+            <p><strong>Teaching value:</strong> Students learn why algorithmic progress changed the science of yielding.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Yielding transition</h3>
+            <p><strong>Definition:</strong> The change from mainly elastic response to irreversible plastic flow or failure.</p>
+            <p><strong>Why important:</strong> It is the central event studied in both attached papers.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Pre-yielding regime</h3>
+            <p><strong>Definition:</strong> The regime before global failure where elastic loading coexists with local plasticity.</p>
+            <p><strong>Why important:</strong> It teaches students not to confuse the onset of irreversibility with the final yielding point.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Brittle yielding</h3>
+            <p><strong>Definition:</strong> Abrupt yielding with large stress drop and strong localization.</p>
+            <p><strong>Why important:</strong> It is the high-stability regime of the main paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Ductile yielding</h3>
+            <p><strong>Definition:</strong> Smooth or broadened yielding with more distributed plastic flow.</p>
+            <p><strong>Why important:</strong> It is the low-stability regime that dominates many soft glassy materials.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Random-field criticality</h3>
+            <p><strong>Definition:</strong> Critical behavior governed by quenched disorder, akin to the random-field Ising model.</p>
+            <p><strong>Why important:</strong> It is the proposed universality class for the brittle-ductile endpoint in the PNAS paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Glass stability</h3>
+            <p><strong>Definition:</strong> A measure of how deeply relaxed or well annealed an amorphous configuration is.</p>
+            <p><strong>Why important:</strong> The review argues this variable organizes much of amorphous rheology.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Is yielding best thought of as a phase transition, a spinodal, a crossover, or does the answer depend on preparation?</li>
+          <li>Why is the same material model able to look ductile in one regime and brittle in another?</li>
+          <li>What does the PNAS paper gain by combining mean-field theory with atomistic simulations instead of using only one of them?</li>
+          <li>Which observable would you trust most in an experiment: stress overshoot, stress drop, shear-band image, or local plastic activity map?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Summarize in one page how the review organizes the yielding field, then explain how the PNAS paper fits into that map.</li>
+          <li>Draw schematic stress-strain curves for ductile crossover, overshoot, and discontinuous brittle yielding, and label the key observables.</li>
+          <li>Explain why annealing history can change yielding behavior even when particle interactions are unchanged.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Berthier, Biroli, Manning, Zamponi (2024), <em>Yielding and plasticity in amorphous solids</em>, arXiv:2401.09385.
+            Note: Best intro reading for this lecture because it maps the field from pre-yield plasticity to jamming and active materials.
+          </div>
+          <div class="reading-item">
+            Ozawa, Berthier, Biroli, Rosso, Tarjus (2018), <em>Random critical point separates brittle and ductile yielding transitions in amorphous materials</em>, PNAS 115, 6656-6661.
+            Note: Main lecture paper and a clean case study on how preparation controls yielding.
+          </div>
+          <div class="reading-item">
+            Nicolas, Ferrero, Martens, Barrat (2018), <em>Deformation and flow of amorphous solids: Insights from elastoplastic models</em>, Reviews of Modern Physics 90, 045006.
+            Note: A strong mesoscopic follow-up for students who want more on elastoplastic theory.
+          </div>
+          <div class="reading-item">
+            Falk, Langer (2011), <em>Deformation and failure of amorphous, solidlike materials</em>, Annual Review of Condensed Matter Physics 2, 353-373.
+            Note: Classic reading for the shear-transformation-zone style of thinking.
+          </div>
+          <div class="reading-item">
+            Ozawa, Barlow, Fielding, Tarjus, Zamponi (2022), <em>Brittle yielding of well-annealed amorphous solids</em>, Physical Review Research 4, 023227.
+            Note: Good off-class reading on how the brittle side of the problem continued to develop after the 2018 PNAS paper.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
