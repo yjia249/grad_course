@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 10 - Physical Learning</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 10</p>
+        <h1>Physical Learning</h1>
+        <p class="subtitle">How mechanical systems learn by training, adaptation, and directed aging</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Paper A: Stern, Arinze, Perez, Palmer, and Murugan (2020)</strong>,
+          <em>Supervised learning through physical changes in a mechanical system</em>,
+          Proceedings of the National Academy of Sciences 117, 14843-14850.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1073/pnas.2000807117" target="_blank" rel="noreferrer">10.1073/pnas.2000807117</a>
+        </p>
+        <p>
+          <strong>Paper B: Pashine, Hexner, Liu, and Nagel (2019)</strong>,
+          <em>Directed aging, memory, and nature’s greed</em>,
+          Science Advances 5, eaax4215.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1126/sciadv.aax4215" target="_blank" rel="noreferrer">10.1126/sciadv.aax4215</a>
+        </p>
+        <p>
+          <strong>Why these two papers fit together:</strong> Paper A treats a mechanical sheet almost like a physical neural network, with training examples,
+          a supervisor, training accuracy, test accuracy, and generalization. Paper B shows a more materials-physics route to learning, where a network
+          “learns” desired behavior because stressed regions age and evolve differently from unstressed ones.
+        </p>
+        <p>
+          <strong>Big question:</strong> Can matter itself
+          <span class="keyword" tabindex="0">learn
+            <span class="tooltip"><strong>Definition:</strong> Change its internal structure through experience so that later responses are improved or more specialized. <strong>Why it matters:</strong> This moves learning from software into material physics.</span>
+          </span>
+          without running a digital optimization algorithm, and if so, can a mechanical system acquire useful
+          <span class="keyword" tabindex="0">functions
+            <span class="tooltip"><strong>Definition:</strong> Desired input-output behaviors, such as classification, auxetic response, or a targeted deformation pathway. <strong>Why it matters:</strong> A material becomes more than passive matter when it can be trained toward a function.</span>
+          </span>
+          through
+          <span class="keyword" tabindex="0">training
+            <span class="tooltip"><strong>Definition:</strong> Repeated exposure to chosen inputs that gradually modify the system. <strong>Why it matters:</strong> Training is the mechanism that turns multistable or aging matter into an adaptive device.</span>
+          </span>,
+          <span class="keyword" tabindex="0">generalization
+            <span class="tooltip"><strong>Definition:</strong> Correct response to previously unseen inputs drawn from the same underlying class as the training data. <strong>Why it matters:</strong> This is what makes the learning nontrivial rather than simple memorization.</span>
+          </span>,
+          and
+          <span class="keyword" tabindex="0">directed aging
+            <span class="tooltip"><strong>Definition:</strong> Stress-biased evolution in which a material’s properties change preferentially along heavily loaded directions. <strong>Why it matters:</strong> It offers a physically local, naturally plausible route to learning in matter.</span>
+          </span>?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Early roots:</strong> Materials have long been known to remember processing history, training, or aging, but this was usually described as nuisance, degradation, or hysteresis rather than learning.
+          </div>
+          <div class="history-item">
+            <strong>Late 20th century:</strong> Work on neural networks, adaptive systems, and optimization made learning a precise scientific language, but mostly in software or biology rather than mechanics.
+          </div>
+          <div class="history-item">
+            <strong>2000s:</strong> Mechanical metamaterials showed that geometry and local interactions can encode unusual responses, suggesting that function can be designed into matter rather than only computed externally.
+          </div>
+          <div class="history-item">
+            <strong>2010s:</strong> Researchers began asking whether disordered mechanical systems could be tuned, pruned, aged, or trained into performing specific tasks such as allostery, auxeticity, and targeted response.
+          </div>
+          <div class="history-item">
+            <strong>Directed learning in matter:</strong> Paper B is important because it reframes aging as a useful greedy learning process that can build function directly from stress history.
+          </div>
+          <div class="history-item">
+            <strong>Supervised physical learning:</strong> Paper A is important because it imports the machine-learning language of training sets and test sets into a real mechanical system and demonstrates generalization.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Physical Learning Foundations</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>What is physical learning?</h3>
+            <p><strong>Definition:</strong> Learning carried out by the physical system itself through internal changes during experience, rather than by a digital optimization loop alone.</p>
+            <p><strong>Why important:</strong> It turns adaptation into a materials property, not only an algorithmic one.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Supervised physical learning</h3>
+            <p><strong>Definition:</strong> A training process where examples are labeled correct or incorrect by a supervisor, and the material changes locally in response.</p>
+            <p><strong>Why important:</strong> Paper A shows this can work in a mechanical sheet with crease stiffness as the learnable variable.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Directed aging</h3>
+            <p><strong>Definition:</strong> Aging under load where more stressed regions evolve faster than less stressed ones.</p>
+            <p><strong>Why important:</strong> Paper B shows that this naturally trains elastic response without external computation at every step.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Memory in matter</h3>
+            <p><strong>Definition:</strong> Dependence of material response on how it was previously loaded or processed.</p>
+            <p><strong>Why important:</strong> Learning is impossible unless the material can retain and use some trace of past inputs.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Model complexity</h3>
+            <p><strong>Definition:</strong> Roughly, the number of available internal degrees of freedom that can be tuned during training.</p>
+            <p><strong>Why important:</strong> Paper A uses sheet size and number of creases as the mechanical analogue of model complexity.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Overfitting</h3>
+            <p><strong>Definition:</strong> Good performance on training examples but poor response to new examples.</p>
+            <p><strong>Why important:</strong> Physical systems can overfit too; this is a beautiful conceptual bridge to machine learning.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Greedy algorithm in matter</h3>
+            <p><strong>Definition:</strong> Local evolution that always follows the most immediately accessible stress-relaxing path.</p>
+            <p><strong>Why important:</strong> Paper B argues that this simple local rule can still generate sophisticated material function.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Learnable parameter</h3>
+            <p><strong>Definition:</strong> A physical quantity altered by training, such as crease stiffness or bond stiffness.</p>
+            <p><strong>Why important:</strong> Identifying what actually changes is the mechanical analogue of identifying network weights in ML.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-15 min:</strong> Why “physical learning” is a real topic: from memory and aging in matter to adaptive mechanical function.</li>
+          <li><strong>15-30 min:</strong> Core definitions:
+            <span class="keyword" tabindex="0">training set<span class="tooltip"><strong>Definition:</strong> The collection of input examples shown to the system during learning. <strong>Why first:</strong> Paper A is easiest to teach if students see immediately how mechanical training parallels machine learning.</span></span>,
+            <span class="keyword" tabindex="0">test set<span class="tooltip"><strong>Definition:</strong> Unseen examples used to evaluate generalization. <strong>Why first:</strong> This is the difference between memorization and genuine learning.</span></span>,
+            <span class="keyword" tabindex="0">plastic adaptation<span class="tooltip"><strong>Definition:</strong> Lasting internal change induced by deformation or stress history. <strong>Why important:</strong> Both papers rely on this, even though one frames it as supervised learning and the other as aging.</span></span>,
+            <span class="keyword" tabindex="0">multistability<span class="tooltip"><strong>Definition:</strong> Existence of many metastable response states available to the same system. <strong>Why important:</strong> It gives the raw material out of which training can sculpt a useful response.</span></span>.
+          </li>
+          <li><strong>30-45 min:</strong> Paper B first: directed aging, stress-biased evolution, memory of loading, and how elastic moduli can be trained.</li>
+          <li><strong>45-65 min:</strong> Paper A: supervised training of a creased sheet, force-pattern classification, training accuracy, test accuracy, and generalization.</li>
+          <li><strong>65-80 min:</strong> Comparison panel: local greedy evolution versus supervised updates, function learning versus classification, and what counts as a “physical algorithm.”</li>
+          <li><strong>80-90 min:</strong> Discussion: what future materials might learn on the fly, and what limits real materials place on learning rules.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Training accuracy and test accuracy<span class="tooltip"><strong>Definition:</strong> Performance on seen examples versus unseen examples. <strong>Why first:</strong> Paper A becomes much clearer once students can distinguish memorization from generalization.</span></span>:</strong> This is the fastest bridge from machine-learning ideas to mechanics.</li>
+          <li><strong><span class="keyword" tabindex="0">Stiffness distribution or variance<span class="tooltip"><strong>Definition:</strong> How heterogeneous the local stiffnesses become during training. <strong>Why first:</strong> In Paper A, heterogeneous crease stiffness is the physical record of learning.</span></span>:</strong> It shows where the learned function is stored.</li>
+          <li><strong><span class="keyword" tabindex="0">Poisson ratio and moduli changes<span class="tooltip"><strong>Definition:</strong> Macroscopic elastic observables such as \(\nu\), bulk modulus, or shear modulus. <strong>Why first:</strong> Paper B is strongest when students see that aging can systematically move a material toward a targeted elastic response.</span></span>:</strong> These are the clearest outputs of directed aging.</li>
+          <li><strong><span class="keyword" tabindex="0">Input-output map<span class="tooltip"><strong>Definition:</strong> The mapping from applied forces or deformations to final mechanical response. <strong>Why first:</strong> The whole lecture is about changing this map through experience.</span></span>:</strong> Students should see that learning means reshaping a response landscape, not merely changing one number.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Physical learning is not just a metaphor; both papers show explicit mechanisms by which matter changes itself to improve future behavior.</li>
+          <li>Paper A is closest to supervised machine learning, while Paper B is closer to local adaptation or unsupervised training through stress history.</li>
+          <li>Generalization is the key conceptual threshold: a trained material should work on new inputs, not only repeat stored examples.</li>
+          <li>Local physical constraints on learning rules are different from software optimization and are part of what makes the topic interesting.</li>
+          <li>Disorder, multistability, and plasticity are not obstacles here; they are the substrate that makes physical learning possible.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Arvind Murugan:</strong> A central figure in learning, adaptation, and function in physical systems and disordered matter.</li>
+          <li><strong>Andrea J. Liu:</strong> Important for disordered networks, jamming, directed aging, and the mechanics of trained materials.</li>
+          <li><strong>Sidney R. Nagel:</strong> A foundational voice in disordered matter, memory, and emergent function in mechanical systems.</li>
+          <li><strong>Stephanie E. Palmer:</strong> Relevant here because of the strong conceptual bridge between inference, learning, and physical adaptation.</li>
+          <li><strong>Daniel Hexner:</strong> Important for disordered mechanics, directed aging, and theoretical aspects of learning in materials.</li>
+          <li><strong>Nidhi Pashine:</strong> Especially relevant for directed aging and training unusual elastic response in mechanical networks.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Two Routes to Physical Learning</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Route 1: Supervised classification</h3>
+            <p><strong>Paper A:</strong> The sheet sees labeled examples of force patterns and updates local crease stiffness depending on whether the response was correct.</p>
+            <p><strong>Teaching value:</strong> Students can recognize familiar machine-learning ideas in a purely mechanical setting.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Route 2: Directed aging</h3>
+            <p><strong>Paper B:</strong> The material evolves under imposed loads because more stressed regions age faster than less stressed ones.</p>
+            <p><strong>Teaching value:</strong> Students see that useful function can emerge even without an explicit supervisor at every update.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Shared mechanism</h3>
+            <p><strong>Common idea:</strong> Local changes accumulate to reshape the global response landscape.</p>
+            <p><strong>Teaching value:</strong> This is the deep unifying lesson across the two papers.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Shared challenge</h3>
+            <p><strong>Common limitation:</strong> The learning rule must be physically local and compatible with real material constraints.</p>
+            <p><strong>Teaching value:</strong> This distinguishes physical learning from ordinary software training.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Physical learning</h3>
+            <p><strong>Definition:</strong> Learning executed by changes inside the material itself.</p>
+            <p><strong>Why important:</strong> It is the theme of the lecture and the bridge between mechanics and information processing.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Generalization</h3>
+            <p><strong>Definition:</strong> Correct response to previously unseen inputs.</p>
+            <p><strong>Why important:</strong> It is what makes Paper A more than a memory experiment.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Directed aging</h3>
+            <p><strong>Definition:</strong> Aging whose trajectory is biased by the applied stress history.</p>
+            <p><strong>Why important:</strong> It is the core mechanism of Paper B.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Poisson ratio</h3>
+            <p><strong>Definition:</strong> Ratio that measures transverse strain response to longitudinal compression or extension.</p>
+            <p><strong>Why important:</strong> Paper B uses it as a direct readout of learned elastic behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Attractor structure</h3>
+            <p><strong>Definition:</strong> The partition of input space into regions that flow to different stable responses.</p>
+            <p><strong>Why important:</strong> Paper A argues that training reshapes this structure physically.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Overtraining</h3>
+            <p><strong>Definition:</strong> Excess training that collapses useful distinctions and harms performance on new examples.</p>
+            <p><strong>Why important:</strong> It shows that physical learners can fail in familiar machine-learning ways too.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>Which of the two papers feels more like “real learning” to you, and what definition of learning are you implicitly using?</li>
+          <li>Does directed aging count as supervised learning, unsupervised learning, or something more specifically physical?</li>
+          <li>What is the mechanical meaning of overfitting in Paper A?</li>
+          <li>If you wanted to build a useful adaptive material, would you prefer local greedy aging or explicit supervised training?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page comparison of how the two papers define, implement, and measure learning in a mechanical system.</li>
+          <li>Pick one observable from each paper and explain why it is the right quantity to measure success.</li>
+          <li>Propose one new mechanical function, beyond classification or auxetic response, that could plausibly be learned physically.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Stern, Arinze, Perez, Palmer, Murugan (2020), <em>Supervised learning through physical changes in a mechanical system</em>, PNAS 117, 14843-14850.
+            Note: Main paper for supervised physical learning, with training sets, test sets, and generalization in a mechanical sheet.
+          </div>
+          <div class="reading-item">
+            Pashine, Hexner, Liu, Nagel (2019), <em>Directed aging, memory, and nature’s greed</em>, Science Advances 5, eaax4215.
+            Note: The best companion paper for showing how mechanical networks can learn functions through stress-biased aging.
+          </div>
+          <div class="reading-item">
+            Rocks, Pashine, Bischofberger, Goodrich, Liu, Nagel (2017), <em>Designing allostery-inspired response in mechanical networks</em>, PNAS 114, 2520-2525.
+            Note: Useful background on function design in mechanical networks before learning is introduced.
+          </div>
+          <div class="reading-item">
+            Pashine, Hexner, Liu, Nagel (2018), <em>Tunable elasticity in disordered solids</em>, Soft Matter 14, 312-318.
+            Note: Good off-class reading for students who want more on how network response can be sculpted mechanically.
+          </div>
+          <div class="reading-item">
+            Murugan, Zeravcic, Brenner, Leibler (2015), <em>Multifarious assembly mixtures: Systems allowing retrieval of diverse stored structures</em>, PNAS 112, 54-59.
+            Note: Broader conceptual reading connecting physical memory, stored function, and learning-like behavior in matter.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
