@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 11 - Metamaterials</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 11</p>
+        <h1>Metamaterials</h1>
+        <p class="subtitle">How architecture, rather than composition alone, creates programmable mechanical response</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Selected main paper: Fang, Wen, Cheng, Yu, Zhang, and Gumbsch (2022)</strong>,
+          <em>Programmable gear-based mechanical metamaterials</em>,
+          Nature Materials 21, 869-876.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1038/s41563-022-01269-3" target="_blank" rel="noreferrer">10.1038/s41563-022-01269-3</a>
+        </p>
+        <p>
+          <strong>Why I selected this paper:</strong> I looked for a representative metamaterials paper that feels like a genuine field-defining
+          research article, but does not overlap too strongly with your self-assembly lecture. Sharon Glotzer’s closest metamaterials-adjacent papers
+          tend to lean into colloidal self-assembly, so for the main lecture I chose this clearer mechanical metamaterials paper. It is top-tier,
+          experimentally grounded, visually teachable, and centered on a core metamaterials idea:
+          <span class="keyword" tabindex="0">architecture as functionality
+            <span class="tooltip"><strong>Definition:</strong> Material behavior is engineered mainly through geometry, connectivity, and internal mechanisms rather than chemistry alone. <strong>Why it matters:</strong> This is the defining idea of metamaterials.</span>
+          </span>.
+        </p>
+        <p>
+          <strong>Big question:</strong> Can we build a material whose effective
+          <span class="keyword" tabindex="0">elastic properties
+            <span class="tooltip"><strong>Definition:</strong> Mechanical response quantities such as Young’s modulus, anisotropy, or stiffness under load. <strong>Why it matters:</strong> Metamaterials are powerful because these effective properties can be designed far beyond what bulk materials normally allow.</span>
+          </span>
+          are not fixed once fabricated, but can instead be
+          <span class="keyword" tabindex="0">programmed in operando
+            <span class="tooltip"><strong>Definition:</strong> Tuned while the material is in use, rather than only at the design stage. <strong>Why it matters:</strong> This paper turns metamaterials from static structures into adaptive mechanical devices.</span>
+          </span>
+          by an internal
+          <span class="keyword" tabindex="0">metacell architecture
+            <span class="tooltip"><strong>Definition:</strong> A repeated unit-cell design whose geometry and couplings determine large-scale behavior. <strong>Why it matters:</strong> The unit cell is the core design object of metamaterials.</span>
+          </span>,
+          here implemented using
+          <span class="keyword" tabindex="0">gears with encoded stiffness gradients
+            <span class="tooltip"><strong>Definition:</strong> Rotating gear elements whose shape and coupling continuously change the effective stiffness of the structure. <strong>Why it matters:</strong> This provides a robust route to reconfigurable metamaterials without relying on fragile buckling alone.</span>
+          </span>?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Early origin:</strong> The metamaterials idea first became famous in electromagnetism, where carefully designed subwavelength structure produced unusual wave response such as negative refraction and cloaking-like effects.
+          </div>
+          <div class="history-item">
+            <strong>Mechanical turn:</strong> Researchers soon realized that the same design philosophy works for mechanics: geometry can create unusual deformation, negative Poisson ratio, band gaps, soft modes, and targeted force transmission.
+          </div>
+          <div class="history-item">
+            <strong>Why the field became important:</strong> Metamaterials offered a new design paradigm in which one can engineer response beyond the limits of ordinary bulk materials, which is important for robotics, aerospace, sensing, soft machines, and protective structures.
+          </div>
+          <div class="history-item">
+            <strong>2010s expansion:</strong> The field broadened from static exotic properties to shape morphing, topological protection, nonlinear response, frustration, multistability, and programmability.
+          </div>
+          <div class="history-item">
+            <strong>Current frontier:</strong> The importance of metamaterials now lies not only in unusual properties, but in reconfigurable and multifunctional behavior: materials that can adapt, compute, sense, or shift operating mode.
+          </div>
+          <div class="history-item">
+            <strong>This paper:</strong> Fang et al. represent that newer stage very well because the material is not only architected but programmable, robust, and scalable from macro to micro fabrication.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Metamaterials Foundations</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>What is a metamaterial?</h3>
+            <p><strong>Definition:</strong> An artificially structured material whose effective properties arise mainly from architecture and repeated internal motifs rather than composition alone.</p>
+            <p><strong>Why important:</strong> This is the core identity of the field and the right place to start students.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Unit cell / metacell</h3>
+            <p><strong>Definition:</strong> The basic repeating building block of the metamaterial.</p>
+            <p><strong>Why important:</strong> Students should learn to read a metamaterials paper by first identifying what the unit cell is and what degree of freedom it carries.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Effective property</h3>
+            <p><strong>Definition:</strong> A macroscopic property emerging from many repeated cells, such as effective modulus, anisotropy, wave speed, or compressibility.</p>
+            <p><strong>Why important:</strong> Metamaterials work by translating local design into effective behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Reconfigurable metamaterial</h3>
+            <p><strong>Definition:</strong> A metamaterial whose internal state can be changed after fabrication to alter its effective response.</p>
+            <p><strong>Why important:</strong> This is the bridge from static structure to adaptable material function.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Programmability</h3>
+            <p><strong>Definition:</strong> Ability to deliberately set or tune the material into different operating states with different functionalities.</p>
+            <p><strong>Why important:</strong> The selected paper is a strong example of this more modern metamaterials direction.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Negative Poisson ratio and auxetics</h3>
+            <p><strong>Definition:</strong> Materials that expand laterally when stretched or contract laterally when compressed in unusual ways.</p>
+            <p><strong>Why important:</strong> This is one of the classic entry points students often know, and it helps place the field historically.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Topological mechanical metamaterials</h3>
+            <p><strong>Definition:</strong> Architected systems whose robust boundary modes or response channels are protected by topological structure.</p>
+            <p><strong>Why important:</strong> Students should know this is one of the most important modern branches of the field, even if it is not the main paper here.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Trade-off problem</h3>
+            <p><strong>Definition:</strong> The tension between tunability, stiffness, robustness, speed, and reversibility.</p>
+            <p><strong>Why important:</strong> The selected paper is compelling because it explicitly targets these engineering trade-offs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-15 min:</strong> What metamaterials are, why architecture matters, and why the field became central in modern materials physics.</li>
+          <li><strong>15-30 min:</strong> Core concepts:
+            <span class="keyword" tabindex="0">unit cell<span class="tooltip"><strong>Definition:</strong> Small repeated design motif. <strong>Why first:</strong> Students should always identify the metacell before reading the rest of a metamaterials paper.</span></span>,
+            <span class="keyword" tabindex="0">effective modulus<span class="tooltip"><strong>Definition:</strong> Macroscopic stiffness emerging from the micro-architecture. <strong>Why first:</strong> It is the central output quantity in the selected paper.</span></span>,
+            <span class="keyword" tabindex="0">reconfiguration<span class="tooltip"><strong>Definition:</strong> Controlled change of internal configuration that alters response. <strong>Why important:</strong> This separates programmable metamaterials from static ones.</span></span>,
+            <span class="keyword" tabindex="0">robust tunability<span class="tooltip"><strong>Definition:</strong> Large property change without sacrificing structural stability. <strong>Why important:</strong> It is the main design challenge the paper claims to solve.</span></span>.
+          </li>
+          <li><strong>30-45 min:</strong> Read the problem statement of the paper: why existing reconfigurable metamaterials often suffer from instability, plastic failure, or too few stable states.</li>
+          <li><strong>45-65 min:</strong> Walk through the gear-based design: Taiji gears, planetary gears, encoded stiffness gradients, and how rotation tunes modulus.</li>
+          <li><strong>65-80 min:</strong> Figure narrative: tunable Young’s modulus, anisotropy, macro/micro fabrication, and shape morphing between ultrasoft and solid states.</li>
+          <li><strong>80-90 min:</strong> Compare with other metamaterials branches: topological, auxetic, origami/kirigami, and Glotzer-style colloidal adaptive materials.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Stress-strain curves<span class="tooltip"><strong>Definition:</strong> Mechanical response under loading, from which effective stiffness is extracted. <strong>Why first:</strong> This shows students how the metamaterial is not just geometrically interesting but mechanically useful.</span></span>:</strong> Start with how modulus is actually measured or inferred.</li>
+          <li><strong><span class="keyword" tabindex="0">Effective Young’s modulus \(E(\theta)\)<span class="tooltip"><strong>Definition:</strong> Stiffness as a function of internal programming angle. <strong>Why first:</strong> This is the main programmable quantity in the paper.</span></span>:</strong> Plotting the modulation range immediately conveys the scale of the effect.</li>
+          <li><strong><span class="keyword" tabindex="0">Anisotropy ratio<span class="tooltip"><strong>Definition:</strong> Relative stiffness along different axes. <strong>Why first:</strong> Metamaterials often engineer not just magnitude but directional response.</span></span>:</strong> This helps students see how geometry creates directional mechanics.</li>
+          <li><strong><span class="keyword" tabindex="0">State map of metacell geometry<span class="tooltip"><strong>Definition:</strong> Response as a function of rotation angle, polarity, or internal geometric parameter. <strong>Why first:</strong> It connects the physical mechanism of the metacell to the global material behavior.</span></span>:</strong> Always identify which internal degree of freedom is doing the programming.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>The best metamaterials papers usually begin with a specific trade-off or limitation in existing architectures, not only with a list of exotic properties.</li>
+          <li>This paper is strong because it balances concept, design principle, simulation, experiment, and manufacturability in one story.</li>
+          <li>Programmable response is a major frontier in metamaterials because it turns materials into adaptable devices rather than fixed-function structures.</li>
+          <li>The metacell is the key teaching object: once students understand what the gear unit cell does, the rest of the paper becomes much easier to follow.</li>
+          <li>Metamaterials are a broad field, but mechanical metamaterials fit your course especially well because they connect naturally to elasticity, buckling, jamming, and soft-matter design.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Katia Bertoldi:</strong> One of the defining figures in mechanical metamaterials, instabilities, and architected matter.</li>
+          <li><strong>Martin van Hecke:</strong> A central voice in soft mechanical metamaterials, topological mechanics, and programmable response.</li>
+          <li><strong>Vincenzo Vitelli:</strong> Known for topological mechanics and robust force or motion transmission in metamaterials.</li>
+          <li><strong>Chiara Daraio:</strong> Important for metamaterials, wave control, and experimentally grounded architected systems.</li>
+          <li><strong>Peter Gumbsch:</strong> Especially relevant here because of the selected paper and its emphasis on robust programmable mechanics.</li>
+          <li><strong>Sharon C. Glotzer:</strong> Very relevant for the adjacent colloidal route to metamaterials, especially adaptive and self-assembled structured materials.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Why This Paper Works</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Representative field paper</h3>
+            <p><strong>Reason:</strong> It is published in a top venue and presents a clear design paradigm, not just one isolated phenomenon.</p>
+            <p><strong>Teaching value:</strong> Students see how a strong metamaterials paper frames a broad design problem and then solves it concretely.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Low overlap with self-assembly</h3>
+            <p><strong>Reason:</strong> The main mechanism is mechanical architecture, not colloidal or nanoparticle assembly.</p>
+            <p><strong>Teaching value:</strong> This helps keep your metamaterials lecture distinct from your self-assembly lecture.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Strong visual logic</h3>
+            <p><strong>Reason:</strong> The unit cell, tunability curves, and fabrication scales are all easy to show in class.</p>
+            <p><strong>Teaching value:</strong> Students can learn how to read a metamaterials paper figure by figure.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Modern direction</h3>
+            <p><strong>Reason:</strong> The paper is not only about an exotic static property; it is about programmability, robustness, and adaptive mechanics.</p>
+            <p><strong>Teaching value:</strong> It reflects where the field has moved in the last decade.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Metamaterial</h3>
+            <p><strong>Definition:</strong> A structured material whose effective behavior is set mainly by architecture.</p>
+            <p><strong>Why important:</strong> The central concept of the lecture.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Reconfigurable metamaterial</h3>
+            <p><strong>Definition:</strong> A metamaterial that can switch or tune state after fabrication.</p>
+            <p><strong>Why important:</strong> The selected paper is a strong example of this modern class.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Programmable stiffness</h3>
+            <p><strong>Definition:</strong> Deliberate tuning of effective modulus by changing internal state.</p>
+            <p><strong>Why important:</strong> It is the main functionality demonstrated in the paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Mechanical anisotropy</h3>
+            <p><strong>Definition:</strong> Direction-dependent mechanical response.</p>
+            <p><strong>Why important:</strong> Metamaterials often engineer anisotropy much more strongly than ordinary materials.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Shape morphing</h3>
+            <p><strong>Definition:</strong> Controlled transition between different shapes or stiffness states.</p>
+            <p><strong>Why important:</strong> This is one of the major application directions of modern mechanical metamaterials.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Colloidal metamaterial route</h3>
+            <p><strong>Definition:</strong> Architected response emerging from adaptive or self-assembled colloidal crystals and networks.</p>
+            <p><strong>Why important:</strong> It is the Glotzer-adjacent route that students can compare with the main paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>What makes this paper feel like a metamaterials paper rather than simply a clever mechanism design paper?</li>
+          <li>Is programmability more important than exotic one-off properties for the future of mechanical metamaterials?</li>
+          <li>Why did I choose a mechanical metamaterials paper over a Sharon Glotzer paper for the main lecture, and do you agree with that choice?</li>
+          <li>Which is the more powerful design philosophy: self-assembly into responsive architecture or deliberate unit-cell engineering followed by fabrication?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Sketch the main metacell and explain how its internal degree of freedom changes the effective stiffness of the whole material.</li>
+          <li>Write a short comparison between a static metamaterial and a programmable metamaterial, using this paper as the example.</li>
+          <li>Pick one off-class reading and explain how its metamaterials route differs from the gear-based design in the main paper.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Fang, Wen, Cheng, Yu, Zhang, Gumbsch (2022), <em>Programmable gear-based mechanical metamaterials</em>, Nature Materials 21, 869-876.
+            Note: Main lecture paper and a strong example of programmable mechanical metamaterials with clear experimental and design logic.
+          </div>
+          <div class="reading-item">
+            Bertoldi, Vitelli, Christensen, van Hecke (2017), <em>Flexible mechanical metamaterials</em>, Nature Reviews Materials 2, 17066.
+            Note: Best background reading for students who want a broad map of the field before or after class.
+          </div>
+          <div class="reading-item">
+            Lee, Calcaterra, Lee, Hadibrata, Lee, Oh, Aydin, Glotzer, Mirkin et al. (2022), <em>Shape memory in self-adapting colloidal crystals</em>, Nature 610, 674-679.
+            Note: Sharon Glotzer-related optional reading; very interesting, but more overlapped with self-assembly and colloidal crystal design than I wanted for the main lecture.
+          </div>
+          <div class="reading-item">
+            Rocklin, Zhou, Sun, Mao (2017), <em>Transformable topological mechanical metamaterials</em>, Nature Communications 8, 14201.
+            Note: Good off-class reading for students interested in topological mechanics.
+          </div>
+          <div class="reading-item">
+            Matlack, Serra-Garcia, Palermo, Huber, Daraio (2018), <em>Designing perturbative metamaterials from discrete models</em>, Nature Materials 17, 323-328.
+            Note: Excellent reading on how discrete model ideas are translated into real metamaterial architectures.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
