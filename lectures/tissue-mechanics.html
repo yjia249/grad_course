@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 12 - Tissue Mechanics</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 12</p>
+        <h1>Tissue Mechanics</h1>
+        <p class="subtitle">How living tissues generate, transmit, measure, and respond to mechanical stress</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Selected main paper: Saw et al. (2017)</strong>,
+          <em>Topological defects in epithelia govern cell death and extrusion</em>,
+          Nature 544, 212-216.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1038/nature21718" target="_blank" rel="noreferrer">10.1038/nature21718</a>
+        </p>
+        <p>
+          <strong>Why I selected this paper:</strong> Your earlier phase-transition lecture already uses a tissue-jamming paper, so I chose a
+          complementary top-level tissue-mechanics paper rather than another vertex-model jamming paper. This Nature paper is an excellent teaching
+          example because it combines epithelial-cell experiments, continuum active-matter theory, numerical simulation, stress measurement,
+          microcontact-patterning control, and a biological outcome: cell death and extrusion.
+        </p>
+        <p>
+          <strong>Big question:</strong> Can the mechanical organization of an epithelial sheet predict where cells will die or leave the tissue?
+          This paper argues yes: the tissue behaves like an
+          <span class="keyword" tabindex="0">active nematic
+            <span class="tooltip"><strong>Definition:</strong> A material made of internally driven elongated units with orientational order but no head-tail distinction. <strong>Why it matters:</strong> It lets tissue mechanics borrow precise ideas from liquid crystals and active matter.</span>
+          </span>,
+          and singularities in the cell-orientation field called
+          <span class="keyword" tabindex="0">topological defects
+            <span class="tooltip"><strong>Definition:</strong> Points where the local orientation field cannot be smoothly defined. <strong>Why it matters:</strong> In the main paper, defects become mechanical hotspots that predict extrusion.</span>
+          </span>
+          localize
+          <span class="keyword" tabindex="0">compressive stress
+            <span class="tooltip"><strong>Definition:</strong> Internal stress that tends to squeeze material elements together. <strong>Why it matters:</strong> Compression near +1/2 defects is proposed to trigger mechanotransduction, cell death, and extrusion.</span>
+          </span>
+          and thereby influence
+          <span class="keyword" tabindex="0">cell fate
+            <span class="tooltip"><strong>Definition:</strong> The biological outcome for a cell, such as survival, death, division, differentiation, or extrusion. <strong>Why it matters:</strong> Tissue mechanics becomes biologically meaningful when it changes cell fate, not only cell motion.</span>
+          </span>.
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Classical morphogenesis:</strong> Long before modern mechanobiology, developmental biologists recognized that embryos fold, extend, constrict, and close wounds through coordinated tissue-scale deformation.
+          </div>
+          <div class="history-item">
+            <strong>Cell mechanics era:</strong> The field became quantitative as researchers measured cell traction, adhesion, cortical tension, actomyosin contractility, and junctional forces, turning tissue shape change into a force-balance problem.
+          </div>
+          <div class="history-item">
+            <strong>Vertex-model era:</strong> Foam-inspired vertex models made it possible to describe confluent epithelial sheets as polygonal cells with area elasticity, perimeter elasticity, line tension, cell rearrangements, division, and extrusion.
+          </div>
+          <div class="history-item">
+            <strong>Active-matter era:</strong> Tissues are now viewed as active materials: cells consume energy, crawl, divide, die, pull on neighbors, and remodel junctions. This makes tissue mechanics different from passive soft matter.
+          </div>
+          <div class="history-item">
+            <strong>Why the topic is important:</strong> Tissue mechanics connects physics directly to morphogenesis, wound healing, cancer invasion, asthma, stem-cell fate, organoid formation, and regeneration.
+          </div>
+          <div class="history-item">
+            <strong>This paper:</strong> Saw et al. sit at a modern turning point because they show that a continuum active-matter concept can predict a biological event in real epithelial monolayers.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Tissue Mechanics Foundations</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>What is tissue mechanics?</h3>
+            <p><strong>Definition:</strong> The study of how cells inside tissues generate forces, transmit stresses, deform collectively, and convert mechanical cues into biological decisions.</p>
+            <p><strong>Why important:</strong> It explains how living matter becomes shape, function, and failure, from embryos to disease.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>What do people mostly care about?</h3>
+            <p><strong>Main questions:</strong> How tissues flow or jam, how forces guide morphogenesis, how cells coordinate migration, how mechanical signals control fate, and how tissue failure or invasion begins.</p>
+            <p><strong>Why important:</strong> These questions connect soft-matter physics to developmental biology and medicine.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Why are epithelia central?</h3>
+            <p><strong>Definition:</strong> Epithelia are cohesive sheets of cells lining organs, cavities, embryos, and barriers.</p>
+            <p><strong>Why important:</strong> They are experimentally accessible, nearly two-dimensional in many settings, and naturally suited to vertex, Voronoi, and continuum descriptions.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Mechanical feedback</h3>
+            <p><strong>Definition:</strong> Coupling in which forces change cell behavior and cell behavior changes forces.</p>
+            <p><strong>Why important:</strong> This feedback is why tissue mechanics is not only elasticity; the material actively regulates itself.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Cell rearrangement</h3>
+            <p><strong>Definition:</strong> Neighbor exchange, often called a T1 transition in vertex models, that allows tissue to flow while remaining confluent.</p>
+            <p><strong>Why important:</strong> Rearrangements are the microscopic events behind tissue fluidity, intercalation, elongation, and wound closure.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Mechanotransduction</h3>
+            <p><strong>Definition:</strong> Conversion of mechanical inputs into biochemical signals, gene regulation, or fate changes.</p>
+            <p><strong>Why important:</strong> It is the bridge from force maps to biology in the main paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Tissue-scale stress</h3>
+            <p><strong>Definition:</strong> A coarse-grained measure of internal force transmission across a multicellular sheet.</p>
+            <p><strong>Why important:</strong> Many papers ask where stress concentrates, how it relaxes, and whether it predicts future cell behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Active nematic tissue</h3>
+            <p><strong>Definition:</strong> A tissue treated as an active liquid crystal whose cells align locally and generate internal active stresses.</p>
+            <p><strong>Why important:</strong> This is the central theoretical framework of the selected paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>What People Measure</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Cell shape</h3>
+            <p><strong>Examples:</strong> Area, perimeter, aspect ratio, shape index, orientation, nematic order, and cell-neighbor number.</p>
+            <p><strong>Why first:</strong> Shape is easy to extract from images and often predicts mechanical state, jamming, stress, and rearrangement probability.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Motion and strain</h3>
+            <p><strong>Examples:</strong> Velocity fields, strain-rate fields, vorticity, cell intercalation rate, and mean-square displacement.</p>
+            <p><strong>Why first:</strong> These tell whether the tissue behaves like a solid, a fluid, an active turbulent layer, or a migrating sheet.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Force and stress</h3>
+            <p><strong>Examples:</strong> Traction forces, monolayer stress, junctional tension, pressure, compression, and shear stress.</p>
+            <p><strong>Why first:</strong> Tissue mechanics is ultimately about force balance, not only visual pattern.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Biological readouts</h3>
+            <p><strong>Examples:</strong> YAP/TAZ localization, caspase activity, extrusion, division, apoptosis, differentiation, and invasion.</p>
+            <p><strong>Why first:</strong> The strongest papers connect mechanical observables to biological consequences.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Techniques, Systems, and Models</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Experimental systems</h3>
+            <p><strong>Common systems:</strong> MDCK epithelial monolayers, human bronchial epithelial cells, endothelial monolayers, keratinocytes, Drosophila embryos and wing discs, zebrafish and Xenopus epithelia, organoids, spheroids, and wound-healing assays.</p>
+            <p><strong>Teaching note:</strong> MDCK and Drosophila are especially common because they combine imaging accessibility with strong tissue organization.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Experimental tools</h3>
+            <p><strong>Common tools:</strong> Live imaging, cell segmentation, particle image velocimetry, traction force microscopy, monolayer stress microscopy, laser ablation, microcontact printing, micropatterning, optogenetics, AFM, and fluorescent mechanosensors.</p>
+            <p><strong>Teaching note:</strong> The main paper is useful because it combines several of these tools rather than relying on one measurement.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Simulation models</h3>
+            <p><strong>Common models:</strong> Vertex models, self-propelled Voronoi models, Cellular Potts models, phase-field models, agent-based models, active gel theory, active nematic hydrodynamics, continuum viscoelastic sheets, and finite-element tissue models.</p>
+            <p><strong>Teaching note:</strong> Vertex and Voronoi models are best for cell-resolved confluent tissues; active nematics are best for coarse-grained orientation, flow, and defects.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Data-analysis tools</h3>
+            <p><strong>Common tools:</strong> Image segmentation, cell tracking, topology extraction, orientation-field construction, defect detection, stress inference, Bayesian parameter inference, and model-data fitting.</p>
+            <p><strong>Teaching note:</strong> A modern tissue-mechanics paper often depends as much on quantitative image analysis as on the biological experiment itself.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-15 min:</strong> Why tissue mechanics matters: morphogenesis, wound healing, cancer invasion, homeostasis, and disease as mechanical as well as biochemical processes.</li>
+          <li><strong>15-30 min:</strong> Field map: experimental systems, main observables, common simulation models, and how vertex/Voronoi models differ from active-nematic continuum theory.</li>
+          <li><strong>30-45 min:</strong> Main paper setup:
+            <span class="keyword" tabindex="0">MDCK monolayer<span class="tooltip"><strong>Definition:</strong> A standard epithelial cell-sheet model. <strong>Why first:</strong> It gives students a concrete experimental tissue before introducing continuum theory.</span></span>,
+            <span class="keyword" tabindex="0">cell orientation field<span class="tooltip"><strong>Definition:</strong> A coarse-grained map of local cell alignment. <strong>Why first:</strong> Defects can only be defined after students understand the orientation field.</span></span>,
+            <span class="keyword" tabindex="0">+1/2 defect<span class="tooltip"><strong>Definition:</strong> A comet-like topological defect in a nematic orientation field. <strong>Why important:</strong> The paper identifies this defect type as an extrusion hotspot.</span></span>,
+            <span class="keyword" tabindex="0">monolayer stress<span class="tooltip"><strong>Definition:</strong> Internal stress inferred across a cell sheet. <strong>Why important:</strong> The argument depends on stress localization, not only visual correlation.</span></span>.
+          </li>
+          <li><strong>45-65 min:</strong> Figure-by-figure paper walkthrough: defect detection, active-nematic simulations, stress/strain-rate maps, YAP and caspase readouts, and controlled patterned defects.</li>
+          <li><strong>65-80 min:</strong> Interpretation: how a physical singularity can become a biological decision point, and why cell-cell junction strength matters.</li>
+          <li><strong>80-90 min:</strong> Comparison with vertex-model tissue mechanics: what this paper explains well, what it coarse-grains away, and when a cell-resolved model would be better.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Cell-orientation field<span class="tooltip"><strong>Definition:</strong> Local nematic direction extracted from elongated cell shapes. <strong>Why first:</strong> It is the input needed to identify topological defects.</span></span>:</strong> Without the orientation field, the central defect argument cannot be tested.</li>
+          <li><strong><span class="keyword" tabindex="0">Defect positions and charge<span class="tooltip"><strong>Definition:</strong> Locations and topological type of singularities in the orientation field. <strong>Why first:</strong> The main claim is a spatial correlation between +1/2 defects and extrusion.</span></span>:</strong> This converts images into a testable mechanical map.</li>
+          <li><strong><span class="keyword" tabindex="0">Stress and strain-rate maps<span class="tooltip"><strong>Definition:</strong> Fields describing internal force transmission and local deformation rate. <strong>Why first:</strong> These separate a purely geometric observation from a mechanical mechanism.</span></span>:</strong> Students should ask whether defects create stress concentration or only mark it.</li>
+          <li><strong><span class="keyword" tabindex="0">Extrusion probability near defects<span class="tooltip"><strong>Definition:</strong> Frequency of cell extrusion as a function of distance from defect cores. <strong>Why first:</strong> This is the cleanest statistical test of the paper's biological claim.</span></span>:</strong> It links physics to cell fate quantitatively.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Tissue mechanics asks how active, living materials generate and organize stress, not only how passive materials deform under load.</li>
+          <li>A strong tissue-mechanics paper usually combines imaging, quantitative fields, mechanical inference, perturbation, and a biological readout.</li>
+          <li>The selected paper is powerful because the active-nematic model predicts where biology happens: topological defects become extrusion hotspots.</li>
+          <li>Vertex and Voronoi models remain central for cell-resolved tissue mechanics, especially jamming, rearrangements, growth, and cell-shape questions.</li>
+          <li>The best experiments measure both mechanics and biology; force maps alone are incomplete unless they explain tissue function or fate.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>M. Lisa Manning:</strong> Central figure in vertex/Voronoi models, tissue rigidity, jamming, and cell-shape-based mechanical inference.</li>
+          <li><strong>Julia M. Yeomans:</strong> Key leader in active matter and active-nematic descriptions of cell layers and tissue defects.</li>
+          <li><strong>Corey O'Hern:</strong> Important for jamming, disordered mechanics, and connections between cell shape, packing, and tissue rigidity.</li>
+          <li><strong>Benoit Ladoux:</strong> Major experimental voice in epithelial mechanobiology, monolayer mechanics, and cell extrusion.</li>
+          <li><strong>Xavier Trepat:</strong> Important for collective cell migration, traction force microscopy, tissue stress, and wound healing.</li>
+          <li><strong>Jeffrey Fredberg and Jin-Ah Park:</strong> Important for epithelial unjamming, airway disease, and tissue-fluidization experiments.</li>
+          <li><strong>Guillaume Salbreux and Frank Julicher:</strong> Major contributors to continuum and vertex-style theories of epithelial morphogenesis.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Model Comparison</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Vertex model</h3>
+            <p><strong>Best for:</strong> Confluent epithelial geometry, cell areas, perimeters, junction tensions, T1 rearrangements, division, and extrusion.</p>
+            <p><strong>Limitation:</strong> It can become parameter-heavy and often needs careful calibration to experiments.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Self-propelled Voronoi model</h3>
+            <p><strong>Best for:</strong> Cell shape, motility, glassy dynamics, tissue rigidity, and jamming-like transitions in confluent tissues.</p>
+            <p><strong>Limitation:</strong> It compresses many biological processes into a few effective parameters such as motility and preferred shape.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Active nematic model</h3>
+            <p><strong>Best for:</strong> Orientation fields, defects, active stresses, flows, and collective tissue patterns at scales larger than one cell.</p>
+            <p><strong>Limitation:</strong> It usually does not track individual cell topology and may miss cell-level heterogeneity.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Continuum viscoelastic tissue</h3>
+            <p><strong>Best for:</strong> Large-scale stress, strain, flow, wound closure, tissue spreading, and organ-scale deformation.</p>
+            <p><strong>Limitation:</strong> It needs constitutive assumptions and can hide the cellular mechanisms behind the effective material law.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Why This Paper Works</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Top research-paper structure</h3>
+            <p><strong>Reason:</strong> The paper starts with a biologically important event, proposes a physical mechanism, tests it in experiments and simulations, and then perturbs the system.</p>
+            <p><strong>Teaching value:</strong> Students see how a top paper builds a causal story rather than only reporting correlations.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Mechanics-to-biology link</h3>
+            <p><strong>Reason:</strong> Defects are not only beautiful structures; they predict stress, mechanotransduction, caspase activity, and extrusion.</p>
+            <p><strong>Teaching value:</strong> This is the central reason tissue mechanics matters.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Distinct from phase-transition lecture</h3>
+            <p><strong>Reason:</strong> The focus here is active-nematic organization and cell fate, not primarily jamming or motility-driven phase transitions.</p>
+            <p><strong>Teaching value:</strong> The course gains a broader view of tissue physics instead of repeating the same model family.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Natural bridge to vertex models</h3>
+            <p><strong>Reason:</strong> The paper raises questions about individual cell shape, junction strength, rearrangements, and extrusion that vertex models can address.</p>
+            <p><strong>Teaching value:</strong> You can introduce vertex and Voronoi models as complementary tools after students understand the main paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Epithelial monolayer</h3>
+            <p><strong>Definition:</strong> A cohesive sheet of cells one cell thick or effectively analyzed as a two-dimensional layer.</p>
+            <p><strong>Why important:</strong> It is the main experimental platform for many quantitative tissue-mechanics papers.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Topological defect</h3>
+            <p><strong>Definition:</strong> A singular point in an orientation field classified by a topological charge.</p>
+            <p><strong>Why important:</strong> It is the central predictive object in the selected paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Cell extrusion</h3>
+            <p><strong>Definition:</strong> Removal of a cell from an epithelial layer, often apically or basally.</p>
+            <p><strong>Why important:</strong> It maintains homeostasis and is connected to development, inflammation, and cancer.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Traction force microscopy</h3>
+            <p><strong>Definition:</strong> A method that infers cell-substrate forces from deformation of a soft substrate with embedded markers.</p>
+            <p><strong>Why important:</strong> It is one of the standard experimental techniques for tissue mechanics.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Monolayer stress microscopy</h3>
+            <p><strong>Definition:</strong> A method that estimates internal stresses in a cell sheet from traction-force balance.</p>
+            <p><strong>Why important:</strong> It helps connect substrate forces to cell-cell force transmission.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Shape index</h3>
+            <p><strong>Definition:</strong> A dimensionless measure such as cell perimeter divided by square root of cell area.</p>
+            <p><strong>Why important:</strong> It is central in vertex/Voronoi approaches to tissue rigidity and jamming.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>What makes Saw et al. a tissue-mechanics paper rather than only a cell-biology paper?</li>
+          <li>Would you trust a topological-defect predictor of cell extrusion without a stress measurement? Why or why not?</li>
+          <li>When should one choose an active-nematic model instead of a vertex or Voronoi model?</li>
+          <li>Which observable is most fundamental in tissue mechanics: cell shape, force, motion, or biological fate?</li>
+          <li>If you were designing the next experiment, would you perturb geometry, contractility, adhesion, substrate stiffness, or cell density?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Summarize how the main paper converts images of cell shape into a mechanical prediction of extrusion.</li>
+          <li>Draw a concept map connecting orientation field, topological defect, stress concentration, YAP/caspase response, and extrusion.</li>
+          <li>Pick one model class, vertex, Voronoi, active nematic, or continuum viscoelastic, and explain what it would add to this paper.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Saw et al. (2017), <em>Topological defects in epithelia govern cell death and extrusion</em>, Nature 544, 212-216.
+            Note: Main lecture paper; a top example of experiments plus active-nematic theory linking tissue mechanics to cell fate.
+          </div>
+          <div class="reading-item">
+            Xi, Saw, Delacour, Lim, Ladoux (2019), <em>Material approaches to active tissue mechanics</em>, Nature Reviews Materials 4, 23-44.
+            Note: Excellent review for students who want a broad map of experimental platforms, active matter, mechanosensing, and tissue rheology.
+          </div>
+          <div class="reading-item">
+            Alt, Ganguly, Salbreux (2017), <em>Vertex models: from cell mechanics to tissue morphogenesis</em>, Philosophical Transactions of the Royal Society B 372, 20150520.
+            Note: Best off-class reading for the vertex-model side of the lecture.
+          </div>
+          <div class="reading-item">
+            Atia, Bi, Sharma, Mitchel, Gweon, Koehler, DeCamp, Weitz, Martin, Park, Butler, Fredberg et al. (2018), <em>Geometric constraints during epithelial jamming</em>, Nature Physics 14, 613-620.
+            Note: A strong Manning/O'Hern-adjacent tissue-jamming companion paper that links cell shape distributions to epithelial mechanical state.
+          </div>
+          <div class="reading-item">
+            Farhadifar, Roper, Aigouy, Eaton, Julicher (2007), <em>The influence of cell mechanics, cell-cell interactions, and proliferation on epithelial packing</em>, Current Biology 17, 2095-2104.
+            Note: Classic vertex-model paper for understanding how cell mechanics shapes epithelial packing.
+          </div>
+          <div class="reading-item">
+            Park et al. (2015), <em>Unjamming and cell shape in the asthmatic airway epithelium</em>, Nature Materials 14, 1040-1048.
+            Note: Important experimental tissue-jamming paper connecting epithelial fluidization to disease.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
