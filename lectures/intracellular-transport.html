@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 13 - Intracellular Transport</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 13</p>
+        <h1>Intracellular Transport</h1>
+        <p class="subtitle">From early tracer diffusion experiments to single-particle tracking in crowded mammalian cytoplasm</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Etoc, Balloul, Vicario, Normanno, Lisse, Sittner, Piehler, Dahan, and Coppey (2018)</strong>,
+          <em>Non-specific interactions govern cytosolic diffusion of nanosized objects in mammalian cells</em>,
+          Nature Materials 17, 740-746.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1038/s41563-018-0120-7" target="_blank" rel="noreferrer">10.1038/s41563-018-0120-7</a>
+        </p>
+        <p>
+          <strong>Why this is a strong entry paper for beginners:</strong> it sits at a useful crossroads between
+          cell biology, soft matter, and statistical physics. The paper is not trying to explain all intracellular
+          transport. Instead, it asks a narrower but very teachable question: when nanosized objects move through
+          cytoplasm, is their mobility mostly limited by simple
+          <span class="keyword" tabindex="0">crowding
+            <span class="tooltip"><strong>Definition:</strong> Steric hindrance from many macromolecules sharing limited space. <strong>Why it matters:</strong> Crowding is the classic first explanation for slow intracellular diffusion, so the paper tests whether it is sufficient.</span>
+          </span>,
+          by weak
+          <span class="keyword" tabindex="0">non-specific interactions
+            <span class="tooltip"><strong>Definition:</strong> Transient attractive or sticky interactions that are not lock-and-key binding to one intended target. <strong>Why it matters:</strong> The paper argues these weak interactions, more than crowding alone, control the crossover to slow and anomalous motion.</span>
+          </span>,
+          or by both?
+        </p>
+        <p>
+          <strong>Big question:</strong> In mammalian cells, when does intracellular transport look like ordinary
+          <span class="keyword" tabindex="0">Brownian diffusion
+            <span class="tooltip"><strong>Definition:</strong> Random motion with a mean-square displacement proportional to time. <strong>Why it matters:</strong> Brownian motion is the clean baseline against which all anomalous transport is judged.</span>
+          </span>
+          in a low-viscosity fluid, and when does it become
+          <span class="keyword" tabindex="0">subdiffusive
+            <span class="tooltip"><strong>Definition:</strong> Slower-than-Brownian spreading, often with mean-square displacement proportional to time to a power smaller than one. <strong>Why it matters:</strong> Subdiffusion signals that simple viscosity is not enough; geometry, binding, or memory effects are shaping transport.</span>
+          </span>
+          because cytoplasmic objects transiently stick to their surroundings?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>Where This Lecture Sits in Intracellular Transport</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Passive diffusion</h3>
+            <p><strong>Main idea:</strong> Small molecules and nanosized tracers move because of thermal fluctuations.</p>
+            <p><strong>Why important here:</strong> This paper is mainly about how diffusion is altered by cytoplasmic architecture and weak interactions.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Motor-driven transport</h3>
+            <p><strong>Main idea:</strong> Vesicles, organelles, and cargos can be carried by kinesin, dynein, or myosin along cytoskeletal tracks.</p>
+            <p><strong>Why important here:</strong> Students should not confuse active transport with the passive and anomalous transport mechanisms emphasized in this paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Advection and cytoplasmic flow</h3>
+            <p><strong>Main idea:</strong> Large-scale streaming or local flows can move material even without a motor attached to every cargo.</p>
+            <p><strong>Why important here:</strong> It is another transport channel, but this paper instead isolates single-particle diffusion signatures.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Why start with this paper?</h3>
+            <p><strong>Reason:</strong> It is narrow enough to teach carefully, but broad enough to introduce crowding, anomalous diffusion, single-particle tracking, and phenomenological modeling.</p>
+            <p><strong>Teaching value:</strong> It gives you and the students a map of one major branch of intracellular transport before expanding to motors and organelles.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>1981-1987: classical tracer era.</strong> Early work by Wojcieszyn, Jacobson, and Luby-Phelps used injected or introduced macromolecules and inert particles to ask a basic question: how freely can objects move inside living cytoplasm?
+          </div>
+          <div class="history-item">
+            <strong>1982-2000: the crowding question becomes central.</strong> Fulton framed the famous question "How crowded is the cytoplasm?", and Luby-Phelps turned cytoplasm into a quantitative physical medium with measurable viscosity, diffusion, and steric exclusion.
+          </div>
+          <div class="history-item">
+            <strong>1990s: model cytoplasm and size cutoff studies.</strong> Experiments in F-actin/Ficoll mixtures and actin-rich domains connected tracer size and mesh-like structure to hindered motion and steric exclusion.
+          </div>
+          <div class="history-item">
+            <strong>2000s: anomalous diffusion enters the field.</strong> Multiple groups reported subdiffusion, leading to the idea that intracellular transport may be governed by more than simple viscosity: obstacles, trapping, binding, or viscoelastic memory could all matter.
+          </div>
+          <div class="history-item">
+            <strong>2010s: single-particle tracking and statistical-physics language mature.</strong> Quantum dots, local mean-square-displacement analysis, ergodicity tests, CTRW-style models, and microrheology gave the field sharper tools for distinguishing mechanisms rather than only describing slow motion.
+          </div>
+          <div class="history-item">
+            <strong>2013-2017: cell mechanics broadens the transport picture.</strong> Poroelasticity, force spectrum microscopy, and size-dependent cytoplasmic mechanics showed that the cell interior is not just crowded; it is mechanically active and structured across scales.
+          </div>
+          <div class="history-item">
+            <strong>2018: what this paper changes.</strong> Etoc et al. compare nanosized probes with similar sizes but different biochemical identities and argue that weak non-specific interactions, not crowding alone, largely control the shift from Brownian to anomalous transport.
+          </div>
+          <div class="history-item">
+            <strong>Why this matters now.</strong> This logic is relevant for intracellular delivery, nanoparticle design, probe design, and for interpreting any experiment that uses a fluorescent cargo as if it were an inert reporter.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>How the Methods Evolved</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Microinjection and cytosolic loading</h3>
+            <p><strong>Old problem:</strong> You cannot study intracellular transport without getting tracers into the cytoplasm in a controlled way.</p>
+            <p><strong>Field development:</strong> Early studies used microinjection or related delivery methods; later work refined cytosolic loading and discrimination of free particles from vesicle-trapped particles.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Bulk fluorescence methods</h3>
+            <p><strong>Examples:</strong> FRAP-like recovery ideas and fluorescence-based viscosity probes.</p>
+            <p><strong>Strength:</strong> They established average mobility and low solvent viscosity. <strong>Limitation:</strong> They average over heterogeneity and usually cannot resolve rare or trapped trajectories.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Single-particle tracking</h3>
+            <p><strong>Upgrade:</strong> Quantum dots and bright fluorescent nanoparticles made it possible to track one object at a time in living cells.</p>
+            <p><strong>Why transformative:</strong> It reveals trajectory-to-trajectory variability, transient trapping, and rare events hidden by ensemble averages.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Microrheology</h3>
+            <p><strong>Question:</strong> Is the cytoplasm behaving like a fluid, elastic meshwork, poroelastic medium, or active noisy material?</p>
+            <p><strong>Contribution:</strong> Microrheology linked transport measurements to mechanical response instead of treating diffusion as a purely geometrical problem.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Local MSD and error-aware analysis</h3>
+            <p><strong>Need:</strong> Intracellular trajectories are finite, noisy, and heterogeneous.</p>
+            <p><strong>Contribution:</strong> Local mean-square-displacement analysis and localization-error corrections let researchers separate real anomalous motion from tracking artifacts.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Ergodicity tests</h3>
+            <p><strong>Question:</strong> Do time averages along one trajectory match ensemble averages over many particles?</p>
+            <p><strong>Why important:</strong> If not, then the underlying transport may involve trapping or non-stationary kinetics rather than ordinary diffusion in a simple viscous medium.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Minimal transport models</h3>
+            <p><strong>Families:</strong> Obstacle models, binding models, viscoelastic models, CTRW models, and subordinated random walks.</p>
+            <p><strong>Teaching value:</strong> Students learn that "subdiffusion" is not one mechanism; it is a behavior that multiple models can produce.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Modern comparison strategy</h3>
+            <p><strong>Main idea:</strong> Vary size, surface chemistry, and cell type while keeping the tracking/analysis pipeline fixed.</p>
+            <p><strong>Why powerful:</strong> This is how the 2018 paper turns a descriptive diffusion study into a mechanistic comparison.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Main Paper: Experimental and Analysis Workflow</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>1. Build matched probe families</h3>
+            <p><strong>Strategy:</strong> Compare nanoparticles that are similar in size but differ in biochemical identity or surface chemistry.</p>
+            <p><strong>Reason:</strong> This reduces the chance that any mobility difference is only a size effect.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>2. Load probes into the cytoplasm</h3>
+            <p><strong>Strategy:</strong> Introduce particles into mammalian cells and validate that tracked particles are free in cytoplasm rather than still trapped in intact vesicles.</p>
+            <p><strong>Reason:</strong> Vesicle-confined particles would create a false transport signature.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>3. Track single particles at high time resolution</h3>
+            <p><strong>Observables:</strong> Individual trajectories, frame-to-frame displacements, and heterogeneity across particles.</p>
+            <p><strong>Reason:</strong> The paper needs single-particle data to distinguish Brownian motion from intermittent trapping.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>4. Compute MSD-style diagnostics</h3>
+            <p><strong>Core outputs:</strong> Diffusivity, scaling exponent, and how these change with size and particle chemistry.</p>
+            <p><strong>Reason:</strong> These are the first quantitative checks of Brownian versus subdiffusive behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>5. Test ergodicity and variability</h3>
+            <p><strong>Goal:</strong> Determine whether slow motion reflects a uniform effective viscosity or a broad distribution of waiting times and trapping events.</p>
+            <p><strong>Reason:</strong> Figure 3 and the model logic point directly toward non-ergodic or intermittently trapped dynamics for some probes.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>6. Fit a minimal phenomenological model</h3>
+            <p><strong>Model choice:</strong> A CTRW-type description is used to capture the transition from Brownian to subdiffusive motion.</p>
+            <p><strong>Reason:</strong> The model is not the whole biology; it is a compact way to express the statistics implied by transient interactions.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>7. Rank probes by interaction strength</h3>
+            <p><strong>Interpretation move:</strong> Instead of only saying which probe is slower, the paper orders probes by how strongly they likely interact with cytoplasmic components.</p>
+            <p><strong>Reason:</strong> This is the conceptual bridge from data to mechanism.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>8. End with a transport phase map</h3>
+            <p><strong>Final message:</strong> Small inert objects can move Brownianly in a low-viscosity aqueous environment, but size plus stickiness pushes transport into the anomalous regime.</p>
+            <p><strong>Reason:</strong> This becomes the student-friendly synthesis figure for the lecture.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Map the field: passive diffusion, motor transport, streaming, and why this lecture focuses on cytoplasmic diffusion of nanosized probes.</li>
+          <li><strong>10-25 min:</strong> Historical arc from injected tracers and crowding arguments to anomalous diffusion and single-particle tracking.</li>
+          <li><strong>25-40 min:</strong> Methods evolution: delivery into cells, fluorescence tools, tracking, MSD analysis, ergodicity tests, and minimal models.</li>
+          <li><strong>40-60 min:</strong> Main paper setup: probe families, mammalian-cell measurements, free versus vesicle-trapped validation, and size/surface-chemistry comparison.</li>
+          <li><strong>60-75 min:</strong> Figure-by-figure logic: Brownian motion for small inert probes, mobility drop above 50 nm, intrinsic subdiffusion for interactive probes, CTRW model, and ranked interaction strengths.</li>
+          <li><strong>75-85 min:</strong> Interpretation and limits: what the paper can prove, what remains phenomenological, and how one would distinguish binding, crowding, and active remodeling more sharply.</li>
+          <li><strong>85-90 min:</strong> Wrap-up: where this lecture connects to future topics such as condensates, active transport, and intracellular delivery.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Mean-square displacement (MSD)<span class="tooltip"><strong>Definition:</strong> Average squared displacement as a function of lag time. <strong>Why first:</strong> It is the basic diagnostic for deciding whether motion is Brownian, subdiffusive, or affected by finite-time artifacts.</span></span>:</strong> Start by checking whether MSD grows linearly with time or more slowly.</li>
+          <li><strong><span class="keyword" tabindex="0">Anomalous exponent \(\alpha\)<span class="tooltip"><strong>Definition:</strong> The exponent in MSD \(\sim t^{\alpha}\). <strong>Why first:</strong> It compresses the transport regime into one number: \(\alpha=1\) for Brownian diffusion and \(\alpha&lt;1\) for subdiffusion.</span></span>:</strong> Compare \(\alpha\) across probe size and chemistry.</li>
+          <li><strong><span class="keyword" tabindex="0">Ensemble versus time-averaged MSD<span class="tooltip"><strong>Definition:</strong> Comparison between averages over many particles and averages along one trajectory. <strong>Why first:</strong> A mismatch is a direct warning sign of non-ergodic or heterogeneous dynamics.</span></span>:</strong> This is the cleanest entry to the ergodicity question in Fig. 3.</li>
+          <li><strong><span class="keyword" tabindex="0">Diffusivity versus particle size<span class="tooltip"><strong>Definition:</strong> Effective diffusion coefficient as a function of tracer diameter. <strong>Why first:</strong> It tells students when size alone starts to matter strongly, including the important 50 nm scale emphasized in the paper.</span></span>:</strong> Use it to separate geometry effects from chemistry effects.</li>
+          <li><strong><span class="keyword" tabindex="0">Probe ranking by interaction strength<span class="tooltip"><strong>Definition:</strong> Ordering probes by how sticky they appear to be in the cytoplasm. <strong>Why first:</strong> This is the paper's main mechanistic output, not just a descriptive mobility table.</span></span>:</strong> It turns single-particle data into a transport design principle.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>Intracellular transport is not one mechanism. Diffusion, anomalous diffusion, motor transport, and flow must be separated conceptually before students can read the literature clearly.</li>
+          <li>The history of this field matters because the central interpretation changed over time: from "cytoplasm is crowded" to "crowding is not the whole story".</li>
+          <li>Method development drove the field forward. The shift from bulk averages to single-particle trajectories is what made mechanism-level arguments possible.</li>
+          <li>The 2018 paper is valuable because it changes the control parameter from only size to size plus biochemical identity.</li>
+          <li>Subdiffusion is a symptom, not a diagnosis. Students must always ask what microscopic mechanism could generate it.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Kurt Luby-Phelps:</strong> Foundational figure in measuring cytoplasmic diffusion, viscosity, and size exclusion, and in turning the cytoplasm into a quantitative physical environment.</li>
+          <li><strong>A. S. Verkman:</strong> Important for diffusion and viscosity measurements in living cells and for the broader crowding literature.</li>
+          <li><strong>Matthias Weiss:</strong> Central to the anomalous-diffusion and cytoplasmic-crowding debate in living cells.</li>
+          <li><strong>Ralf Metzler:</strong> One of the main statistical-physics voices behind anomalous diffusion, non-ergodicity, CTRW ideas, and how to diagnose subdiffusive mechanisms.</li>
+          <li><strong>Felix Hofling and Thomas Franosch:</strong> Important for the crowded-cell transport review literature and for connecting biological transport to soft-matter/statistical-physics frameworks.</li>
+          <li><strong>Maxime Dahan and Mathieu Coppey:</strong> Especially relevant for this lecture because of their work on nanoparticle tracking and intracellular transport at the single-particle level.</li>
+          <li><strong>David Wirtz:</strong> Important for intracellular microrheology and the mechanics side of cytoplasmic transport.</li>
+          <li><strong>Ming Guo:</strong> Important for force spectrum microscopy and the active, motor-driven view of cytoplasmic mechanics.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Transport Models Students Should Distinguish</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Brownian diffusion</h3>
+            <p><strong>Best for:</strong> Small inert objects in a roughly homogeneous fluid environment.</p>
+            <p><strong>Limitation:</strong> It misses trapping, heterogeneity, and memory effects.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Obstacle or crowding models</h3>
+            <p><strong>Best for:</strong> Steric hindrance from a dense environment with limited free volume.</p>
+            <p><strong>Limitation:</strong> They may explain slow motion but not all cases of non-ergodicity or chemistry-dependent trapping.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Binding or sticky-interaction models</h3>
+            <p><strong>Best for:</strong> Probes that repeatedly attach to and detach from cellular structures.</p>
+            <p><strong>Limitation:</strong> They need a biochemical interpretation of what the probe is transiently binding to.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>CTRW-type models</h3>
+            <p><strong>Best for:</strong> Intermittent motion with broad waiting times and possible ergodicity breaking.</p>
+            <p><strong>Limitation:</strong> They are phenomenological unless paired with independent evidence for the microscopic trap process.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Viscoelastic or fractional models</h3>
+            <p><strong>Best for:</strong> Media that store memory and relax over many timescales.</p>
+            <p><strong>Limitation:</strong> They can fit subdiffusion without identifying whether binding or structure is the real cause.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Active transport models</h3>
+            <p><strong>Best for:</strong> Directed, motor-driven cargo motion along cytoskeletal tracks.</p>
+            <p><strong>Limitation:</strong> They are the wrong first model for the passive nanoparticle data in this paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Cytoplasm</h3>
+            <p><strong>Definition:</strong> The intracellular medium surrounding organelles and cytoskeletal structures, containing water, ions, proteins, RNAs, membranes, and active machinery.</p>
+            <p><strong>Why important:</strong> It is neither pure water nor a simple gel; its structure and activity shape transport.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Molecular crowding</h3>
+            <p><strong>Definition:</strong> Reduced accessible volume caused by many macromolecules occupying the same space.</p>
+            <p><strong>Why important:</strong> It is the traditional explanation for slow intracellular diffusion that this paper revisits critically.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Non-specific interaction</h3>
+            <p><strong>Definition:</strong> Weak, transient interaction not tied to one unique receptor or transport target.</p>
+            <p><strong>Why important:</strong> The paper argues these interactions are the main control knob for anomalous nanoparticle mobility.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Single-particle tracking</h3>
+            <p><strong>Definition:</strong> Imaging and localizing one fluorescent object over time to reconstruct its trajectory.</p>
+            <p><strong>Why important:</strong> It is the core measurement method of the lecture paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Subdiffusion</h3>
+            <p><strong>Definition:</strong> Slower-than-Brownian spreading, often summarized by an MSD exponent smaller than one.</p>
+            <p><strong>Why important:</strong> It is the main anomalous behavior students must interpret mechanistically.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Ergodicity breaking</h3>
+            <p><strong>Definition:</strong> Failure of long-time averages along one trajectory to match averages over many particles.</p>
+            <p><strong>Why important:</strong> It tells us the cell interior cannot always be summarized by one effective viscosity.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>CTRW</h3>
+            <p><strong>Definition:</strong> Continuous-time random walk, a model with random steps separated by random waiting times.</p>
+            <p><strong>Why important:</strong> It provides the paper's compact statistical description of intermittently trapped motion.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Microrheology</h3>
+            <p><strong>Definition:</strong> Inference of local mechanical response from tracer motion or driven probes.</p>
+            <p><strong>Why important:</strong> It connects transport data to the material properties of the cytoplasm.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>If two probes have similar size but very different transport behavior, what hypotheses should you test before blaming crowding?</li>
+          <li>What does this paper gain by comparing biochemical identity at fixed nanoscale size?</li>
+          <li>When should a student interpret subdiffusion as evidence for trapping, and when might a viscoelastic explanation be better?</li>
+          <li>Why is validating free cytosolic release versus vesicle confinement such an important control?</li>
+          <li>If you wanted to extend this lecture toward motor-driven transport, what observable would you need that is absent from this paper?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page history note tracing how the field moved from crowding arguments to single-particle anomalous-transport models.</li>
+          <li>Draw the full analysis pipeline of the paper from particle delivery to trajectory statistics to mechanistic interpretation.</li>
+          <li>Choose one alternative model, obstacle, binding, viscoelastic, or active transport, and explain what extra experiment would help distinguish it from the CTRW-style interpretation.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Etoc, Balloul, Vicario, Normanno, Lisse, Sittner, Piehler, Dahan, Coppey (2018), <em>Non-specific interactions govern cytosolic diffusion of nanosized objects in mammalian cells</em>, Nature Materials 17, 740-746.
+            Note: Main lecture paper; strongest single example here of using matched nanoparticle probes to separate crowding from weak sticky interactions.
+          </div>
+          <div class="reading-item">
+            Hofling and Franosch (2013), <em>Anomalous transport in the crowded world of biological cells</em>, Reports on Progress in Physics 76, 046602.
+            Note: Best broad field map for students who want the statistical-physics background behind anomalous intracellular transport.
+          </div>
+          <div class="reading-item">
+            Dix and Verkman (2008), <em>Crowding effects on diffusion in solutions and cells</em>, Annual Review of Biophysics 37, 247-263.
+            Note: Strong review for understanding the classical crowding interpretation that the 2018 paper revises.
+          </div>
+          <div class="reading-item">
+            Luby-Phelps (2000), <em>Cytoarchitecture and physical properties of cytoplasm: volume, viscosity, diffusion, intracellular surface area</em>, International Review of Cytology 192, 189-221.
+            Note: A foundational review for the pre-single-particle-tracking era and still one of the best ways to learn the physical language of cytoplasm.
+          </div>
+          <div class="reading-item">
+            Meroz and Sokolov (2015), <em>A toolbox for determining subdiffusive mechanisms</em>, Physics Reports 573, 1-29.
+            Note: Excellent methods reading for students who want to learn how one tells different anomalous-diffusion mechanisms apart.
+          </div>
+          <div class="reading-item">
+            Guo et al. (2014), <em>Probing the stochastic, motor-driven properties of the cytoplasm using force spectrum microscopy</em>, Cell 158, 822-832.
+            Note: A useful companion if you want to connect passive diffusion to the active mechanical fluctuations of the cytoplasm.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
