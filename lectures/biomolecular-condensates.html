@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 14 - Biomolecular Condensates</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 14</p>
+        <h1>Biomolecular Condensates</h1>
+        <p class="subtitle">From P granules in embryos to phase separation as a physical organizing principle in cells</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Brangwynne, Eckmann, Courson, Rybarska, Hoege, Gharakhani, Julicher, and Hyman (2009)</strong>,
+          <em>Germline P granules are liquid droplets that localize by controlled dissolution/condensation</em>,
+          Science 324, 1729-1732.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1126/science.1172046" target="_blank" rel="noreferrer">10.1126/science.1172046</a>
+        </p>
+        <p>
+          <strong>Why this is the right lecture anchor:</strong> this is one of the papers that made the modern biomolecular-condensates field feel physically concrete.
+          The authors did not only say that P granules are unusual puncta in cells. They argued that these structures behave like
+          <span class="keyword" tabindex="0">liquid droplets
+            <span class="tooltip"><strong>Definition:</strong> Condensed liquid phases that can fuse, deform, wet surfaces, and relax shape through surface tension and viscosity. <strong>Why it matters:</strong> This paper made droplet physics a usable language for intracellular organization.</span>
+          </span>
+          and that their localization can be explained by a spatially controlled
+          <span class="keyword" tabindex="0">phase transition
+            <span class="tooltip"><strong>Definition:</strong> A transition between a dilute state and a condensed state driven by thermodynamic or effective cellular control parameters. <strong>Why it matters:</strong> It turned a cell-biology localization problem into a quantitative soft-matter problem.</span>
+          </span>.
+        </p>
+        <p>
+          <strong>Big question:</strong> Can cells organize molecules into functional compartments without membranes by using
+          <span class="keyword" tabindex="0">phase separation
+            <span class="tooltip"><strong>Definition:</strong> Demixing of molecules into coexisting dense and dilute phases. <strong>Why it matters:</strong> It provides a unifying framework for P granules, nucleoli, stress granules, and many other condensates.</span>
+          </span>,
+          and if so, how do we tell the difference between a real condensate and an ordinary aggregate, scaffold, or static cluster?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>Where This Lecture Sits in the Field</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Cell-biology side</h3>
+            <p><strong>Main concern:</strong> What are P granules, nucleoli, stress granules, Cajal bodies, and germ granules doing in cells?</p>
+            <p><strong>Why important here:</strong> The original biological question was about localization and function, not yet about phase diagrams.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Soft-matter side</h3>
+            <p><strong>Main concern:</strong> Can coexisting dense phases, capillarity, wetting, and coarsening explain intracellular compartmentalization?</p>
+            <p><strong>Why important here:</strong> This is the physical translation that made condensates a major biophysics topic.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Molecular-biology side</h3>
+            <p><strong>Main concern:</strong> Which proteins, RNAs, domains, and interaction motifs actually drive condensation?</p>
+            <p><strong>Why important here:</strong> Later work moved from droplet phenomenology to sequence grammar and multivalency.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Why start with P granules?</h3>
+            <p><strong>Reason:</strong> They offer a clean historical origin for the field and connect imaging, embryo polarity, fluid behavior, and physical interpretation in one short paper.</p>
+            <p><strong>Teaching value:</strong> Students see how a major concept begins with a simple but sharp experimental argument.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Pre-2009: membraneless organelles were known but not unified.</strong> Cell biologists had long observed nucleoli, Cajal bodies, P bodies, and germ granules, but these compartments were often described functionally rather than with a common physical framework.
+          </div>
+          <div class="history-item">
+            <strong>Before the phase-separation language became standard.</strong> Researchers knew that many intracellular bodies were dynamic and lacked membranes, but the field did not yet have one dominant mechanistic picture tying these observations together.
+          </div>
+          <div class="history-item">
+            <strong>2009: the Brangwynne turning point.</strong> The Science paper on P granules argued that a classic liquid phase transition can structure the cytoplasm and control localization in a living embryo.
+          </div>
+          <div class="history-item">
+            <strong>2012-2015: multivalency and in vitro reconstitution accelerate the field.</strong> Work on multivalent signaling proteins, disordered proteins, and FUS-like systems showed that condensate formation could be rebuilt and tuned outside cells.
+          </div>
+          <div class="history-item">
+            <strong>2014-2018: the field gains a broader vocabulary.</strong> Review and research papers connected liquid-liquid phase separation, intrinsically disordered regions, RNA binding, material properties, and disease-linked solidification.
+          </div>
+          <div class="history-item">
+            <strong>Late 2010s: skepticism and refinement.</strong> Researchers started asking harder questions: when does liquid behavior really imply equilibrium phase separation, what measurements distinguish condensates from networks or gels, and how much do active cellular processes matter?
+          </div>
+          <div class="history-item">
+            <strong>2020s: sequence-to-material and function-to-mechanics era.</strong> The field now studies composition, viscoelasticity, aging, wetting, active remodeling, capillary forces, and pathological liquid-to-solid transitions.
+          </div>
+          <div class="history-item">
+            <strong>Why this matters for students now.</strong> Biomolecular condensates are no longer a niche idea; they connect cell organization, gene regulation, stress response, neurodegeneration, synthetic biology, and soft condensed matter.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>How the Methods Evolved</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Classical fluorescence microscopy</h3>
+            <p><strong>What it gave:</strong> Location, morphology, timing, and inheritance of intracellular puncta.</p>
+            <p><strong>Limitation:</strong> It showed where structures were, but not whether they were liquid, gel-like, or static assemblies.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Time-lapse imaging in living embryos</h3>
+            <p><strong>Upgrade:</strong> Researchers could observe droplets move, fuse, dissolve, condense, and respond to developmental polarity in real time.</p>
+            <p><strong>Why important:</strong> This is the central experimental strength of the 2009 P-granule paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Droplet-physics observables</h3>
+            <p><strong>Examples:</strong> Fusion, wetting, dripping, rounding, and interface relaxation.</p>
+            <p><strong>Why important:</strong> These measurements imported capillarity and viscosity language into cell biology.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>FRAP and exchange measurements</h3>
+            <p><strong>Question:</strong> How quickly do molecules exchange between condensate and surroundings?</p>
+            <p><strong>Why important:</strong> FRAP became one of the most common later tests of fluidity and internal mobility, even though it is not sufficient on its own.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>In vitro reconstitution</h3>
+            <p><strong>Question:</strong> Can the same proteins or RNAs form condensates outside the cell under controlled conditions?</p>
+            <p><strong>Why important:</strong> Reconstitution made it possible to build phase diagrams and test sequence-level causality.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Sequence and domain perturbation</h3>
+            <p><strong>Question:</strong> Which motifs, valencies, charges, and disordered regions control condensation?</p>
+            <p><strong>Why important:</strong> This shifted the field from descriptive imaging to molecular design rules.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Microrheology and material-state assays</h3>
+            <p><strong>Question:</strong> Is a condensate a simple liquid, a viscoelastic drop, a gel, or an aging solid-like assembly?</p>
+            <p><strong>Why important:</strong> The field matured when it stopped treating all condensates as equivalent liquids.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Composition and proximity mapping</h3>
+            <p><strong>Tools:</strong> Proteomics, RNA profiling, proximity labeling, and single-molecule methods.</p>
+            <p><strong>Why important:</strong> These methods connect material state to biochemical function.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Main Paper: Experimental and Interpretation Workflow</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>1. Start from a biological localization problem</h3>
+            <p><strong>Question:</strong> Why do P granules accumulate in the posterior of the one-cell embryo?</p>
+            <p><strong>Reason:</strong> The paper begins with a classical developmental-biology observation, not a purely physical one.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>2. Image granules dynamically in vivo</h3>
+            <p><strong>Observables:</strong> Fusion events, shape fluctuations, movement, and disappearance or reappearance in different embryo regions.</p>
+            <p><strong>Reason:</strong> Liquid-like behavior must be seen as dynamics, not just as round shapes in snapshots.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>3. Compare behavior to ordinary droplets</h3>
+            <p><strong>Physical signatures:</strong> Fusion, dripping, wetting, and relaxation toward rounder shapes.</p>
+            <p><strong>Reason:</strong> This is the central bridge from microscopy to fluid mechanics.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>4. Estimate material properties</h3>
+            <p><strong>Outputs:</strong> Effective viscosity and surface tension from droplet dynamics.</p>
+            <p><strong>Reason:</strong> The paper gains credibility because it does not stop at metaphor; it extracts physical parameters.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>5. Connect position to condensation and dissolution</h3>
+            <p><strong>Main idea:</strong> P-granule localization is explained by a biased increase in condensation in the posterior rather than by active transport of intact granules.</p>
+            <p><strong>Reason:</strong> This changes the mechanistic picture from cargo trafficking to local phase behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>6. Link embryo polarity to phase boundary control</h3>
+            <p><strong>Main idea:</strong> Polarity proteins shift the local tendency to condense across the cell.</p>
+            <p><strong>Reason:</strong> This is where developmental regulation enters the physical story.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>7. Generalize carefully</h3>
+            <p><strong>Claim:</strong> A classic phase transition may be a general way cells organize membraneless compartments.</p>
+            <p><strong>Reason:</strong> The paper is influential because it proposes a broad principle while staying tied to one concrete system.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>8. What later papers added</h3>
+            <p><strong>Extensions:</strong> Reconstitution, FRAP, phase diagrams, IDR sequence rules, RNA effects, pathological aging, and active remodeling.</p>
+            <p><strong>Reason:</strong> Students should see this paper as the opening move, not the final form of the field.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> What biomolecular condensates are and why membraneless compartmentalization matters biologically.</li>
+          <li><strong>10-25 min:</strong> History: from nucleoli and granules as cell-biology objects to the 2009 P-granule turning point.</li>
+          <li><strong>25-40 min:</strong> Methods: live imaging, droplet observables, FRAP, reconstitution, mutational design, and microrheology.</li>
+          <li><strong>40-60 min:</strong> Main paper walkthrough: embryo polarity, P-granule motion, fusion, wetting, dissolution, and condensation bias.</li>
+          <li><strong>60-75 min:</strong> What to calculate and infer: viscosity, surface tension, localization mechanism, and why active transport is not the default interpretation here.</li>
+          <li><strong>75-85 min:</strong> Modern refinements: liquids versus gels, active condensates, disease-linked solidification, and limits of FRAP-only arguments.</li>
+          <li><strong>85-90 min:</strong> Wrap-up and connection to intracellular transport, RNA regulation, and pathological protein aggregation.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">Fusion relaxation time<span class="tooltip"><strong>Definition:</strong> The timescale over which two merged droplets relax toward a rounder shape. <strong>Why first:</strong> It is a direct route to estimating effective viscosity and surface tension.</span></span>:</strong> This is one of the clearest physics observables in the main paper.</li>
+          <li><strong><span class="keyword" tabindex="0">Aspect-ratio relaxation<span class="tooltip"><strong>Definition:</strong> Shape recovery toward a sphere or circle after deformation. <strong>Why first:</strong> It tests whether capillarity is a meaningful restoring force.</span></span>:</strong> Students can see how "liquid-like" becomes quantitative.</li>
+          <li><strong><span class="keyword" tabindex="0">Posterior versus anterior condensation bias<span class="tooltip"><strong>Definition:</strong> Difference in net droplet growth tendency across the embryo. <strong>Why first:</strong> It is the central localization mechanism proposed by the paper.</span></span>:</strong> This separates local phase control from simple transport.</li>
+          <li><strong><span class="keyword" tabindex="0">Partitioning / concentration contrast<span class="tooltip"><strong>Definition:</strong> Ratio of component concentration inside the condensate to the surrounding phase. <strong>Why first:</strong> It is the simplest quantitative expression of condensation itself.</span></span>:</strong> Later field development turned this idea into phase diagrams and binodals.</li>
+          <li><strong><span class="keyword" tabindex="0">Recovery or exchange times<span class="tooltip"><strong>Definition:</strong> Characteristic times for molecular turnover between dense and dilute phases. <strong>Why first:</strong> It helps students connect classic droplet behavior to later FRAP-based condensate literature.</span></span>:</strong> Use this to discuss what fluidity does and does not prove.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>The condensates field became influential because it connected ordinary soft-matter concepts to a long-standing cell-biology problem.</li>
+          <li>The strongest early evidence came from dynamics such as fusion, wetting, and dissolution, not from static images of round puncta.</li>
+          <li>This 2009 paper is historically central because it reframed localization as local condensation control rather than only directed transport.</li>
+          <li>Methods matter here: live imaging opened the door, but later reconstitution and rheology were needed to make the field more mechanistic.</li>
+          <li>Modern condensate research is more careful than the first wave; not every punctum is a simple liquid, and not every liquid-like body is at thermodynamic equilibrium.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Clifford P. Brangwynne:</strong> Foundational leader in the condensates field, especially P granules, nucleoli, capillarity, and cell-scale phase separation.</li>
+          <li><strong>Anthony A. Hyman:</strong> Central figure in phase separation in cell biology and one of the most influential voices in biomolecular condensates.</li>
+          <li><strong>Frank Julicher:</strong> Key theorist connecting active matter, phase separation, and intracellular organization.</li>
+          <li><strong>Michael K. Rosen:</strong> Major leader in multivalency, reconstitution, and the molecular grammar of condensate assembly.</li>
+          <li><strong>Simon Alberti:</strong> Important for stress granules, condensate material states, and disease-relevant transitions.</li>
+          <li><strong>Tanja Mittag:</strong> Important for disordered proteins, sequence features, and physical chemistry of condensates.</li>
+          <li><strong>Richard W. Kriwacki:</strong> Important for disordered regions, phase behavior, and condensates in cell-cycle regulation.</li>
+          <li><strong>Geraldine Seydoux:</strong> Especially relevant for P granules, germ granules, and the biological side of condensate organization.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Methods Students Should Distinguish</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Live imaging</h3>
+            <p><strong>Best for:</strong> Observing fusion, dissolution, position changes, and developmental timing.</p>
+            <p><strong>Limitation:</strong> Morphology alone does not prove a phase-separated liquid state.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>FRAP</h3>
+            <p><strong>Best for:</strong> Measuring molecular exchange and apparent mobility.</p>
+            <p><strong>Limitation:</strong> Fast recovery does not uniquely identify a simple liquid, and slow recovery does not necessarily mean a solid.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>In vitro reconstitution</h3>
+            <p><strong>Best for:</strong> Building phase diagrams and testing whether specific molecules are sufficient for condensation.</p>
+            <p><strong>Limitation:</strong> Cell conditions, crowding, ATP, RNAs, and active remodeling may be missing.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Mutational perturbation</h3>
+            <p><strong>Best for:</strong> Identifying sequence motifs, valency, charge patterning, and domain requirements.</p>
+            <p><strong>Limitation:</strong> A mutation can change function in ways not limited to phase behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Microrheology</h3>
+            <p><strong>Best for:</strong> Distinguishing liquids, viscoelastic condensates, gels, and aging assemblies.</p>
+            <p><strong>Limitation:</strong> Measurements can be technically difficult and interpretation depends on the driving or probe choice.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Composition mapping</h3>
+            <p><strong>Best for:</strong> Learning what is in a condensate and how selectively it partitions molecules.</p>
+            <p><strong>Limitation:</strong> Composition alone does not reveal the material state or assembly mechanism.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Biomolecular condensate</h3>
+            <p><strong>Definition:</strong> A dense molecular assembly in cells formed without a delimiting membrane, often through many weak interactions.</p>
+            <p><strong>Why important:</strong> It is the umbrella term that now covers many previously separate membraneless compartments.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Liquid-liquid phase separation</h3>
+            <p><strong>Definition:</strong> Separation of one mixed phase into coexisting dense and dilute liquid phases.</p>
+            <p><strong>Why important:</strong> It is the main physical framework introduced by the field-defining papers.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Multivalency</h3>
+            <p><strong>Definition:</strong> Presence of multiple interaction sites that allow network-like assembly through many weak contacts.</p>
+            <p><strong>Why important:</strong> It became one of the key molecular explanations for condensate formation.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Intrinsically disordered region</h3>
+            <p><strong>Definition:</strong> Protein region lacking one stable folded structure under physiological conditions.</p>
+            <p><strong>Why important:</strong> Many condensate-forming proteins contain IDRs that support distributed weak interactions.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Wetting</h3>
+            <p><strong>Definition:</strong> Tendency of a droplet to spread along or adhere to a surface.</p>
+            <p><strong>Why important:</strong> Wetting behavior was part of the physical evidence in the 2009 P-granule paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Binodal / phase boundary</h3>
+            <p><strong>Definition:</strong> The condition separating mixed and phase-separated states in a phase diagram.</p>
+            <p><strong>Why important:</strong> The field later translated cell regulation into shifts of effective phase boundaries.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Viscoelasticity</h3>
+            <p><strong>Definition:</strong> Material behavior that combines liquid-like flow with elastic stress storage.</p>
+            <p><strong>Why important:</strong> Many real condensates are not ideal simple liquids.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Aging or maturation</h3>
+            <p><strong>Definition:</strong> Time-dependent change in material state, often from fluid to more arrested behavior.</p>
+            <p><strong>Why important:</strong> It links condensates to pathology and to the limits of early liquid-droplet analogies.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>What was the single most convincing observation in the 2009 P-granule paper: fusion, wetting, dissolution, or the localization mechanism itself?</li>
+          <li>Why was it powerful to explain localization by local condensation bias instead of by active transport?</li>
+          <li>What can FRAP tell us about condensates, and what can it not tell us on its own?</li>
+          <li>At what point should we stop calling a biomolecular assembly a simple liquid droplet?</li>
+          <li>If you were designing the next decisive experiment after this paper, would you choose reconstitution, mutation, rheology, or composition mapping?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page note explaining how the main paper converted a localization problem into a phase-separation problem.</li>
+          <li>Draw a timeline of method development from live imaging to FRAP to in vitro reconstitution to sequence-level grammar studies.</li>
+          <li>Choose one later condensate system, such as stress granules, nucleoli, or FUS droplets, and explain which extra method was needed beyond the 2009 paper.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Brangwynne, Eckmann, Courson, Rybarska, Hoege, Gharakhani, Julicher, Hyman (2009), <em>Germline P granules are liquid droplets that localize by controlled dissolution/condensation</em>, Science 324, 1729-1732.
+            Note: Main lecture paper and the historical turning point for the modern condensates field.
+          </div>
+          <div class="reading-item">
+            Hyman, Weber, Julicher (2014), <em>Liquid-liquid phase separation in biology</em>, Annual Review of Cell and Developmental Biology 30, 39-58.
+            Note: Best broad conceptual review for students who want the first major theoretical and biological synthesis.
+          </div>
+          <div class="reading-item">
+            Li, Banjade, Cheng, Kim, Chen, Guo, Llaguno, Hollingsworth, King, Banani, Russo, Jiang, Nixon, Rosen (2012), <em>Phase transitions in the assembly of multivalent signalling proteins</em>, Nature 483, 336-340.
+            Note: Classic reconstitution paper showing how multivalency can drive phase transitions in a controlled system.
+          </div>
+          <div class="reading-item">
+            Banani, Lee, Hyman, Rosen (2017), <em>Biomolecular condensates: organizers of cellular biochemistry</em>, Nature Reviews Molecular Cell Biology 18, 285-298.
+            Note: Strong review for learning how the field moved from droplets to biochemical organization.
+          </div>
+          <div class="reading-item">
+            Patel, Lee, Jawerth, Maharana, Jahnel, Hein, Stoynov, Mahamid, Saha, Franzmann, Pozniakovsky, Poser, Maghelli, Royer, Weigert, Myers, Grill, Drechsel, Hyman, Alberti (2015), <em>A liquid-to-solid phase transition of the ALS protein FUS accelerated by disease mutation</em>, Cell 162, 1066-1077.
+            Note: Essential for showing how condensate physics connects to disease and material-state changes.
+          </div>
+          <div class="reading-item">
+            Bracha, Walls, Brangwynne (2019), <em>Probing and engineering liquid-phase organelles</em>, Nature Biotechnology 37, 1435-1445.
+            Note: Helpful methods-focused reading for students who want a practical overview of experimental perturbations and synthetic control.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
