@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 15 - Protein Evolution</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="tag">Lecture 15</p>
+        <h1>Protein Evolution</h1>
+        <p class="subtitle">Epistasis, fitness landscapes, and emergent evolutionary time scales from inverse statistical physics</p>
+        <p><a class="back-link" href="../index.html">Back to course homepage</a></p>
+      </div>
+    </header>
+
+    <main class="wrap main-grid">
+      <section class="card full">
+        <h2>Paper Information</h2>
+        <p>
+          <strong>Di Bari, Bisardi, Cotogno, Weigt, and Zamponi (2024)</strong>,
+          <em>Emergent time scales of epistasis in protein evolution</em>,
+          Proceedings of the National Academy of Sciences 121, e2406807121.
+        </p>
+        <p>
+          DOI:
+          <a href="https://doi.org/10.1073/pnas.2406807121" target="_blank" rel="noreferrer">10.1073/pnas.2406807121</a>
+        </p>
+        <p>
+          <strong>Why this is an excellent final lecture paper:</strong> it is exactly the kind of work that makes statistical physics feel indispensable to biophysics.
+          The paper builds a data-driven model of protein evolution in which sequence change happens through random nucleotide mutations,
+          insertions, and deletions, while selection acts through a learned
+          <span class="keyword" tabindex="0">fitness landscape
+            <span class="tooltip"><strong>Definition:</strong> A map assigning higher or lower evolutionary success to different sequences. <strong>Why it matters:</strong> It is the object that turns protein evolution into a statistical-physics problem on a huge discrete configuration space.</span>
+          </span>
+          inferred from family sequence statistics. This lets the authors connect short laboratory time scales, intermediate in silico trajectories, and long natural divergence within one coherent model.
+        </p>
+        <p>
+          <strong>Big question:</strong> How does
+          <span class="keyword" tabindex="0">epistasis
+            <span class="tooltip"><strong>Definition:</strong> Dependence of the effect of one mutation on the surrounding sequence context. <strong>Why it matters:</strong> Epistasis is the reason protein evolution cannot be understood as independent mutations at independent sites.</span>
+          </span>
+          reshape protein evolution across time, and why do mutational effects change slowly and collectively as sequences diverge instead of being controlled only by a few obvious pairwise clashes?
+        </p>
+      </section>
+
+      <section class="card full">
+        <h2>Where This Lecture Sits in Protein Evolution</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Molecular evolution side</h3>
+            <p><strong>Main concern:</strong> How mutations arise, fix, reverse, and diversify proteins across natural lineages.</p>
+            <p><strong>Why important here:</strong> The paper directly addresses contingency, entrenchment, and the predictability of evolutionary trajectories.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Protein biophysics side</h3>
+            <p><strong>Main concern:</strong> How sequence determines stability, function, constraints, and mutational tolerance.</p>
+            <p><strong>Why important here:</strong> Evolutionary dynamics is filtered through protein-level constraints encoded in the inferred landscape.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Statistical physics side</h3>
+            <p><strong>Main concern:</strong> How to infer effective interactions, landscapes, and slow collective dynamics in a very high-dimensional system.</p>
+            <p><strong>Why important here:</strong> The paper uses inverse statistical physics and stochastic sampling as the core modeling language.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Why end the course here?</h3>
+            <p><strong>Reason:</strong> This topic brings together sequence ensembles, landscapes, stochastic dynamics, collective effects, and experimentally measurable mutational phenotypes.</p>
+            <p><strong>Teaching value:</strong> It is a clean capstone for showing how soft-matter and statistical-physics ideas can illuminate living molecular systems.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>History of This Topic</h2>
+        <div class="history-list">
+          <div class="history-item">
+            <strong>Classical population genetics era.</strong> Early theory established mutation, selection, drift, and fixation as the core language of evolution, but usually at a coarse level without explicit high-dimensional protein landscapes.
+          </div>
+          <div class="history-item">
+            <strong>Protein sequence era.</strong> As large sequence databases grew, researchers began comparing homologs to infer conservation, variability, and functional constraints across protein families.
+          </div>
+          <div class="history-item">
+            <strong>Epistasis becomes central.</strong> Work on historical contingency and mutational interactions showed that the effect of a mutation depends strongly on the sequence background, making independent-site pictures inadequate.
+          </div>
+          <div class="history-item">
+            <strong>Inverse statistical physics enters biology.</strong> Direct coupling analysis and Potts-like models turned multiple-sequence alignments into effective interaction models that could capture pairwise constraints, structural contacts, and mutational effects.
+          </div>
+          <div class="history-item">
+            <strong>Deep mutational scanning changes the data landscape.</strong> High-throughput experiments made it possible to measure the effects of thousands of mutations at once, revealing how mutational landscapes shift across homologs and backgrounds.
+          </div>
+          <div class="history-item">
+            <strong>Directed evolution and laboratory evolution bridge time scales.</strong> Experimental evolution can probe short mutational trajectories, but long natural divergence remains much harder to observe directly.
+          </div>
+          <div class="history-item">
+            <strong>2024: what this paper adds.</strong> Di Bari et al. build one epistatic evolutionary model that reproduces both short-term experimental evolution and long-term natural family statistics, then use it to identify a slow emergent time scale of epistatic context change.
+          </div>
+          <div class="history-item">
+            <strong>Why this matters now.</strong> The work speaks to forecasting evolution, interpreting deep mutational scans, understanding antibiotic-resistance proteins, and deciding when simpler phylogenetic or independent-site models break down.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>How the Methods Evolved</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Comparative sequence analysis</h3>
+            <p><strong>Old foundation:</strong> Align homologous proteins and ask which positions are conserved or variable.</p>
+            <p><strong>Limitation:</strong> Conservation alone cannot explain context dependence of mutation effects.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Deep mutational scanning</h3>
+            <p><strong>Upgrade:</strong> Measure fitness or function for thousands of mutations in parallel.</p>
+            <p><strong>Why important:</strong> DMS made mutational landscapes directly observable and showed that they shift with sequence background.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Directed evolution</h3>
+            <p><strong>Upgrade:</strong> Mutate proteins experimentally and select for function over a few evolutionary rounds.</p>
+            <p><strong>Why important:</strong> It gives short-time trajectories that a generative model can be tested against.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Potts / DCA inference</h3>
+            <p><strong>Main idea:</strong> Infer effective couplings between sites from sequence covariation in a protein family.</p>
+            <p><strong>Why important:</strong> This is the inverse-statistical-physics step that turns an alignment into a quantitative fitness surrogate.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>bmDCA</h3>
+            <p><strong>Main idea:</strong> Use Boltzmann-machine learning to infer the generative model of the protein family.</p>
+            <p><strong>Why important:</strong> It is the technical engine behind the landscape used in the paper.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>MCMC evolutionary dynamics</h3>
+            <p><strong>Main idea:</strong> Evolve sequences stochastically with proposed mutations accepted or rejected according to the inferred landscape.</p>
+            <p><strong>Why important:</strong> This lets the authors connect molecular mutation processes to emergent long-time evolutionary behavior.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Entropy and mutability diagnostics</h3>
+            <p><strong>Main idea:</strong> Use site entropy and related observables to classify conserved, mutable, and epistatic positions.</p>
+            <p><strong>Why important:</strong> It provides a clean bridge from raw sequence statistics to physical interpretation.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Contingency and entrenchment analysis</h3>
+            <p><strong>Main idea:</strong> Measure how mutational gains change before and after a mutation occurs along a trajectory.</p>
+            <p><strong>Why important:</strong> These observables quantify epistasis dynamically rather than only statically.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Main Paper: Modeling and Analysis Workflow</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>1. Start from a protein family alignment</h3>
+            <p><strong>System:</strong> The paper focuses on the beta-lactamase family and uses natural homologs as the data source for learning constraints.</p>
+            <p><strong>Reason:</strong> Family-level variation contains the information needed to infer the effective landscape.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>2. Infer an epistatic fitness surrogate</h3>
+            <p><strong>Tool:</strong> bmDCA learns a Potts-like generative model whose energy acts as a proxy for evolutionary fitness.</p>
+            <p><strong>Reason:</strong> This is the key statistical-physics step: infer interactions, then interpret evolution as dynamics on the inferred landscape.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>3. Simulate sequence evolution</h3>
+            <p><strong>Dynamics:</strong> Propose random nucleotide mutations, insertions, and deletions, then filter them through selection using the inferred landscape.</p>
+            <p><strong>Reason:</strong> The authors want a biologically motivated mutational process, not only a static model of sequence statistics.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>4. Validate short-time behavior</h3>
+            <p><strong>Comparison:</strong> Match in silico results against laboratory evolution around TEM-1 and PSE-1 beta-lactamase wild types.</p>
+            <p><strong>Reason:</strong> This checks whether the inferred family landscape can predict local mutational variability near specific wild-type backgrounds.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>5. Validate long-time behavior</h3>
+            <p><strong>Comparison:</strong> Check whether simulated divergence reproduces the broad statistics of the natural protein family.</p>
+            <p><strong>Reason:</strong> The model must work not only near one wild type but across long evolutionary distances.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>6. Classify site types</h3>
+            <p><strong>Outputs:</strong> Conserved, mutable, and strongly context-dependent epistatic sites are separated using local and global variability diagnostics.</p>
+            <p><strong>Reason:</strong> This makes the collective nature of epistasis visible position by position.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>7. Measure contingency and entrenchment</h3>
+            <p><strong>Question:</strong> How does the value of a mutation depend on what happened before it, and how hard does it become to revert after the background adapts around it?</p>
+            <p><strong>Reason:</strong> These are dynamic signatures of epistasis that students can connect to evolutionary history.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>8. Expose the emergent slow time scale</h3>
+            <p><strong>Main claim:</strong> Mutations happen quickly within a given context, but the sequence context itself changes only slowly through many collective epistatic effects.</p>
+            <p><strong>Reason:</strong> This is the central take-home message and the clearest statistical-physics insight of the paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>90-Minute Timeline</h2>
+        <ol>
+          <li><strong>0-10 min:</strong> Why protein evolution is a biophysics problem, not only a genetics problem: sequence space, fitness landscapes, and structural constraint.</li>
+          <li><strong>10-25 min:</strong> History of epistasis, contingency, and why independent-site models fail for proteins.</li>
+          <li><strong>25-40 min:</strong> Methods: sequence alignments, DMS, directed evolution, Potts models, bmDCA, and MCMC evolutionary sampling.</li>
+          <li><strong>40-60 min:</strong> Main paper walkthrough: beta-lactamase family, inferred landscape, short-time experimental validation, and long-time natural validation.</li>
+          <li><strong>60-75 min:</strong> Figure logic: conserved versus mutable versus epistatic sites, contingency, entrenchment, and decay of mutational predictability with divergence.</li>
+          <li><strong>75-85 min:</strong> Statistical-physics interpretation: collective epistasis, emergent slow variables, and why context changes more slowly than single mutations.</li>
+          <li><strong>85-90 min:</strong> Wrap-up: what this means for forecasting evolution, protein design, and interpreting future DMS experiments.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>What to Calculate First</h2>
+        <ul>
+          <li><strong><span class="keyword" tabindex="0">DCA energy difference \(\Delta E\)<span class="tooltip"><strong>Definition:</strong> Change in inferred landscape energy caused by a mutation. <strong>Why first:</strong> It is the paper's basic mutational effect proxy and the shortest route from statistical inference to evolutionary selection.</span></span>:</strong> Start by asking how one mutation shifts the sequence on the inferred landscape.</li>
+          <li><strong><span class="keyword" tabindex="0">Site entropy<span class="tooltip"><strong>Definition:</strong> Variability of amino-acid occupancy at one position. <strong>Why first:</strong> It gives an intuitive measure of mutability and is one of the first validation observables in the paper.</span></span>:</strong> Compare local site entropy from simulations against experimental and family data.</li>
+          <li><strong><span class="keyword" tabindex="0">Sequence divergence<span class="tooltip"><strong>Definition:</strong> Distance from the starting sequence, often summarized by normalized Hamming distance. <strong>Why first:</strong> It is the natural clock for asking when epistasis changes mutational effects.</span></span>:</strong> Use divergence as the horizontal axis for predictability loss.</li>
+          <li><strong><span class="keyword" tabindex="0">Contingency and entrenchment curves<span class="tooltip"><strong>Definition:</strong> Time-dependent gain or loss in mutational favorability before and after a mutation occurs. <strong>Why first:</strong> These curves make dynamic epistasis visible in one plot.</span></span>:</strong> They are the clearest way to teach how context evolves around a mutation.</li>
+          <li><strong><span class="keyword" tabindex="0">DMS correlation across backgrounds<span class="tooltip"><strong>Definition:</strong> Correlation of mutational-effect measurements between wild type and diverged homologs. <strong>Why first:</strong> It shows when evolutionary forecasting starts to fail because context has drifted too far.</span></span>:</strong> This is where the paper connects directly to experiment.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Main Teaching Points</h2>
+        <ul>
+          <li>This paper shows how to turn protein evolution into a stochastic dynamics problem on an inferred high-dimensional landscape.</li>
+          <li>The strongest message is not only that epistasis exists, but that much of it is collective and unfolds on a slower time scale than individual mutational events.</li>
+          <li>Inverse statistical physics is useful here because it converts sequence ensembles into an effective generative model that can be simulated, tested, and interpreted.</li>
+          <li>Short-term laboratory evolution and long-term natural divergence do not need separate conceptual frameworks if the underlying landscape model is good enough.</li>
+          <li>The paper is especially powerful for teaching because it links observables students can compute, entropy, divergence, contingency, DMS correlation, to broad evolutionary ideas.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>World-Leading Experts</h2>
+        <ul>
+          <li><strong>Martin Weigt:</strong> Major figure in DCA, inverse-statistical-physics approaches to proteins, and quantitative modeling of sequence constraints.</li>
+          <li><strong>Francesco Zamponi:</strong> Important for bringing statistical-physics methods and landscape thinking into biological sequence problems.</li>
+          <li><strong>Thierry Mora and Aleksandra Walczak:</strong> Leading voices in data-driven quantitative biology and statistical inference for biological sequences.</li>
+          <li><strong>Rama Ranganathan:</strong> Famous for sequence coevolution, sectors, and the link between family statistics and protein function.</li>
+          <li><strong>Jesse Bloom:</strong> Central to deep mutational scanning and experimental maps of protein fitness effects.</li>
+          <li><strong>Joseph Thornton:</strong> Important for historical contingency, ancestral sequence reconstruction, and epistasis in molecular evolution.</li>
+          <li><strong>Michael Harms:</strong> Important for protein-evolution experiments that expose context dependence and the geometry of mutational landscapes.</li>
+          <li><strong>Eugene Shakhnovich:</strong> Major contributor to protein evolution, sequence landscapes, and statistical-physics-inspired theory.</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>Model Comparison</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Independent-site models</h3>
+            <p><strong>Best for:</strong> Quick baseline estimates of conservation and mutability.</p>
+            <p><strong>Limitation:</strong> They miss epistasis and cannot capture context-dependent mutational effects.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Potts / DCA models</h3>
+            <p><strong>Best for:</strong> Capturing pairwise effective couplings and reproducing family statistics.</p>
+            <p><strong>Limitation:</strong> The inferred couplings are effective and do not always map one-to-one onto physical contacts or mechanisms.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Phylogenetic substitution models</h3>
+            <p><strong>Best for:</strong> Tree-based sequence evolution and large-scale comparative inference.</p>
+            <p><strong>Limitation:</strong> Many standard versions use simplified site independence assumptions that weaken epistasis predictions.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>DMS-only empirical models</h3>
+            <p><strong>Best for:</strong> High-resolution local fitness maps around one or a few backgrounds.</p>
+            <p><strong>Limitation:</strong> They do not automatically tell you how mutational effects drift over much longer evolutionary distances.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Laboratory directed evolution</h3>
+            <p><strong>Best for:</strong> Real short-time adaptive trajectories under controlled selection.</p>
+            <p><strong>Limitation:</strong> It is experimentally expensive and usually cannot span the divergence of natural families.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>This paper's hybrid framework</h3>
+            <p><strong>Best for:</strong> Bridging local experiments and long-time family statistics within one epistatic model.</p>
+            <p><strong>Limitation:</strong> It still depends on model assumptions about how inferred energy relates to selection and how mutations are proposed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>Concept Glossary (Quick Lookup)</h2>
+        <div class="glossary-grid">
+          <article class="glossary-item">
+            <h3>Epistasis</h3>
+            <p><strong>Definition:</strong> Dependence of one mutation's effect on other residues in the sequence.</p>
+            <p><strong>Why important:</strong> It is the core phenomenon the paper quantifies across time scales.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Fitness landscape</h3>
+            <p><strong>Definition:</strong> Effective map from sequence to evolutionary favorability.</p>
+            <p><strong>Why important:</strong> It is the object inferred from sequence data and then explored dynamically.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>bmDCA</h3>
+            <p><strong>Definition:</strong> Boltzmann-machine direct coupling analysis for learning a generative model of a protein family.</p>
+            <p><strong>Why important:</strong> It provides the inferred energy function that drives the simulations.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Potts model</h3>
+            <p><strong>Definition:</strong> A multi-state interacting-site model often used to describe amino-acid couplings in proteins.</p>
+            <p><strong>Why important:</strong> It is the statistical-physics backbone behind many modern sequence-inference methods.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Contingency</h3>
+            <p><strong>Definition:</strong> A mutation becomes favorable because earlier substitutions prepared the background for it.</p>
+            <p><strong>Why important:</strong> It shows how history constrains future accessibility.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Entrenchment</h3>
+            <p><strong>Definition:</strong> After a mutation occurs, later substitutions make reversion increasingly costly.</p>
+            <p><strong>Why important:</strong> It is the forward-time partner of contingency and an important signal of dynamic epistasis.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Deep mutational scanning</h3>
+            <p><strong>Definition:</strong> High-throughput assay measuring the effects of many mutations in parallel.</p>
+            <p><strong>Why important:</strong> It provides the experimental data type most directly connected to the paper's predictability tests.</p>
+          </article>
+          <article class="glossary-item">
+            <h3>Emergent time scale</h3>
+            <p><strong>Definition:</strong> A slow collective time scale not obvious from the fast microscopic mutation steps alone.</p>
+            <p><strong>Why important:</strong> It is the main conceptual contribution of the paper.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Discussion Prompts</h2>
+        <ul>
+          <li>What is the most convincing sign in this paper that epistasis is collective rather than dominated by a few isolated pair interactions?</li>
+          <li>Why is it important that the model reproduces both short-time laboratory evolution and long-time natural family statistics?</li>
+          <li>If mutational effects change with sequence divergence, what does that imply for forecasting evolution from one wild-type background?</li>
+          <li>How should we interpret DCA energy: as literal physical free energy, as fitness, or as an effective statistical surrogate?</li>
+          <li>What experiment would best test the paper's proposed slow time scale of context change?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>After-Class Assignment (Short)</h2>
+        <ol>
+          <li>Write a one-page explanation of how the paper turns a multiple-sequence alignment into an evolutionary dynamics model.</li>
+          <li>Choose one observable, site entropy, contingency, entrenchment, or DMS correlation, and explain why it is informative about epistasis.</li>
+          <li>Propose one way to extend the framework to another protein family or to a more explicitly structure-based fitness model.</li>
+        </ol>
+      </section>
+
+      <section class="card full">
+        <h2>Recommended Reading For This Topic</h2>
+        <div class="reading-list">
+          <div class="reading-item">
+            Di Bari, Bisardi, Cotogno, Weigt, Zamponi (2024), <em>Emergent time scales of epistasis in protein evolution</em>, PNAS 121, e2406807121.
+            Note: Main lecture paper; a strong example of inverse statistical physics applied directly to protein evolutionary dynamics.
+          </div>
+          <div class="reading-item">
+            Hopf, Ingraham, Poelwijk, Springer, Sander, Marks (2017), <em>Mutation effects predicted from sequence co-variation</em>, Nature Biotechnology 35, 128-135.
+            Note: Classic paper showing how sequence-based generative models can predict mutational effects.
+          </div>
+          <div class="reading-item">
+            Starr and Thornton (2016), <em>Epistasis in protein evolution</em>, Protein Science 25, 1204-1218.
+            Note: Excellent review for the biological meaning of contingency, permissive mutations, and historical constraint.
+          </div>
+          <div class="reading-item">
+            Bloom (2014), <em>An experimentally determined evolutionary model dramatically improves phylogenetic fit</em>, Molecular Biology and Evolution 31, 1956-1978.
+            Note: Useful for students who want to connect DMS data to explicit evolutionary modeling.
+          </div>
+          <div class="reading-item">
+            Riesselman, Ingraham, Marks (2018), <em>Deep generative models of genetic variation capture the effects of mutations</em>, Nature Methods 15, 816-822.
+            Note: A strong companion on generative modeling of sequence landscapes and mutation-effect prediction.
+          </div>
+          <div class="reading-item">
+            Harms and Thornton (2013), <em>Evolutionary biochemistry: revealing the historical and physical causes of protein properties</em>, Nature Reviews Genetics 14, 559-571.
+            Note: Best broader reading for the bridge between evolutionary history, biophysical mechanism, and molecular function.
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
