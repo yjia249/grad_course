@@ -262,3 +262,27 @@ li {
     width: min(300px, 82vw);
   }
 }
+
+/* KaTeX math rendering styles */
+.katex {
+  font-size: 1.05em;
+}
+
+.katex-display {
+  margin: 1em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.katex-display .katex {
+  font-size: 1.1em;
+}
+
+.katex-inline {
+  display: inline-block;
+}
+
+.tooltip .katex {
+  font-size: 0.95em;
+  color: #e5e7eb;
+}
